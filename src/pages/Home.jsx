@@ -37,7 +37,7 @@ const Home = () => {
       </Helmet>
 
       {/* PUBLIC NAVBAR */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${navScrolled ? 'bg-[#050508]/90 backdrop-blur-md border-b border-border py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${navScrolled ? 'bg-[var(--bg-primary)]/90 backdrop-blur-md border-b border-border py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3 group">
             <img src="/logo.png" alt="Logo" className="h-10 w-auto group-hover:scale-110 transition-all" />
@@ -179,7 +179,7 @@ const Home = () => {
               placeholder="SEARCH 55+ LANGUAGES..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#0d1117] border border-border rounded-xl font-mono text-[14px] py-5 pr-6 pl-12 focus:outline-none focus:border-cyan focus:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all placeholder:text-muted/50 text-cyan uppercase tracking-widest"
+              className="w-full bg-[var(--bg-card)] border border-border rounded-xl font-mono text-[14px] py-5 pr-6 pl-12 focus:outline-none focus:border-cyan focus:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all placeholder:text-muted/50 text-cyan uppercase tracking-widest"
             />
           </div>
 
@@ -188,7 +188,7 @@ const Home = () => {
               <button 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`flex-none px-6 py-2 border rounded-full transition-all uppercase ${activeCategory === cat ? 'bg-cyan text-bg-primary border-cyan shadow-[0_0_15px_rgba(0,212,255,0.4)]' : 'bg-[#0d1117] text-muted border-border hover:border-text-muted'}`}
+                className={`flex-none px-6 py-2 border rounded-full transition-all uppercase ${activeCategory === cat ? 'bg-cyan text-bg-primary border-cyan shadow-[0_0_15px_rgba(0,212,255,0.4)]' : 'bg-[var(--bg-card)] text-muted border-border hover:border-text-muted'}`}
               >
                 {cat}
               </button>
@@ -237,7 +237,7 @@ const Home = () => {
 
       {/* DAILY CHALLENGE BANNER */}
       <section className="max-w-7xl mx-auto px-6 py-12">
-        <div className="bg-[#050508] border-2 border-gold rounded-2xl p-8 md:p-12 relative overflow-hidden group glow-gold">
+        <div className="bg-[var(--bg-primary)] border-2 border-gold rounded-2xl p-8 md:p-12 relative overflow-hidden group glow-gold">
           <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-gold/5 pointer-events-none"></div>
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10 text-center md:text-left">
@@ -255,7 +255,7 @@ const Home = () => {
 
             <div className="flex flex-col items-center md:items-end gap-3">
                <div className="font-mono text-lg font-bold text-gold tracking-widest">14:03:59 remaining</div>
-               <Link to="/login" className="px-8 py-3 bg-gold text-[#050508] font-display font-bold tracking-widest rounded text-sm hover:scale-105 transition-transform uppercase">
+               <Link to="/login" className="px-8 py-3 bg-gold text-[var(--bg-primary)] font-display font-bold tracking-widest rounded text-sm hover:scale-105 transition-transform uppercase">
                  [ ACCEPT CHALLENGE ]
                </Link>
             </div>
@@ -264,7 +264,7 @@ const Home = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#050508] border-t border-border pt-20 pb-10 font-mono mt-20">
+      <footer className="bg-[var(--bg-primary)] border-t border-border pt-20 pb-10 font-mono mt-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1">
             <Link to="/" className="font-display font-bold text-2xl text-primary neon-text-green glitch block mb-4">ELITE HACKERS</Link>
@@ -272,9 +272,9 @@ const Home = () => {
               Master every programming language. Hack your way to the top. Ethical use only.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-[#0d1117] border border-border rounded text-muted hover:text-primary transition-colors hover:border-primary"><Globe size={18} /></a>
-              <a href="#" className="p-2 bg-[#0d1117] border border-border rounded text-muted hover:text-cyan transition-colors hover:border-cyan"><Send size={18} /></a>
-              <a href="#" className="p-2 bg-[#0d1117] border border-border rounded text-muted hover:text-purple transition-colors hover:border-purple"><MessageSquare size={18} /></a>
+              <a href="#" className="p-2 bg-[var(--bg-card)] border border-border rounded text-muted hover:text-primary transition-colors hover:border-primary"><Globe size={18} /></a>
+              <a href="#" className="p-2 bg-[var(--bg-card)] border border-border rounded text-muted hover:text-cyan transition-colors hover:border-cyan"><Send size={18} /></a>
+              <a href="#" className="p-2 bg-[var(--bg-card)] border border-border rounded text-muted hover:text-purple transition-colors hover:border-purple"><MessageSquare size={18} /></a>
             </div>
           </div>
           

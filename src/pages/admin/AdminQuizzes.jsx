@@ -83,7 +83,7 @@ const AdminQuizzes = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className="w-full py-3 bg-[#050508] border border-border text-muted font-mono text-[10px] font-bold tracking-widest uppercase rounded-lg group-hover:border-primary/30 group-hover:text-primary transition-all">
+                        <button className="w-full py-3 bg-[var(--bg-primary)] border border-border text-muted font-mono text-[10px] font-bold tracking-widest uppercase rounded-lg group-hover:border-primary/30 group-hover:text-primary transition-all">
                             [ MODIFY ASSESSMENT ]
                         </button>
                     </div>

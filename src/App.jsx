@@ -123,9 +123,9 @@ const App = () => {
               toastOptions={{
                 className: 'hacker-toast',
                 style: {
-                  background: '#0d1117eb',
+                  background: 'var(--bg-card)eb',
                   color: '#00ff88',
-                  border: '1px solid #1a2236',
+                  border: '1px solid var(--border)',
                   borderRadius: '12px',
                   fontFamily: '"JetBrains Mono", monospace',
                   fontSize: '11px',
@@ -137,7 +137,7 @@ const App = () => {
                 success: {
                   iconTheme: {
                     primary: '#00ff88',
-                    secondary: '#050508',
+                    secondary: 'var(--bg-primary)',
                   },
                 },
               }} 

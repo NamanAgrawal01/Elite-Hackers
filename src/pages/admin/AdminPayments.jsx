@@ -61,7 +61,7 @@ const AdminPayments = () => {
         <div className="max-w-6xl mx-auto animate-fade-in-up">
             <Helmet><title>Finance Terminal — Elite Hackers</title></Helmet>
 
-            <div className="flex items-center justify-between mb-10 pb-6 border-b border-[#1a2236]">
+            <div className="flex items-center justify-between mb-10 pb-6 border-b border-[var(--border)]">
                 <div>
                     <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase">FINANCIAL NODES</h1>
                     <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase mt-2">Confirm pending subscriptions and adminships</p>

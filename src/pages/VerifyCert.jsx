@@ -37,11 +37,11 @@ const VerifyCert = () => {
     }, [certId]);
 
     return (
-        <div className="relative min-h-screen flex items-center justify-center bg-[#050508] p-6 overflow-hidden">
+        <div className="relative min-h-screen flex items-center justify-center bg-[var(--bg-primary)] p-6 overflow-hidden">
             <Helmet><title>Verify Certificate — ELITE HACKERS</title></Helmet>
             <MatrixRain />
 
-            <div className="relative z-10 w-full max-w-2xl bg-[#0d1117]/80 backdrop-blur-xl border border-border rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(0,255,136,0.1)]">
+            <div className="relative z-10 w-full max-w-2xl bg-[var(--bg-card)]/80 backdrop-blur-xl border border-border rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(0,255,136,0.1)]">
                 <div className="h-2 bg-gradient-to-r from-primary via-cyan to-purple w-full"></div>
                 
                 <div className="p-10 md:p-16">

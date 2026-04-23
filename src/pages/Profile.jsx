@@ -34,7 +34,7 @@ const Profile = () => {
 
   const shareProfile = () => {
     navigator.clipboard.writeText(`https://elitehackers.web.app/user/${userData.username}`);
-    toast('Profile link copied to clipboard.', { icon: '🔗', style: { background: '#0d1117', color: '#00ff88', border: '1px solid #1a2236' }});
+    toast('Profile link copied to clipboard.', { icon: '🔗', style: { background: 'var(--bg-card)', color: '#00ff88', border: '1px solid var(--border)' }});
   };
 
   const handleImageUpload = async (e) => {
@@ -64,17 +64,17 @@ const Profile = () => {
       <Helmet><title>{userData.username} — Elite Hackers</title></Helmet>
 
       {/* HEADER BANNER */}
-      <div className="bg-[#0d1117] border border-[#1a2236] rounded-2xl overflow-hidden mb-8 relative group">
+      <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl overflow-hidden mb-8 relative group">
          <div className="h-32 bg-gradient-to-r from-primary/10 via-cyan/5 to-purple/10 w-full relative">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] mix-blend-overlay"></div>
-            <button onClick={shareProfile} className="absolute top-4 right-4 bg-[#050508]/50 hover:bg-[#050508] p-2 rounded-lg border border-[#1a2236] text-muted hover:text-cyan transition-all backdrop-blur-sm z-10">
+            <button onClick={shareProfile} className="absolute top-4 right-4 bg-[var(--bg-primary)]/50 hover:bg-[var(--bg-primary)] p-2 rounded-lg border border-[var(--border)] text-muted hover:text-cyan transition-all backdrop-blur-sm z-10">
                <Share2 size={16} />
             </button>
          </div>
          
          <div className="px-8 pb-8 pt-0 relative flex flex-col md:flex-row items-center md:items-end gap-6 -mt-16 md:-mt-12 z-10">
             <div className="relative group/avatar">
-              <img src={userData.photoURL} alt="Avatar" className="w-32 h-32 rounded-xl border-4 border-[#0d1117] bg-[#050508] object-cover shadow-[0_0_20px_rgba(0,255,136,0.2)]" />
+              <img src={userData.photoURL} alt="Avatar" className="w-32 h-32 rounded-xl border-4 border-[var(--bg-card)] bg-[var(--bg-primary)] object-cover shadow-[0_0_20px_rgba(0,255,136,0.2)]" />
               <label className="absolute inset-0 bg-bg-primary/60 backdrop-blur-sm rounded-xl opacity-0 group-hover/avatar:opacity-100 flex items-center justify-center cursor-pointer transition-all border-2 border-dashed border-primary/40">
                 <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
                 <div className="flex flex-col items-center gap-1">
@@ -117,7 +117,7 @@ const Profile = () => {
                        value={bioInput} 
                        onChange={(e) => setBioInput(e.target.value)}
                        maxLength={160}
-                       className="w-full bg-[#050508] border border-primary/30 rounded p-3 text-[13px] font-mono text-primary focus:outline-none focus:border-primary resize-none"
+                       className="w-full bg-[var(--bg-primary)] border border-primary/30 rounded p-3 text-[13px] font-mono text-primary focus:outline-none focus:border-primary resize-none"
                        rows={4}
                      />
                      <div className="flex justify-end gap-2">
@@ -135,11 +135,11 @@ const Profile = () => {
             <div className="bg-bg-card border border-border p-6 rounded-2xl">
                <h3 className="font-mono text-[11px] font-bold tracking-widest text-muted uppercase mb-4">Core Telemetry</h3>
                <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-3 border-b border-[#1a2236]">
+                  <div className="flex justify-between items-center pb-3 border-b border-[var(--border)]">
                      <span className="font-mono text-xs text-secondary uppercase tracking-widest flex items-center gap-2"><Zap size={14} className="text-primary"/> XP</span>
                      <span className="font-display font-bold text-primary">{userData.totalXP}</span>
                   </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-[#1a2236]">
+                  <div className="flex justify-between items-center pb-3 border-b border-[var(--border)]">
                      <span className="font-mono text-xs text-secondary uppercase tracking-widest flex items-center gap-2"><Award size={14} className="text-gold"/> Level</span>
                      <span className="font-display font-bold text-gold">{userData.level}</span>
                   </div>
@@ -162,7 +162,7 @@ const Profile = () => {
                <h3 className="font-display font-bold text-xl text-primary uppercase tracking-widest mb-6 border-b border-border pb-4">ACHIEVEMENTS & CERTIFICATES</h3>
                
                {(!userData.certificates || userData.certificates.length === 0) ? (
-                  <div className="h-40 flex flex-col items-center justify-center border-2 border-dashed border-[#1a2236] rounded-xl text-center">
+                  <div className="h-40 flex flex-col items-center justify-center border-2 border-dashed border-[var(--border)] rounded-xl text-center">
                      <Award size={32} className="text-border mb-3" />
                      <p className="font-mono text-[11px] text-muted uppercase tracking-widest">No certifications acquired yet.</p>
                   </div>

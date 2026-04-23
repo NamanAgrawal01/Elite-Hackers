@@ -13,7 +13,7 @@ const Maintenance = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative z-10 p-10 bg-[#0d1117eb] border border-gold/30 rounded-2xl max-w-lg w-full text-center backdrop-blur-xl"
+        className="relative z-10 p-10 bg-[var(--bg-card)eb] border border-gold/30 rounded-2xl max-w-lg w-full text-center backdrop-blur-xl"
       >
         <div className="relative inline-block mb-8">
            <Settings size={64} className="text-gold animate-spin-slow" />

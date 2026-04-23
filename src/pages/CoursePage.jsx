@@ -111,8 +111,8 @@ const CoursePage = () => {
       </Helmet>
 
       {/* LEFT PANE: THEORY */}
-      <div className="xl:w-[400px] w-full flex flex-col h-full bg-[#0d1117] border border-[#1a2236] rounded-2xl overflow-hidden relative">
-        <div className="h-14 bg-bg-primary border-b border-[#1a2236] flex items-center justify-between px-6">
+      <div className="xl:w-[400px] w-full flex flex-col h-full bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl overflow-hidden relative">
+        <div className="h-14 bg-bg-primary border-b border-[var(--border)] flex items-center justify-between px-6">
            <div className="text-[12px] font-mono font-bold text-secondary tracking-widest uppercase flex items-center gap-2">
              <Cpu size={16} /> SECURE MODULE
            </div>
@@ -124,24 +124,24 @@ const CoursePage = () => {
         <div className="p-6 overflow-y-auto flex-1 hide-scrollbar">
           <h2 className="font-display font-bold text-2xl text-primary tracking-wide mb-6">{lesson.title}</h2>
           
-          <div className="bg-[#050508] border border-[#1a2236] p-4 rounded-xl mb-6 relative overflow-hidden group glow-cyan">
-             <div className="flex gap-3 text-[#00d4ff] text-[13px] font-mono leading-relaxed relative z-10">
-                <ShieldAlert size={18} className="shrink-0 mt-1" />
+          <div className="bg-bg-primary border border-border p-5 rounded-xl mb-8 relative overflow-hidden group">
+             <div className="flex gap-3 text-cyan text-[14px] font-mono leading-relaxed relative z-10 font-medium">
+                <ShieldAlert size={20} className="shrink-0 mt-0.5 text-primary" />
                 <p>{lesson.theory}</p>
              </div>
-             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-cyan/5 pointer-events-none blur-xl"></div>
+             <div className="absolute top-0 right-0 w-32 h-32 bg-cyan/10 blur-[60px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-cyan/20 transition-all"></div>
           </div>
 
           <div className="mb-4">
              <h3 className="font-mono text-[10px] text-muted tracking-widest uppercase font-bold mb-3">Expected Payload Output</h3>
-             <div className="bg-[#050508] border border-[#1a2236] text-primary font-mono text-sm p-4 rounded-lg">
+             <div className="bg-[var(--bg-primary)] border border-[var(--border)] text-primary font-mono text-sm p-4 rounded-lg">
                 {lesson.expectedOutput}
              </div>
           </div>
           
-          <div className="mb-4 mt-8 flex items-center justify-between border-t border-[#1a2236] pt-6">
-             <span className="font-mono text-[10px] text-muted tracking-widest uppercase font-bold">Reward</span>
-             <span className="text-gold font-bold font-mono tracking-widest">⚡ +{lesson.xpReward} XP</span>
+          <div className="mb-4 mt-8 flex items-center justify-between border-t border-border pt-6">
+             <span className="font-mono text-[10px] text-text-secondary tracking-widest uppercase font-bold">Reward</span>
+             <span className="text-gold font-bold font-mono tracking-[2px]">⚡ +{lesson.xpReward} XP</span>
           </div>
         </div>
       </div>
@@ -149,8 +149,8 @@ const CoursePage = () => {
       {/* RIGHT PANE: COMPILER & OUTPUT */}
       <div className="flex-1 flex flex-col h-full gap-4">
         {/* Editor Area */}
-        <div className="flex-1 bg-[#0d1117] border border-[#1a2236] rounded-2xl overflow-hidden flex flex-col">
-          <div className="h-12 bg-bg-primary border-b border-[#1a2236] flex items-center justify-between px-4">
+        <div className="flex-1 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl overflow-hidden flex flex-col">
+          <div className="h-12 bg-bg-primary border-b border-[var(--border)] flex items-center justify-between px-4">
             <span className="text-[10px] text-muted font-mono font-bold tracking-widest uppercase">main.{languageId === 'python' ? 'py' : 'js'}</span>
             <button 
               onClick={runTests}
@@ -160,21 +160,23 @@ const CoursePage = () => {
               {isCompiling ? <><div className="w-3 h-3 border-2 border-primary border-t-transparent rounded-full animate-spin"></div> EXECUTING</> : <><Play size={12} className="fill-primary" /> TEST PAYLOAD</>}
             </button>
           </div>
-          <div className="flex-1 border-b border-[#1a2236]">
+          <div className="flex-1 border-b border-[var(--border)]">
             <CodeEditor language={languageId === 'python' ? 'python' : 'javascript'} code={code} onChange={setCode} />
           </div>
         </div>
 
         {/* Output & Control Area */}
-        <div className="h-[200px] bg-[#0d1117] border border-[#1a2236] rounded-2xl p-4 flex flex-col relative overflow-hidden">
+        <div className="h-[200px] bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-4 flex flex-col relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
           
-          <span className="text-[10px] text-muted font-mono font-bold tracking-widest uppercase mb-2">DEBUG TERMINAL</span>
-          <div className="flex-1 overflow-y-auto font-mono text-[13px] text-[#e2e8f0] hide-scrollbar whitespace-pre-wrap">
-             {output || <span className="opacity-30 select-none">Awaiting input stream...</span>}
+          <span className="text-[10px] text-text-secondary font-mono font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
+             <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></div> DEBUG TERMINAL
+          </span>
+          <div className="flex-1 overflow-y-auto font-mono text-[13px] text-text-primary hide-scrollbar whitespace-pre-wrap">
+             {output || <span className="text-text-muted select-none">Awaiting input stream...</span>}
           </div>
 
-          <div className="mt-4 pt-4 border-t border-[#1a2236] flex justify-between items-center">
+          <div className="mt-4 pt-4 border-t border-[var(--border)] flex justify-between items-center">
              {passed ? (
                 <div className="flex items-center gap-2 text-primary font-mono text-sm tracking-widest font-bold">
                    <CheckCircle size={18} /> PROTOCOL CLEARED
@@ -188,7 +190,7 @@ const CoursePage = () => {
              <button 
                onClick={handleNextLesson}
                disabled={!passed}
-               className={`flex items-center gap-2 px-6 py-2.5 rounded font-mono text-[11px] font-bold tracking-widest uppercase transition-all ${passed ? 'bg-primary text-[#050508] shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:bg-white' : 'bg-[#1a2236] text-muted disabled:opacity-50'}`}
+               className={`flex items-center gap-2 px-6 py-2.5 rounded font-mono text-[11px] font-bold tracking-widest uppercase transition-all ${passed ? 'bg-primary text-[var(--bg-primary)] shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:bg-white' : 'bg-[var(--border)] text-muted disabled:opacity-50'}`}
              >
                {currentLessonIdx === course.lessons.length - 1 ? 'COMPLETE NODE' : 'NEXT NODE'} <ArrowRight size={14} />
              </button>

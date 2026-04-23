@@ -16,8 +16,8 @@ export const RankBadge = ({ rank = "Script Kiddie" }) => {
 
 export const PlanBadge = ({ plan = "free" }) => {
   if (plan === 'free') return <span className="text-[9px] text-muted font-bold tracking-widest bg-border/50 px-1.5 py-0.5 rounded uppercase">FREE</span>;
-  if (plan === 'pro') return <span className="text-[9px] text-[#050508] bg-cyan border border-cyan glow-cyan font-bold tracking-widest px-1.5 py-0.5 rounded uppercase">PRO</span>;
-  if (plan === 'elite') return <span className="text-[9px] text-[#050508] border border-gold gold-shimmer font-bold tracking-widest px-1.5 py-0.5 rounded uppercase">ELITE ⚡</span>;
+  if (plan === 'pro') return <span className="text-[9px] text-[var(--bg-primary)] bg-cyan border border-cyan glow-cyan font-bold tracking-widest px-1.5 py-0.5 rounded uppercase">PRO</span>;
+  if (plan === 'elite') return <span className="text-[9px] text-[var(--bg-primary)] border border-gold gold-shimmer font-bold tracking-widest px-1.5 py-0.5 rounded uppercase">ELITE ⚡</span>;
   return null;
 };
 
@@ -36,7 +36,7 @@ export const XPBar = ({ currentXP = 0, level = 1 }) => {
         <span className="text-primary">Lv.{level}</span>
         <span className="text-muted">+{Math.ceil(xpNeededForNext - xpInCurrentLevel)} XP TO LV.{level + 1}</span>
       </div>
-      <div className="h-[6px] w-full bg-[#0d1117] border border-[#1a2236] rounded-full overflow-hidden flex">
+      <div className="h-[6px] w-full bg-[var(--bg-card)] border border-[var(--border)] rounded-full overflow-hidden flex">
         <div 
           className="h-full bg-gradient-to-r from-[#00ff8840] to-primary transition-all duration-1000 ease-out"
           style={{ width: `${progressPercent}%` }}

@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="h-16 border-b border-[#1a2236] bg-[#050508]/80 backdrop-blur-xl sticky top-0 z-40 flex items-center justify-between px-6 w-full">
+    <header className="h-16 border-b border-border bg-bg-primary/80 backdrop-blur-xl sticky top-0 z-40 flex items-center justify-between px-6 w-full">
       <div className="flex items-center gap-4">
         {/* Mobile Menu Icon (Desktop hidden) */}
         <button className="lg:hidden text-muted hover:text-primary">
@@ -36,7 +36,7 @@ const Navbar = () => {
           <span className="text-primary opacity-30">/</span> {getPageTitle(location.pathname)}
         </h2>
       </div>
-
+ 
       <div className="flex items-center gap-4">
         <Link 
           to="/daily-challenges" 
@@ -46,7 +46,7 @@ const Navbar = () => {
           <span className="hidden md:inline">Daily Challenge</span>
         </Link>
         
-        <button className="p-2 rounded-lg bg-[#0d1117] border border-[#1a2236] text-muted hover:text-cyan hover:border-cyan transition-all">
+        <button className="p-2 rounded-lg bg-bg-card border border-border text-muted hover:text-cyan hover:border-cyan transition-all">
           <Moon size={18} />
         </button>
 

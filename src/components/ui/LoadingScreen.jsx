@@ -3,7 +3,7 @@ import MatrixRain from './MatrixRain';
 
 const LoadingScreen = ({ message = "INITIALIZING SYSTEM..." }) => {
   return (
-    <div className="fixed inset-0 bg-[#050508] flex flex-col items-center justify-center z-[9999]">
+    <div className="fixed inset-0 bg-[var(--bg-primary)] flex flex-col items-center justify-center z-[9999]">
       <MatrixRain opacity={0.15} />
       
       <div className="relative z-10 flex flex-col items-center">

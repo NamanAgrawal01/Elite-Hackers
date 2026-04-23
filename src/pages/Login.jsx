@@ -80,7 +80,7 @@ const Login = () => {
         transition={{ duration: 0.4, ease: "easeOut" }}
         className="relative z-10 w-full max-w-[460px] mx-4"
       >
-        <div className="bg-[#0d1117eb] border border-primary/20 rounded-[20px] p-10 md:p-12 shadow-[0_0_80px_rgba(0,255,136,0.08),_0_0_160px_rgba(0,255,136,0.04),_inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-xl">
+        <div className="bg-[var(--bg-card)eb] border border-primary/20 rounded-[20px] p-10 md:p-12 shadow-[0_0_80px_rgba(0,255,136,0.08),_0_0_160px_rgba(0,255,136,0.04),_inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-xl">
           
           <div className="text-center mb-8">
             <h1 className="font-display text-[28px] font-bold text-primary neon-text-green glitch cursor-default inline-block">ELITE HACKERS</h1>
@@ -169,7 +169,7 @@ const Login = () => {
 
           <div className="my-6 relative flex items-center justify-center">
             <div className="absolute w-full h-[1px] bg-border"></div>
-            <div className="relative bg-bg-card px-4 text-[11px] text-muted font-mono tracking-widest bg-[#0d1117eb]">
+            <div className="relative bg-bg-card px-4 text-[11px] text-muted font-mono tracking-widest bg-[var(--bg-card)eb]">
               ── OR ──
             </div>
           </div>
@@ -177,7 +177,7 @@ const Login = () => {
           <button
             onClick={handleGoogleLogin}
             disabled={loading}
-            className="w-full h-[48px] bg-[#0d1117] border border-border rounded-[10px] hover:border-cyan hover:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all flex items-center justify-center gap-3 text-[13px] text-primary disabled:opacity-50 disabled:cursor-not-allowed group"
+            className="w-full h-[48px] bg-[var(--bg-card)] border border-border rounded-[10px] hover:border-cyan hover:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all flex items-center justify-center gap-3 text-[13px] text-primary disabled:opacity-50 disabled:cursor-not-allowed group"
           >
             <svg className="w-4 h-4 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>

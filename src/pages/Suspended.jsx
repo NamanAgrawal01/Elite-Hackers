@@ -5,7 +5,7 @@ import { Skull, AlertOctagon, Mail } from 'lucide-react';
 
 const Suspended = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#050508] p-6 font-mono">
+    <div className="min-h-screen flex items-center justify-center bg-[var(--bg-primary)] p-6 font-mono">
       <Helmet><title>Identity Terminated — Elite Hackers</title></Helmet>
       
       <motion.div 

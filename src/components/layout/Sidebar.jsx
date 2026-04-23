@@ -28,7 +28,7 @@ const Sidebar = () => {
 
 
   return (
-    <aside className="hidden lg:flex w-[240px] h-screen bg-[#050508] border-r border-[#1a2236] flex-col overflow-y-auto hide-scrollbar sticky top-0">
+    <aside className="hidden lg:flex w-[240px] h-screen bg-bg-primary border-r border-border flex-col overflow-y-auto hide-scrollbar sticky top-0">
       <div className="p-6">
         <div className="flex flex-col items-center mb-8 cursor-pointer group" onClick={() => navigate('/dashboard')}>
            <img src="/logo.png" alt="Elite Hackers" className="w-20 h-auto mb-3 group-hover:scale-110 transition-transform" />
@@ -37,13 +37,13 @@ const Sidebar = () => {
              <div className="font-mono text-[7px] text-primary tracking-[3px] mt-1 uppercase font-bold opacity-70">Secured Node</div>
            </div>
         </div>
-
+ 
         {userData && (
-          <div className="relative bg-[#0d1117] border border-[#1a2236] rounded-xl p-4 mb-8">
+          <div className="relative bg-bg-card border border-border rounded-xl p-4 mb-8">
             <div className="flex gap-3 items-center mb-3">
               <div className="relative">
                 <img src={userData.photoURL} alt="avatar" className="w-12 h-12 rounded-full border-2 border-primary/50 object-cover" />
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-primary border-2 border-[#0d1117] rounded-full"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-primary border-2 border-bg-card rounded-full"></div>
               </div>
               <div>
                 <div className="font-display font-bold text-[14px] text-primary tracking-wider truncate w-[100px]">{userData.username}</div>
@@ -56,7 +56,7 @@ const Sidebar = () => {
             <XPBar currentXP={userData.totalXP} level={userData.level} />
           </div>
         )}
-
+ 
         <nav className="space-y-1">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path || (item.path.includes('#') && location.hash === item.path.split('#')[1]);
@@ -69,7 +69,7 @@ const Sidebar = () => {
                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[13px] font-mono tracking-widest transition-all duration-200 group ${
                   isActive 
                     ? 'bg-primary/10 text-primary border-l-[3px] border-primary font-bold' 
-                    : `text-secondary hover:bg-[#111827] hover:text-primary border-l-[3px] border-transparent`
+                    : `text-secondary hover:bg-bg-elevated hover:text-primary border-l-[3px] border-transparent`
                 }`}
               >
                 <item.icon size={16} className={`${isActive ? 'text-primary' : itemColor} group-hover:scale-110 transition-transform`} />
@@ -77,28 +77,28 @@ const Sidebar = () => {
               </NavLink>
             );
           })}
-
+ 
           <NavLink
             to="/subscription"
             className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[13px] font-mono tracking-widest transition-all duration-200 group ${
               location.pathname === '/subscription'
                 ? 'bg-primary/10 text-primary border-l-[3px] border-primary font-bold' 
-                : 'text-secondary hover:bg-[#111827] hover:text-primary border-l-[3px] border-transparent'
+                : 'text-secondary hover:bg-bg-elevated hover:text-primary border-l-[3px] border-transparent'
             }`}
           >
             <Shield size={16} className={`${location.pathname === '/subscription' ? 'text-primary' : 'text-muted'} group-hover:scale-110 transition-transform`} />
             <span>MY CLEARANCE</span>
           </NavLink>
-
+ 
           {userData?.isAdmin && (
             <>
-              <div className="my-4 border-t border-[#1a2236]"></div>
+              <div className="my-4 border-t border-border"></div>
               <NavLink
                 to="/admin"
                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[13px] font-mono tracking-widest transition-all duration-200 group ${
                   location.pathname.startsWith('/admin') && !location.pathname.includes('matrix')
                     ? 'bg-primary/10 text-primary border-l-[3px] border-primary font-bold' 
-                    : 'text-muted hover:bg-[#111827] hover:text-primary border-l-[3px] border-transparent'
+                    : 'text-muted hover:bg-bg-elevated hover:text-primary border-l-[3px] border-transparent'
                 }`}
               >
                 <ShieldAlert size={16} className="group-hover:scale-110 transition-transform" />
@@ -106,14 +106,14 @@ const Sidebar = () => {
               </NavLink>
             </>
           )}
-
+ 
           {(userData?.plan === 'admin' || userData?.role === 'admin') && (
             <NavLink
               to="/admin-matrix"
               className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[13px] font-mono tracking-widest transition-all duration-200 group ${
                 location.pathname === '/admin-matrix'
                   ? 'bg-gold/10 text-gold border-l-[3px] border-gold font-bold' 
-                  : 'text-muted hover:bg-[#111827] hover:text-gold border-l-[3px] border-transparent'
+                  : 'text-muted hover:bg-bg-elevated hover:text-gold border-l-[3px] border-transparent'
               }`}
             >
               <Shield size={16} className="text-gold group-hover:scale-110 transition-transform" />
@@ -122,8 +122,8 @@ const Sidebar = () => {
           )}
         </nav>
       </div>
-
-      <div className="mt-auto p-6 space-y-6 border-t border-[#1a2236]">
+ 
+      <div className="mt-auto p-6 space-y-6 border-t border-border">
         {/* THEME TERMINAL */}
         <div className="bg-[#0b0404] border border-border p-3 rounded-xl">
            <div className="font-mono text-[8px] text-muted uppercase tracking-widest mb-3 flex items-center justify-between">

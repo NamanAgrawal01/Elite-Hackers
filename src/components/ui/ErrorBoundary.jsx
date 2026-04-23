@@ -18,8 +18,8 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-[#050508] flex items-center justify-center p-6 font-mono">
-          <div className="max-w-2xl w-full bg-[#0d1117] border border-red/30 rounded-xl p-8 shadow-[0_0_50px_rgba(255,0,60,0.1)]">
+        <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center p-6 font-mono">
+          <div className="max-w-2xl w-full bg-[var(--bg-card)] border border-red/30 rounded-xl p-8 shadow-[0_0_50px_rgba(255,0,60,0.1)]">
             <div className="flex items-center gap-4 text-red mb-6">
               <div className="p-3 bg-red/10 rounded-lg">
                 <Terminal size={32} />
@@ -30,7 +30,7 @@ class ErrorBoundary extends React.Component {
               </div>
             </div>
 
-            <div className="bg-[#050508] rounded-lg p-5 border border-border mb-8 overflow-x-auto">
+            <div className="bg-[var(--bg-primary)] rounded-lg p-5 border border-border mb-8 overflow-x-auto">
               <p className="text-primary mb-2 text-sm font-bold">ERROR_LOG:</p>
               <code className="text-secondary text-xs block whitespace-pre-wrap">
                 {this.state.error?.toString() || "Unknown core dump"}
@@ -40,7 +40,7 @@ class ErrorBoundary extends React.Component {
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={() => window.location.reload()}
-                className="flex-1 px-6 py-3 bg-red text-[#050508] font-bold rounded-lg hover:scale-105 transition-all uppercase text-sm tracking-widest"
+                className="flex-1 px-6 py-3 bg-red text-[var(--bg-primary)] font-bold rounded-lg hover:scale-105 transition-all uppercase text-sm tracking-widest"
               >
                 [ REBOOT SYSTEM ]
               </button>

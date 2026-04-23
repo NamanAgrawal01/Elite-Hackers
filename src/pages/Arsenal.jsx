@@ -90,7 +90,7 @@ const Arsenal = () => {
                   <div className="absolute top-0 left-0 w-full h-[2px]" style={{ backgroundColor: lang.diffColor }}></div>
                   
                   {locked && (
-                     <div className="absolute inset-0 bg-[#050508]/80 backdrop-blur-[3px] flex flex-col items-center justify-center z-10 transition-all opacity-100 group-hover:bg-[#050508]/60">
+                     <div className="absolute inset-0 bg-[var(--bg-primary)]/80 backdrop-blur-[3px] flex flex-col items-center justify-center z-10 transition-all opacity-100 group-hover:bg-[var(--bg-primary)]/60">
                         <Lock size={20} className="text-primary animate-pulse mb-2" />
                         <span className="font-mono text-[8px] text-primary font-bold tracking-[3px] uppercase">UPGRADE REQUIRED</span>
                      </div>

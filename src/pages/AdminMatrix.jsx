@@ -76,7 +76,7 @@ const AdminMatrix = () => {
             <h1 className="font-display font-bold text-4xl text-primary tracking-widest uppercase">ADMIN <span className="text-primary glow-green">MATRIX</span></h1>
             <p className="font-mono text-xs text-muted mt-2 uppercase tracking-widest">Authorized Node: {userData.username} // Status: SUPERUSER_ACTIVE</p>
          </div>
-         <div className="bg-[#0d1117] border border-gold/30 px-6 py-3 rounded-xl flex items-center gap-4">
+         <div className="bg-[var(--bg-card)] border border-gold/30 px-6 py-3 rounded-xl flex items-center gap-4">
             <div className="w-3 h-3 bg-gold rounded-full animate-ping"></div>
             <span className="font-mono text-gold text-xs font-bold uppercase tracking-widest">TERMINAL SECURED</span>
          </div>
@@ -102,7 +102,7 @@ const AdminMatrix = () => {
          ))}
       </div>
 
-      <div className="bg-[#050508] border border-border rounded-2xl p-8 overflow-hidden relative">
+      <div className="bg-[var(--bg-primary)] border border-border rounded-2xl p-8 overflow-hidden relative">
          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')]"></div>
          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-4">

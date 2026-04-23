@@ -19,7 +19,7 @@ export const StreakCalendar = ({ xpHistory = [] }) => {
   }, [xpHistory]);
 
   const getColor = (xp) => {
-    if (xp === 0) return '#0d1117';
+    if (xp === 0) return 'var(--bg-card)';
     if (xp <= 100) return '#003d20';
     if (xp <= 500) return '#00802b';
     if (xp <= 1000) return '#00cc45';
@@ -27,7 +27,7 @@ export const StreakCalendar = ({ xpHistory = [] }) => {
   };
 
   const getBorderColor = (xp) => {
-    if (xp === 0) return '#1a2236';
+    if (xp === 0) return 'var(--border)';
     return 'transparent';
   };
 
@@ -85,7 +85,7 @@ export const StreakCalendar = ({ xpHistory = [] }) => {
       
       <div className="flex items-center justify-end gap-2 mt-4 text-[10px] font-mono text-muted">
         <span>Less</span>
-        <div className="w-3 h-3 rounded-[2px] bg-[#0d1117] border border-[#1a2236]"></div>
+        <div className="w-3 h-3 rounded-[2px] bg-[var(--bg-card)] border border-[var(--border)]"></div>
         <div className="w-3 h-3 rounded-[2px] bg-[#003d20]"></div>
         <div className="w-3 h-3 rounded-[2px] bg-[#00802b]"></div>
         <div className="w-3 h-3 rounded-[2px] bg-[#00cc45]"></div>

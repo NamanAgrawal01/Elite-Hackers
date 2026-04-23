@@ -71,7 +71,7 @@ const Achievements = () => {
             </div>
 
             {/* STATS SUMMARY */}
-            <div className="bg-[#0d1117] border border-border rounded-2xl p-10 flex flex-col md:flex-row items-center justify-around gap-8">
+            <div className="bg-[var(--bg-card)] border border-border rounded-2xl p-10 flex flex-col md:flex-row items-center justify-around gap-8">
                <div className="text-center">
                   <div className="font-display font-bold text-4xl text-primary mb-2">
                      {userAchievements.length < 2 ? 2 : userAchievements.length} / {ALL_ACHIEVEMENTS.length}

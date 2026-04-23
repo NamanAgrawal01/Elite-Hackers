@@ -6,11 +6,11 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(localStorage.getItem('terminal-theme') || 'matrix');
 
   const themes = {
-    matrix: { name: 'Matrix Green', primary: '#00ff88', glow: 'rgba(0, 255, 136, 0.4)', bg: '#050508' },
-    cobalt: { name: 'Cobalt Blue', primary: '#00d4ff', glow: 'rgba(0, 212, 255, 0.4)', bg: '#050a14' },
-    cyber: { name: 'Cyber Red', primary: '#ff003c', glow: 'rgba(255, 0, 60, 0.4)', bg: '#0b0404' },
-    amber: { name: 'Classic Amber', primary: '#ffb300', glow: 'rgba(255, 179, 0, 0.4)', bg: '#0a0805' },
-    ghost: { name: 'Ghost White', primary: '#e2e8f0', glow: 'rgba(255, 255, 255, 0.2)', bg: '#0d1117' }
+    matrix: { name: 'Matrix Green', primary: '#00ff88', glow: 'rgba(0, 255, 136, 0.4)', bg: '#02040a' },
+    cobalt: { name: 'Cobalt Blue', primary: '#00f2ff', glow: 'rgba(0, 242, 255, 0.4)', bg: '#020617' },
+    cyber: { name: 'Cyber Red', primary: '#ff3e3e', glow: 'rgba(255, 62, 62, 0.4)', bg: '#080202' },
+    amber: { name: 'Classic Amber', primary: '#ffc107', glow: 'rgba(255, 193, 7, 0.4)', bg: '#0a0802' },
+    ghost: { name: 'Ghost White', primary: '#f8fafc', glow: 'rgba(248, 250, 252, 0.2)', bg: '#0f172a' }
   };
 
   useEffect(() => {

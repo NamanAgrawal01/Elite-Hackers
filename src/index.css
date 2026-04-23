@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 :root {
-  /* System Colors */
-  --bg-primary: #050508;
-  --bg-secondary: #0a0d14;
-  --bg-card: #0d1117;
-  --bg-elevated: #161b22;
-  --border: #1a2236;
+  /* System Colors - Deeper, cleaner darks */
+  --bg-primary: #02040a;
+  --bg-secondary: #05070f;
+  --bg-card: #0a0c16;
+  --bg-elevated: #111422;
+  --border: #1a1f35;
   
-  /* Text */
-  --text-primary: #ffffff;
-  --text-secondary: #8b949e;
-  --text-muted: #484f58;
+  /* Text - Improved Contrast */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b; /* Lighter for visibility */
   
-  /* Branding Colors */
+  /* Branding Colors - More vibrant */
   --primary: #00ff88;
   --primary-glow: rgba(0, 255, 136, 0.4);
-  --cyan: #00d4ff;
+  --cyan: #00f2ff;
   --purple: #bf5af2;
-  --red: #ff003c;
-  --gold: #ffd700;
+  --red: #ff3e3e;
+  --gold: #ffc107;
   
   /* Fonts */
   --font-display: 'Orbitron', sans-serif;
@@ -96,6 +96,36 @@ body::before {
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.vibrant-glow {
+  filter: drop-shadow(0 0 12px var(--primary-glow));
+}
+
+.cyber-gradient {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-card) 50%, var(--bg-elevated) 100%);
+}
+
+.cyber-border {
+  position: relative;
+  border: 1px solid var(--border);
+}
+
+.cyber-border::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  background-size: 200% 100%;
+  animation: border-flow 3s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes border-flow {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* ANIMATIONS */

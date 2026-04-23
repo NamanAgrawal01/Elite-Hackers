@@ -92,7 +92,7 @@ const AdminContent = () => {
                                 type="text" 
                                 readOnly
                                 value={newLang.id}
-                                className="w-full bg-[#050508] border border-border rounded-lg p-3 font-mono text-sm text-muted cursor-not-allowed" 
+                                className="w-full bg-[var(--bg-primary)] border border-border rounded-lg p-3 font-mono text-sm text-muted cursor-not-allowed" 
                             />
                         </div>
                         <div className="space-y-2">

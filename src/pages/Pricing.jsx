@@ -121,8 +121,8 @@ const Pricing = () => {
       {/* QR MODAL */}
       {showQR && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-[#050508]/90 backdrop-blur-md" onClick={() => setShowQR(false)}></div>
-          <div className="relative bg-[#0d1117] border border-primary/30 rounded-3xl p-8 max-w-sm w-full text-center shadow-[0_0_50px_rgba(0,255,136,0.2)] animate-float">
+          <div className="absolute inset-0 bg-[var(--bg-primary)]/90 backdrop-blur-md" onClick={() => setShowQR(false)}></div>
+          <div className="relative bg-[var(--bg-card)] border border-primary/30 rounded-3xl p-8 max-w-sm w-full text-center shadow-[0_0_50px_rgba(0,255,136,0.2)] animate-float">
             <h3 className="font-display font-bold text-xl text-primary tracking-widest uppercase mb-2">SECURE PAYMENT</h3>
             <p className="font-mono text-[10px] text-muted uppercase tracking-widest mb-6">SCAN TO INITIALIZE UPGRADE TO {selectedPlan?.name}</p>
             
@@ -163,10 +163,10 @@ const Pricing = () => {
           return (
             <div 
               key={plan.id}
-              className={`relative bg-bg-card rounded-2xl p-8 flex flex-col ${plan.popular ? 'border-2 border-cyan shadow-[0_0_30px_rgba(0,212,255,0.15)] glow-cyan' : 'border border-[#1a2236]'}`}
+              className={`relative bg-bg-card rounded-2xl p-8 flex flex-col ${plan.popular ? 'border-2 border-cyan shadow-[0_0_30px_rgba(0,212,255,0.15)] glow-cyan' : 'border border-[var(--border)]'}`}
             >
                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan text-[#050508] font-bold font-mono text-[10px] tracking-widest uppercase px-4 py-1 rounded-full">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan text-[var(--bg-primary)] font-bold font-mono text-[10px] tracking-widest uppercase px-4 py-1 rounded-full">
                      RECOMMENDED
                   </div>
                )}
@@ -196,10 +196,10 @@ const Pricing = () => {
                  disabled={isCurrent || loading === plan.id || isPending}
                  className={`w-full py-4 rounded-xl font-display font-bold tracking-widest uppercase transition-all flex justify-center items-center gap-2 text-xs border ${
                    isCurrent 
-                     ? 'bg-[#1a2236] text-muted border-transparent cursor-not-allowed' 
+                     ? 'bg-[var(--border)] text-muted border-transparent cursor-not-allowed' 
                      : isPending
                      ? 'bg-gold/10 text-gold border-gold/30 cursor-wait animate-pulse'
-                     : `${plan.bg} text-[#050508] border-transparent hover:scale-[1.02] active:scale-95 shadow-lg`
+                     : `${plan.bg} text-[var(--bg-primary)] border-transparent hover:scale-[1.02] active:scale-95 shadow-lg`
                  }`}
                >
                   {loading === plan.id ? (
@@ -211,7 +211,7 @@ const Pricing = () => {
         })}
       </div>
       
-      <div className="mt-16 bg-[#0d1117] border border-border p-10 rounded-2xl text-center max-w-3xl mx-auto">
+      <div className="mt-16 bg-[var(--bg-card)] border border-border p-10 rounded-2xl text-center max-w-3xl mx-auto">
          <h4 className="font-display font-bold text-lg text-primary tracking-widest uppercase mb-4">Manual Payment Protocol</h4>
          <p className="font-mono text-xs text-muted leading-relaxed uppercase tracking-widest mb-0">
             After scanning the QR and clicking "I HAVE PAID", your node status will enter the "Pending" state. Verification usually takes 1-4 hours. You will receive a system broadcast once the Owner confirms your payment.

@@ -167,7 +167,7 @@ const Signup = () => {
         transition={{ duration: 0.4, ease: "easeOut" }}
         className="relative z-10 w-full max-w-[460px] mx-4"
       >
-        <div className="bg-[#0d1117eb] border border-primary/20 rounded-[20px] p-8 md:p-10 shadow-[0_0_80px_rgba(0,255,136,0.08),_inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-xl">
+        <div className="bg-[var(--bg-card)eb] border border-primary/20 rounded-[20px] p-8 md:p-10 shadow-[0_0_80px_rgba(0,255,136,0.08),_inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-xl">
           
           <div className="text-center mb-6">
             <h1 className="font-display text-[24px] font-bold text-primary neon-text-green glitch inline-block">ELITE HACKERS</h1>
@@ -248,7 +248,7 @@ const Signup = () => {
                     {[0, 1, 2, 3].map(i => (
                       <div 
                         key={i} 
-                        className={`flex-1 rounded-sm transition-colors duration-300 ${i < passStrength ? strengthColors[passStrength - 1 > 0 ? passStrength - 1 : 0] : 'bg-[#1a2236]'}`} 
+                        className={`flex-1 rounded-sm transition-colors duration-300 ${i < passStrength ? strengthColors[passStrength - 1 > 0 ? passStrength - 1 : 0] : 'bg-[var(--border)]'}`} 
                       />
                     ))}
                   </div>

@@ -101,8 +101,8 @@ const HackArena = () => {
                <h2 className="font-display font-bold text-3xl tracking-widest text-red mb-2 uppercase">SYSTEM TERMINATED</h2>
                <p className="font-mono text-sm text-muted mb-8 tracking-widest uppercase">Intrusion Repelled</p>
                
-               <div className="bg-[#050508] border border-border p-6 rounded-xl mb-8">
-                  <div className="flex justify-between items-center mb-4 border-b border-[#1a2236] pb-4">
+               <div className="bg-[var(--bg-primary)] border border-border p-6 rounded-xl mb-8">
+                  <div className="flex justify-between items-center mb-4 border-b border-[var(--border)] pb-4">
                      <span className="font-mono text-[10px] text-muted tracking-widest uppercase">XP Extracted</span>
                      <span className="font-mono text-lg font-bold text-primary glow-green">+{xpPool}</span>
                   </div>
@@ -124,10 +124,10 @@ const HackArena = () => {
      return (
         <div className="min-h-[calc(100vh-140px)] flex items-center justify-center animate-fade-in-up px-4">
            <Helmet><title>Hack Arena — Elite Hackers</title></Helmet>
-           <div className="bg-[#050508] border border-[#1a2236] max-w-4xl w-full rounded-2xl flex flex-col md:flex-row overflow-hidden relative group glow-cyan">
+           <div className="bg-[var(--bg-primary)] border border-[var(--border)] max-w-4xl w-full rounded-2xl flex flex-col md:flex-row overflow-hidden relative group glow-cyan">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-0"></div>
               
-              <div className="md:w-1/2 p-10 flex flex-col justify-center relative z-10 border-r border-[#1a2236]">
+              <div className="md:w-1/2 p-10 flex flex-col justify-center relative z-10 border-r border-[var(--border)]">
                  <div className="inline-flex items-center gap-2 text-cyan font-mono text-[10px] tracking-widest uppercase font-bold mb-4 bg-cyan/10 border border-cyan/20 px-3 py-1.5 rounded-sm w-max">
                     <Crosshair size={14} /> SURVIVAL INSTANCE
                  </div>
@@ -135,13 +135,13 @@ const HackArena = () => {
                  <p className="font-mono text-sm text-muted leading-relaxed mb-8">
                     Enter the gauntlet. Infinite questions. 3 lives. Multipliers scale with your streak. How long can you survive the global defense grid?
                  </p>
-                 <button onClick={startGame} className="px-8 py-4 bg-cyan text-[#050508] rounded font-display font-bold tracking-widest uppercase hover:bg-white hover:shadow-[0_0_20px_rgba(0,212,255,0.6)] transition-all flex items-center justify-center gap-3">
+                 <button onClick={startGame} className="px-8 py-4 bg-cyan text-[var(--bg-primary)] rounded font-display font-bold tracking-widest uppercase hover:bg-white hover:shadow-[0_0_20px_rgba(0,212,255,0.6)] transition-all flex items-center justify-center gap-3">
                     [ INITIATE BREACH ] <Zap size={16} />
                  </button>
               </div>
 
               <div className="md:w-1/2 bg-[#0a0d14] p-10 relative z-10">
-                 <h3 className="font-mono text-[10px] text-muted tracking-widest uppercase font-bold mb-6 border-b border-[#1a2236] pb-3">PROTOCOL RULES</h3>
+                 <h3 className="font-mono text-[10px] text-muted tracking-widest uppercase font-bold mb-6 border-b border-[var(--border)] pb-3">PROTOCOL RULES</h3>
                  <ul className="space-y-6">
                     <li className="flex gap-4 items-start">
                        <Shield size={20} className="text-primary shrink-0" />
@@ -178,7 +178,7 @@ const HackArena = () => {
       <Helmet><title>Active Breach — Elite Hackers</title></Helmet>
 
       {/* ARENA HUD */}
-      <div className="flex flex-wrap justify-between items-end mb-8 gap-4 bg-[#0a0d14] border border-[#1a2236] p-4 rounded-xl">
+      <div className="flex flex-wrap justify-between items-end mb-8 gap-4 bg-[#0a0d14] border border-[var(--border)] p-4 rounded-xl">
          <div>
             <span className="font-mono text-[10px] text-muted tracking-widest uppercase font-bold block mb-1">XP POOL</span>
             <span className="font-display font-bold text-2xl text-primary glow-green">{xpPool}</span>
@@ -193,7 +193,7 @@ const HackArena = () => {
             <span className="font-mono text-[10px] text-muted tracking-widest uppercase font-bold block mb-2">SYSTEM INTEGRITY</span>
             <div className="flex gap-2 justify-end">
                {[1, 2, 3].map(i => (
-                 <ShieldAlert key={i} size={20} className={i <= lives ? 'text-primary drop-shadow-[0_0_5px_rgba(0,255,136,0.8)]' : 'text-[#1a2236]'} />
+                 <ShieldAlert key={i} size={20} className={i <= lives ? 'text-primary drop-shadow-[0_0_5px_rgba(0,255,136,0.8)]' : 'text-[var(--border)]'} />
                ))}
             </div>
          </div>
@@ -216,7 +216,7 @@ const HackArena = () => {
                <button 
                  key={idx}
                  onClick={() => handleAnswer(idx)}
-                 className="text-left p-6 border border-[#1a2236] rounded-xl font-mono text-[13px] tracking-widest text-secondary hover:text-cyan hover:border-cyan hover:bg-cyan/5 transition-all group relative overflow-hidden"
+                 className="text-left p-6 border border-[var(--border)] rounded-xl font-mono text-[13px] tracking-widest text-secondary hover:text-cyan hover:border-cyan hover:bg-cyan/5 transition-all group relative overflow-hidden"
                >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-cyan/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300"></div>
                   <span className="relative z-10 block pr-4">{opt}</span>

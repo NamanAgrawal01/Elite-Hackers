@@ -34,7 +34,7 @@ const AdminOverview = () => {
     <div className="max-w-7xl mx-auto animate-fade-in-up">
       <Helmet><title>{userData?.isOwner ? 'Owner Engine' : 'Admin Kernel'} — Elite Hackers</title></Helmet>
 
-      <div className="flex items-center justify-between mb-8 pb-6 border-b border-[#1a2236]">
+      <div className="flex items-center justify-between mb-8 pb-6 border-b border-[var(--border)]">
          <div>
             <div className={`inline-flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase font-bold mb-2 border px-3 py-1.5 rounded-sm ${userData?.isOwner ? 'text-primary border-primary/20 bg-primary/10' : 'text-[#ff6b35] border-[#ff6b35]/20 bg-[#ff6b35]/10'}`}>
                <ShieldAlert size={14} /> {userData?.isOwner ? 'OWNER ACCESS GRANTED' : 'ADMIN KERNEL ACTIVE'}
@@ -52,7 +52,7 @@ const AdminOverview = () => {
       {/* METRICS ROW */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
          {metrics.map((m, i) => (
-            <div key={i} className="bg-[#0b0404] border border-[#1a2236] p-6 rounded-xl relative overflow-hidden group hover:border-primary/30 transition-all">
+            <div key={i} className="bg-bg-secondary border border-[var(--border)] p-6 rounded-xl relative overflow-hidden group hover:border-primary/30 transition-all">
                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors pointer-events-none"></div>
                <div className="flex justify-between items-start mb-4 relative z-10">
                   <span className="font-mono text-[10px] text-muted font-bold tracking-widest uppercase">{m.label}</span>
@@ -73,7 +73,7 @@ const AdminOverview = () => {
                <Link 
                   key={i}
                   to={mod.path}
-                   className={`bg-bg-card border border-[#1a2236] p-6 rounded-xl hover:-translate-y-1 transition-all group ${mod.ownerOnly ? 'hover:border-primary/50' : 'hover:border-[#ff6b35]/50'}`}
+                   className={`bg-bg-card border border-[var(--border)] p-6 rounded-xl hover:-translate-y-1 transition-all group ${mod.ownerOnly ? 'hover:border-primary/50' : 'hover:border-[#ff6b35]/50'}`}
                >
                   <mod.icon size={28} className={`${mod.color} mb-6 group-hover:scale-110 transition-transform`} />
                   <h3 className="font-display font-bold text-lg text-primary tracking-wide mb-2">{mod.title}</h3>

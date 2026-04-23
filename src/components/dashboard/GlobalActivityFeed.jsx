@@ -51,7 +51,7 @@ const GlobalActivityFeed = () => {
     };
 
     return (
-        <div className="bg-[#050508] border border-border rounded-2xl overflow-hidden h-full flex flex-col">
+        <div className="bg-[var(--bg-primary)] border border-border rounded-2xl overflow-hidden h-full flex flex-col">
             <div className="p-4 border-b border-border bg-bg-card flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <Activity size={16} className="text-primary animate-pulse" />
@@ -65,7 +65,7 @@ const GlobalActivityFeed = () => {
             </div>
             
             <div className="flex-1 overflow-hidden relative">
-                <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#050508] to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[var(--bg-primary)] to-transparent z-10 pointer-events-none"></div>
                 
                 <div className="p-4 space-y-3">
                     <AnimatePresence initial={false}>
@@ -95,7 +95,7 @@ const GlobalActivityFeed = () => {
                 </div>
             </div>
             
-            <div className="p-2 bg-[#0d1117] border-t border-border/10 text-center">
+            <div className="p-2 bg-[var(--bg-card)] border-t border-border/10 text-center">
                  <span className="font-mono text-[8px] text-muted tracking-[3px] uppercase">Encrypted Stream Protocol V4.2</span>
             </div>
         </div>

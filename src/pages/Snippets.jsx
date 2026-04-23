@@ -68,7 +68,7 @@ const Snippets = () => {
             transition={{ delay: idx * 0.1 }}
             className="bg-bg-card border border-border rounded-2xl overflow-hidden group hover:border-gold/50 transition-all"
           >
-            <div className="bg-[#050508] border-b border-border py-4 px-6 flex justify-between items-center">
+            <div className="bg-[var(--bg-primary)] border-b border-border py-4 px-6 flex justify-between items-center">
               <div className="flex items-center gap-3">
                 <Terminal size={16} className="text-gold" />
                 <span className="font-display font-bold text-xs tracking-widest uppercase">{snip.title}</span>
@@ -90,7 +90,7 @@ const Snippets = () => {
                 
                 <button 
                   onClick={() => handleCopy(snip.code, idx)}
-                  className="absolute right-4 top-4 p-2 bg-[#1a2236] border border-border rounded-lg text-muted hover:text-gold hover:border-gold transition-all"
+                  className="absolute right-4 top-4 p-2 bg-[var(--border)] border border-border rounded-lg text-muted hover:text-gold hover:border-gold transition-all"
                 >
                   {copiedIndex === idx ? <Check size={16} className="text-primary" /> : <Copy size={16} />}
                 </button>

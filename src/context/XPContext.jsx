@@ -56,7 +56,7 @@ export const XPProvider = ({ children }) => {
         toast(`⬆️ LEVEL UP! You are now Level ${newLevel}`, {
           icon: '🏆',
           duration: 5000,
-          style: { background: '#ffd700', color: '#050508', border: 'none' }
+          style: { background: '#ffd700', color: 'var(--bg-primary)', border: 'none' }
         });
       }
 

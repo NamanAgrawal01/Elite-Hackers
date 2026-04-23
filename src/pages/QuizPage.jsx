@@ -56,7 +56,7 @@ const QuizPage = () => {
     return (
       <div className="flex items-center justify-center min-h-[calc(100vh-140px)] animate-fade-in-up">
          <Helmet><title>Evaluation Results — Elite Hackers</title></Helmet>
-         <div className="bg-[#0d1117] border border-[#1a2236] p-10 rounded-2xl max-w-lg w-full text-center relative overflow-hidden">
+         <div className="bg-[var(--bg-card)] border border-[var(--border)] p-10 rounded-2xl max-w-lg w-full text-center relative overflow-hidden">
             <div className={`absolute top-0 left-0 w-full h-2 ${passed ? 'bg-primary' : 'bg-red'}`}></div>
             
             <div className={`w-24 h-24 mx-auto mt-4 ${passed ? 'bg-primary/10 text-primary border-primary' : 'bg-red/10 text-red border-red'} border-2 rounded-full flex flex-col items-center justify-center mb-6`}>
@@ -76,7 +76,7 @@ const QuizPage = () => {
                   [ TERMINALS ]
                </button>
                {passed ? (
-                  <button onClick={() => navigate('/arena')} className="px-6 py-3 bg-primary text-[#050508] rounded-md font-mono tracking-widest uppercase text-xs font-bold hover:bg-white hover:shadow-[0_0_20px_rgba(0,255,136,0.5)] transition-all">
+                  <button onClick={() => navigate('/arena')} className="px-6 py-3 bg-primary text-[var(--bg-primary)] rounded-md font-mono tracking-widest uppercase text-xs font-bold hover:bg-white hover:shadow-[0_0_20px_rgba(0,255,136,0.5)] transition-all">
                      [ ENTER ARENA ]
                   </button>
                ) : (
@@ -105,7 +105,7 @@ const QuizPage = () => {
         </div>
       </div>
 
-      <div className="w-full h-1 bg-[#1a2236] rounded-full overflow-hidden mb-12">
+      <div className="w-full h-1 bg-[var(--border)] rounded-full overflow-hidden mb-12">
          <div className="h-full bg-primary transition-all duration-500 ease-out" style={{ width: `${((currentQ) / MOCK_QUIZ_DATA.length) * 100}%` }}></div>
       </div>
 
@@ -121,7 +121,7 @@ const QuizPage = () => {
 
          <div className="space-y-4">
             {q.options.map((opt, idx) => {
-               let stateClass = "border-[#1a2236] text-secondary hover:border-text-muted bg-[#050508]";
+               let stateClass = "border-[var(--border)] text-secondary hover:border-text-muted bg-[var(--bg-primary)]";
                if (isAnswered) {
                   if (idx === q.correct) stateClass = "border-primary bg-primary/10 text-primary glow-green";
                   else if (idx === selectedOpt) stateClass = "border-red bg-red/10 text-red glow-red";
@@ -148,7 +148,7 @@ const QuizPage = () => {
             <button 
               onClick={handleNext}
               disabled={!isAnswered}
-              className={`flex items-center gap-2 px-8 py-3 rounded font-mono text-xs font-bold tracking-widest uppercase transition-all ${isAnswered ? 'bg-text-primary text-bg-primary hover:scale-105' : 'bg-transparent text-muted border border-[#1a2236] opacity-50 cursor-not-allowed'}`}
+              className={`flex items-center gap-2 px-8 py-3 rounded font-mono text-xs font-bold tracking-widest uppercase transition-all ${isAnswered ? 'bg-text-primary text-bg-primary hover:scale-105' : 'bg-transparent text-muted border border-[var(--border)] opacity-50 cursor-not-allowed'}`}
             >
               {currentQ === MOCK_QUIZ_DATA.length - 1 ? 'SUBMIT EVALUATION' : 'NEXT PROTOCOL'} <ChevronRight size={16} />
             </button>

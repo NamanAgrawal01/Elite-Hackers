@@ -76,7 +76,7 @@ const Dashboard = () => {
                     {userData.plan === 'free' ? 'RECRUIT' : userData.plan === 'pro' ? 'PRO HACKER' : userData.plan === 'elite' ? 'ELITE SENTINEL' : 'ADMIN STAFF'}
                  </span>
                  {userData.pendingPlan && (
-                    <span className="animate-pulse bg-gold text-[#050508] font-mono text-[8px] px-1.5 py-0.5 rounded font-bold uppercase">
+                    <span className="animate-pulse bg-gold text-[var(--bg-primary)] font-mono text-[8px] px-1.5 py-0.5 rounded font-bold uppercase">
                        UPGRADE PENDING
                     </span>
                  )}
@@ -129,7 +129,7 @@ const Dashboard = () => {
                     <h3 className="font-display font-bold text-lg tracking-wider uppercase">{course.name}</h3>
                     <span className="font-mono text-primary text-[11px] font-bold tracking-widest">{course.name === 'Python' ? '45' : '78'}%</span>
                   </div>
-                  <div className="w-full h-1.5 bg-[#0d1117] rounded-full overflow-hidden mb-2 border border-[#1a2236]">
+                  <div className="w-full h-1.5 bg-[var(--bg-card)] rounded-full overflow-hidden mb-2 border border-[var(--border)]">
                     <div className="h-full bg-primary" style={{ width: `${course.name === 'Python' ? '45' : '78'}%` }}></div>
                    </div>
                   <div className="font-mono text-[10px] text-muted uppercase tracking-widest">
@@ -168,7 +168,7 @@ const Dashboard = () => {
 
         {/* SECURITY STATUS & FEED */}
         <div className="space-y-6">
-          <div className="bg-[#050508] border border-border rounded-2xl p-6 relative overflow-hidden">
+          <div className="bg-[var(--bg-primary)] border border-border rounded-2xl p-6 relative overflow-hidden">
              <div className="absolute top-0 right-0 p-4 opacity-10">
                 <ShieldAlert size={48} className="text-primary" />
              </div>
@@ -176,7 +176,7 @@ const Dashboard = () => {
              <div className="flex items-center gap-6">
                 <div className="relative w-20 h-20">
                    <svg className="w-full h-full transform -rotate-90">
-                      <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="4" fill="transparent" className="text-[#1a2236]" />
+                      <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="4" fill="transparent" className="text-[var(--border)]" />
                       <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="4" fill="transparent" strokeDasharray={226} strokeDashoffset={226 - (226 * 0.85)} className="text-primary" />
                    </svg>
                    <div className="absolute inset-0 flex items-center justify-center font-display font-bold text-xl text-primary">85%</div>
@@ -195,7 +195,7 @@ const Dashboard = () => {
             </div>
             
             {/* TOP NODES WIDGET */}
-            <div className="bg-[#050508] border border-border rounded-2xl p-6">
+            <div className="bg-[var(--bg-primary)] border border-border rounded-2xl p-6">
                <h3 className="font-display font-bold text-[10px] text-muted tracking-[4px] uppercase mb-4 flex justify-between items-center">
                   TOP NODES <span className="text-primary text-[8px] animate-pulse">LIVE</span>
                </h3>
@@ -217,7 +217,7 @@ const Dashboard = () => {
                      </div>
                   ))}
                </div>
-               <button onClick={() => navigate('/leaderboard')} className="w-full mt-6 py-2 border border-[#1a2236] text-muted font-mono text-[8px] tracking-[3px] uppercase hover:text-primary hover:border-primary/30 transition-all rounded">
+               <button onClick={() => navigate('/leaderboard')} className="w-full mt-6 py-2 border border-[var(--border)] text-muted font-mono text-[8px] tracking-[3px] uppercase hover:text-primary hover:border-primary/30 transition-all rounded">
                   [ VIEW FULL REGISTRY ]
                </button>
             </div>
@@ -261,7 +261,7 @@ const Dashboard = () => {
                 className="bg-bg-card border border-border p-4 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-colors cursor-pointer relative overflow-hidden group"
               >
                 {userData.plan === 'free' && i > 4 && (
-                  <div className="absolute inset-0 bg-[#050508]/80 backdrop-blur-[2px] flex items-center justify-center z-10 transition-all opacity-100 group-hover:bg-[#050508]/40">
+                  <div className="absolute inset-0 bg-[var(--bg-primary)]/80 backdrop-blur-[2px] flex items-center justify-center z-10 transition-all opacity-100 group-hover:bg-[var(--bg-primary)]/40">
                     <div className="flex flex-col items-center gap-2">
                        <Lock size={16} className="text-primary animate-pulse" />
                        <span className="font-mono text-[8px] text-primary font-bold tracking-widest uppercase">UPGRADE REQUIRED</span>

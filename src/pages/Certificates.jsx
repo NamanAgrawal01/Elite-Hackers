@@ -64,7 +64,7 @@ const Certificates = () => {
 
       // Generate verification QR code
       const verifyUrl = `https://elitehackers.web.app/verify/${cert.id}`;
-      const qrDataUrl = await QRCode.toDataURL(verifyUrl, { color: { dark: '#00ff88', light: '#050508' } });
+      const qrDataUrl = await QRCode.toDataURL(verifyUrl, { color: { dark: '#00ff88', light: 'var(--bg-primary)' } });
       
       doc.addImage(qrDataUrl, 'PNG', 240, 150, 35, 35);
       
@@ -121,7 +121,7 @@ const Certificates = () => {
                   <button 
                      onClick={() => generatePDF(cert)}
                      disabled={downloading === cert.id}
-                     className="flex-1 flex items-center justify-center gap-2 bg-primary text-[#050508] font-bold font-mono tracking-widest text-[11px] uppercase py-3 rounded hover:bg-white transition-colors shadow-[0_0_15px_rgba(0,255,136,0.2)] disabled:opacity-50"
+                     className="flex-1 flex items-center justify-center gap-2 bg-primary text-[var(--bg-primary)] font-bold font-mono tracking-widest text-[11px] uppercase py-3 rounded hover:bg-white transition-colors shadow-[0_0_15px_rgba(0,255,136,0.2)] disabled:opacity-50"
                   >
                      {downloading === cert.id ? 'COMPILING PDF...' : <><Download size={16} /> DOWNLOAD PDF</>}
                   </button>

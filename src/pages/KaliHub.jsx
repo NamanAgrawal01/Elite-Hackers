@@ -26,7 +26,7 @@ const KaliHub = () => {
     <div className="max-w-6xl mx-auto animate-fade-in-up">
       <Helmet><title>Kali Linux Hub — Elite Hackers</title></Helmet>
 
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 pb-6 border-b border-[#1a2236]">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 pb-6 border-b border-[var(--border)]">
          <div>
             <div className="inline-flex items-center gap-2 text-red font-mono text-[10px] tracking-widest uppercase font-bold mb-2 bg-red/10 border border-red/20 px-3 py-1.5 rounded-sm">
                <Shield size={14} /> HIGH SECURITY AREA
@@ -51,8 +51,8 @@ const KaliHub = () => {
          </div>
       ) : (
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-[#050508] border border-[#1a2236] rounded-2xl flex flex-col overflow-hidden h-[450px]">
-               <div className="h-10 bg-[#0d1117] border-b border-[#1a2236] flex items-center px-4">
+            <div className="bg-[var(--bg-primary)] border border-[var(--border)] rounded-2xl flex flex-col overflow-hidden h-[450px]">
+               <div className="h-10 bg-[var(--bg-card)] border-b border-[var(--border)] flex items-center px-4">
                   <span className="font-mono text-[10px] text-muted font-bold tracking-widest uppercase">root@kali: ~</span>
                </div>
                <div className="flex-1 p-6 font-mono text-xs text-secondary whitespace-pre-wrap overflow-y-auto">

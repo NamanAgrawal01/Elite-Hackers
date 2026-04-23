@@ -27,7 +27,7 @@ const CommunitySquads = () => {
                     <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase font-bold">Unify coordinates with elite hacker collectives</p>
                 </div>
                 <div className="flex gap-3 w-full md:w-auto">
-                    <button className="flex-1 md:flex-none px-6 py-3 bg-[#0d1117] border border-border text-muted hover:text-primary hover:border-primary transition-all font-mono text-[10px] font-bold tracking-widest uppercase rounded-lg">
+                    <button className="flex-1 md:flex-none px-6 py-3 bg-[var(--bg-card)] border border-border text-muted hover:text-primary hover:border-primary transition-all font-mono text-[10px] font-bold tracking-widest uppercase rounded-lg">
                         [ CREATE SQUAD ]
                     </button>
                     <button className="flex-1 md:flex-none px-6 py-3 bg-primary text-bg-primary font-display font-bold text-[10px] tracking-widest uppercase rounded-lg hover:scale-105 transition-all shadow-lg">

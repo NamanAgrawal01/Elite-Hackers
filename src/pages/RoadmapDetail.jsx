@@ -58,7 +58,7 @@ const RoadmapDetail = () => {
             <div className="space-y-6">
                 {roadmap.modules.map((mod, idx) => (
                     <div key={mod.id} className="bg-bg-card border border-border rounded-2xl overflow-hidden group">
-                        <div className="p-6 flex items-center justify-between border-b border-border bg-[#050508]/50">
+                        <div className="p-6 flex items-center justify-between border-b border-border bg-[var(--bg-primary)]/50">
                             <div className="flex items-center gap-4">
                                 <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center font-mono text-sm text-primary font-bold">
                                     {idx + 1}

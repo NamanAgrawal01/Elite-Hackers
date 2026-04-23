@@ -62,7 +62,7 @@ const DailyChallenges = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* ACTIVE HERO CHALLENGE */}
-                <div className="lg:col-span-2 bg-[#0d1117] border-2 border-primary rounded-2xl p-8 relative overflow-hidden group shadow-[0_0_50px_rgba(0,255,136,0.1)]">
+                <div className="lg:col-span-2 bg-[var(--bg-card)] border-2 border-primary rounded-2xl p-8 relative overflow-hidden group shadow-[0_0_50px_rgba(0,255,136,0.1)]">
                     <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 pointer-events-none"></div>
                     <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
                         <div className="text-center md:text-left">
@@ -125,7 +125,7 @@ const DailyChallenges = () => {
                 </div>
 
                 {/* LEADERBOARD SNIPPET */}
-                <div className="bg-[#050508] border border-border p-6 rounded-2xl flex flex-col">
+                <div className="bg-[var(--bg-primary)] border border-border p-6 rounded-2xl flex flex-col">
                     <h3 className="font-display font-bold text-lg text-primary flex items-center gap-2 uppercase tracking-widest mb-6">
                         <Activity size={18} className="text-primary" /> TOP OPERATIVES
                     </h3>

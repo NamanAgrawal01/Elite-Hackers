@@ -146,7 +146,7 @@ const SubscriptionStatus = () => {
                 </ul>
              </div>
 
-             <div className="bg-[#050508] border border-border p-8 rounded-3xl relative overflow-hidden group">
+             <div className="bg-[var(--bg-primary)] border border-border p-8 rounded-3xl relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <h3 className="font-display font-bold text-lg text-primary uppercase tracking-widest mb-4">NEED MORE POWER?</h3>
                 <p className="font-mono text-[11px] text-muted leading-relaxed uppercase tracking-widest mb-8">

@@ -69,7 +69,7 @@ const AdminChallenges = () => {
         <div className="max-w-6xl mx-auto space-y-8 animate-fade-in-up">
             <Helmet><title>Operation Control — Elite Hackers</title></Helmet>
 
-            <div className="flex justify-between items-center pb-6 border-b border-[#1a2236]">
+            <div className="flex justify-between items-center pb-6 border-b border-[var(--border)]">
                 <div>
                     <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase">DAILY OPERATIONS</h1>
                     <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase mt-1">Deploy and monitor global survival challenges</p>
@@ -90,7 +90,7 @@ const AdminChallenges = () => {
                             <input 
                                 value={formData.title}
                                 onChange={e => setFormData({...formData, title: e.target.value})}
-                                className="w-full bg-[#050508] border border-[#1a2236] rounded-lg p-3 font-mono text-sm text-primary focus:border-primary focus:outline-none"
+                                className="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-lg p-3 font-mono text-sm text-primary focus:border-primary focus:outline-none"
                                 required
                             />
                         </div>
@@ -99,7 +99,7 @@ const AdminChallenges = () => {
                             <textarea 
                                 value={formData.desc}
                                 onChange={e => setFormData({...formData, desc: e.target.value})}
-                                className="w-full bg-[#050508] border border-[#1a2236] rounded-lg p-3 font-mono text-sm text-secondary h-24 focus:border-primary focus:outline-none"
+                                className="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-lg p-3 font-mono text-sm text-secondary h-24 focus:border-primary focus:outline-none"
                                 required
                             />
                         </div>
@@ -109,7 +109,7 @@ const AdminChallenges = () => {
                                 type="number"
                                 value={formData.xp}
                                 onChange={e => setFormData({...formData, xp: parseInt(e.target.value)})}
-                                className="w-full bg-[#050508] border border-[#1a2236] rounded-lg p-3 font-mono text-sm text-gold"
+                                className="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-lg p-3 font-mono text-sm text-gold"
                             />
                         </div>
                         <div>
@@ -117,7 +117,7 @@ const AdminChallenges = () => {
                             <select 
                                 value={formData.type}
                                 onChange={e => setFormData({...formData, type: e.target.value})}
-                                className="w-full bg-[#050508] border border-[#1a2236] rounded-lg p-3 font-mono text-sm text-cyan"
+                                className="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-lg p-3 font-mono text-sm text-cyan"
                             >
                                 <option value="coding">Coding Infiltration</option>
                                 <option value="security">Security Audit</option>

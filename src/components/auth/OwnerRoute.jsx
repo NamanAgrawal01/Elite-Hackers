@@ -7,7 +7,7 @@ const OwnerRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#050508] font-display text-primary">
+      <div className="min-h-screen flex items-center justify-center bg-[var(--bg-primary)] font-display text-primary">
         <div className="flex items-center gap-3">
           <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
           <span className="tracking-[4px] uppercase text-xs">Verifying Owner Credentials...</span>
