@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LoadingScreen from '../components/ui/LoadingScreen';
 import { useAuth } from '../hooks/useAuth';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +13,7 @@ const Arsenal = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('ALL');
 
-  if (!userData) return null;
+  if (!userData) return <LoadingScreen />;
 
   const filteredLangs = LANGUAGES.filter(l => 
     (activeCategory === 'ALL' || l.category === activeCategory) && 
@@ -32,10 +33,10 @@ const Arsenal = () => {
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-border pb-8">
          <div>
-            <h1 className="font-display font-bold text-4xl text-text-primary tracking-widest uppercase flex items-center gap-4">
+            <h1 className="font-display font-bold text-4xl text-primary tracking-widest uppercase flex items-center gap-4">
                <Terminal className="text-primary" size={32} /> THE <span className="text-primary glow-green">ARSENAL</span>
             </h1>
-            <p className="font-mono text-xs text-text-muted tracking-[4px] uppercase mt-2">Deploying 56+ specialized modules for full-spectrum dominance</p>
+            <p className="font-mono text-xs text-muted tracking-[4px] uppercase mt-2">Deploying 56+ specialized modules for full-spectrum dominance</p>
          </div>
          <div className="bg-primary/5 border border-primary/20 px-4 py-2 rounded-lg flex items-center gap-3">
             <Shield size={18} className="text-primary" />
@@ -46,13 +47,13 @@ const Arsenal = () => {
       {/* FILTER & SEARCH */}
       <div className="flex flex-col lg:flex-row gap-6">
          <div className="relative flex-1 group">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted group-focus-within:text-primary transition-colors" size={18} />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted group-focus-within:text-primary transition-colors" size={18} />
             <input 
                type="text" 
                placeholder="SEARCH CRYPTOGRAPHIC MODULES..." 
                value={searchQuery}
                onChange={(e) => setSearchQuery(e.target.value)}
-               className="w-full bg-bg-card border border-border rounded-xl font-mono text-sm py-4 pl-12 pr-6 focus:outline-none focus:border-primary transition-all placeholder:text-text-muted/30 uppercase tracking-widest"
+               className="w-full bg-bg-card border border-border rounded-xl font-mono text-sm py-4 pl-12 pr-6 focus:outline-none focus:border-primary transition-all placeholder:text-muted/30 uppercase tracking-widest"
             />
          </div>
 
@@ -64,7 +65,7 @@ const Arsenal = () => {
                   className={`px-5 py-3 rounded-xl font-mono text-[10px] font-bold tracking-widest uppercase transition-all whitespace-nowrap border ${
                      activeCategory === cat 
                      ? 'bg-primary text-bg-primary border-primary shadow-[0_0_15px_rgba(0,255,136,0.3)]' 
-                     : 'bg-bg-card text-text-muted border-border hover:border-text-muted'
+                     : 'bg-bg-card text-muted border-border hover:border-text-muted'
                   }`}
                >
                   {cat}
@@ -96,9 +97,9 @@ const Arsenal = () => {
                   )}
 
                   <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform">{lang.icon}</div>
-                  <h3 className="font-display font-bold text-lg text-text-primary mb-2 tracking-wide uppercase">{lang.name}</h3>
+                  <h3 className="font-display font-bold text-lg text-primary mb-2 tracking-wide uppercase">{lang.name}</h3>
                   <div className="flex flex-col gap-1 w-full items-center">
-                     <span className="font-mono text-[8px] text-text-muted font-bold tracking-widest uppercase border border-border px-2 py-0.5 rounded">{lang.category}</span>
+                     <span className="font-mono text-[8px] text-muted font-bold tracking-widest uppercase border border-border px-2 py-0.5 rounded">{lang.category}</span>
                      <div className="flex items-center gap-2 mt-2">
                         <Zap size={10} className="text-primary" />
                         <span className="font-mono text-[10px] text-primary font-bold">{lang.xp} XP</span>
@@ -115,8 +116,8 @@ const Arsenal = () => {
 
       {filteredLangs.length === 0 && (
          <div className="py-20 text-center space-y-4 bg-bg-card border border-dashed border-border rounded-3xl">
-            <div className="font-display font-bold text-2xl text-text-muted tracking-widest">MODULE NOT FOUND</div>
-            <p className="font-mono text-xs text-text-muted uppercase">System scan returned 0 results for your current query.</p>
+            <div className="font-display font-bold text-2xl text-muted tracking-widest">MODULE NOT FOUND</div>
+            <p className="font-mono text-xs text-muted uppercase">System scan returned 0 results for your current query.</p>
             <button onClick={() => {setSearchQuery(''); setActiveCategory('ALL');}} className="text-primary font-mono text-[10px] font-bold underline tracking-widest">[ RESET SYSTEM FILTERS ]</button>
          </div>
       )}

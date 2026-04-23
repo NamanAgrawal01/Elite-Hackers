@@ -43,10 +43,10 @@ const InterviewPrep = () => {
       <Helmet><title>Interview Prep — ELITE HACKERS</title></Helmet>
 
       <div>
-        <h1 className="font-display font-bold text-4xl text-text-primary tracking-widest uppercase mb-4">
+        <h1 className="font-display font-bold text-4xl text-primary tracking-widest uppercase mb-4">
           INTERVIEW <span className="text-cyan glow-cyan">PREP</span>
         </h1>
-        <p className="font-body text-text-secondary max-w-2xl text-lg">
+        <p className="font-body text-secondary max-w-2xl text-lg">
           Master the challenges asked by Top Tech Companies and Security Firms. No fluff, just core engineering.
         </p>
       </div>
@@ -57,7 +57,7 @@ const InterviewPrep = () => {
              <button 
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-4 py-2 rounded font-mono text-[11px] font-bold tracking-widest uppercase transition-all whitespace-nowrap ${activeTab === tab ? 'bg-cyan text-bg-primary border-cyan' : 'bg-bg-card border border-border text-text-muted hover:border-text-secondary'}`}
+              className={`px-4 py-2 rounded font-mono text-[11px] font-bold tracking-widest uppercase transition-all whitespace-nowrap ${activeTab === tab ? 'bg-cyan text-bg-primary border-cyan' : 'bg-bg-card border border-border text-muted hover:border-text-secondary'}`}
              >
                {tab}
              </button>
@@ -65,7 +65,7 @@ const InterviewPrep = () => {
         </div>
         
         <div className="relative w-full md:w-64">
-           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" />
+           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
            <input 
             type="text" 
             placeholder="SEARCH CHALLENGES..." 
@@ -79,7 +79,7 @@ const InterviewPrep = () => {
       <div className="space-y-12">
         {filtered.map((cat, idx) => (
           <div key={idx} className="space-y-6">
-            <h2 className="font-display font-bold text-lg text-text-primary flex items-center gap-3">
+            <h2 className="font-display font-bold text-lg text-primary flex items-center gap-3">
               <span className="w-8 h-[1px] bg-cyan"></span> {cat.category}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -91,10 +91,10 @@ const InterviewPrep = () => {
                     </span>
                     <span className="font-mono text-[10px] text-primary">⚡ {item.xp} XP</span>
                   </div>
-                  <h3 className="font-display font-bold text-sm text-text-primary tracking-wide mb-6 group-hover:text-cyan transition-colors">
+                  <h3 className="font-display font-bold text-sm text-primary tracking-wide mb-6 group-hover:text-cyan transition-colors">
                     {item.q}
                   </h3>
-                  <div className="flex items-center justify-between font-mono text-[9px] text-text-muted uppercase tracking-widest">
+                  <div className="flex items-center justify-between font-mono text-[9px] text-muted uppercase tracking-widest">
                     <span>Terminal Ready</span>
                     <ChevronRight size={14} />
                   </div>

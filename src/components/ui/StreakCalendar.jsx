@@ -56,7 +56,7 @@ export const StreakCalendar = ({ xpHistory = [] }) => {
 
   return (
     <div className="w-full bg-bg-card border border-border rounded-2xl p-6 overflow-hidden">
-      <div className="flex items-center gap-4 text-text-primary mb-6 font-display">
+      <div className="flex items-center gap-4 text-primary mb-6 font-display">
         <h3 className="font-bold text-lg tracking-widest uppercase">YOUR STREAK</h3>
         <span className="text-primary glow-green font-bold text-sm border-l border-border pl-4">🔥 Current Streak: 0 days</span>
       </div>
@@ -73,7 +73,7 @@ export const StreakCalendar = ({ xpHistory = [] }) => {
                   style={{ backgroundColor: getColor(day.xp), border: `1px solid ${getBorderColor(day.xp)}` }}
                 >
                   <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity bg-bg-elevated border border-border text-white text-[10px] px-2 py-1 rounded shadow-xl -top-8 -left-1/2 transform -translate-x-1/2 whitespace-nowrap z-50 pointer-events-none font-mono">
-                    <span className="text-text-muted">{format(day.date, 'MMM d')}</span><br/>
+                    <span className="text-muted">{format(day.date, 'MMM d')}</span><br/>
                     <span className="font-bold text-primary">+{day.xp} XP</span>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ export const StreakCalendar = ({ xpHistory = [] }) => {
         ))}
       </div>
       
-      <div className="flex items-center justify-end gap-2 mt-4 text-[10px] font-mono text-text-muted">
+      <div className="flex items-center justify-end gap-2 mt-4 text-[10px] font-mono text-muted">
         <span>Less</span>
         <div className="w-3 h-3 rounded-[2px] bg-[#0d1117] border border-[#1a2236]"></div>
         <div className="w-3 h-3 rounded-[2px] bg-[#003d20]"></div>

@@ -30,10 +30,10 @@ const Leaderboard = () => {
       <Helmet><title>Hall of Fame — Elite Hackers</title></Helmet>
 
       <div className="text-center mb-12">
-         <h1 className="font-display font-bold text-4xl text-text-primary tracking-widest uppercase mb-4 flex justify-center items-center gap-4">
+         <h1 className="font-display font-bold text-4xl text-primary tracking-widest uppercase mb-4 flex justify-center items-center gap-4">
             <Trophy className="text-gold" size={32} /> HALL OF FAME
          </h1>
-         <p className="font-mono text-sm text-text-muted tracking-widest uppercase">The global ranking of Elite Hackers. Only the persistent survive.</p>
+         <p className="font-mono text-sm text-muted tracking-widest uppercase">The global ranking of Elite Hackers. Only the persistent survive.</p>
       </div>
 
       {loading ? (
@@ -52,7 +52,7 @@ const Leaderboard = () => {
                      <img src={leaders[1].photoURL} alt="2nd" className="w-20 h-20 rounded-full border-4 border-[#c0c0c0] bg-[#050508] object-cover" />
                      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#c0c0c0] text-[#050508] text-[10px] font-bold font-mono px-2 py-0.5 rounded">2ND</div>
                   </div>
-                  <h3 className="font-display font-bold text-lg text-text-primary tracking-wider truncate w-full text-center">{leaders[1].username}</h3>
+                  <h3 className="font-display font-bold text-lg text-primary tracking-wider truncate w-full text-center">{leaders[1].username}</h3>
                   <div className="text-[#c0c0c0] font-mono text-sm font-bold tracking-widest flex items-center gap-1 mt-2"><Zap size={14} />{leaders[1].totalXP}</div>
                </div>
              )}
@@ -78,7 +78,7 @@ const Leaderboard = () => {
                      <img src={leaders[2].photoURL} alt="3rd" className="w-16 h-16 rounded-full border-4 border-[#cd7f32] bg-[#050508] object-cover" />
                      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#cd7f32] text-[#050508] text-[10px] font-bold font-mono px-2 py-0.5 rounded">3RD</div>
                   </div>
-                  <h3 className="font-display font-bold text-lg text-text-primary tracking-wider truncate w-full text-center">{leaders[2].username}</h3>
+                  <h3 className="font-display font-bold text-lg text-primary tracking-wider truncate w-full text-center">{leaders[2].username}</h3>
                   <div className="text-[#cd7f32] font-mono text-sm font-bold tracking-widest flex items-center gap-1 mt-2"><Zap size={14} />{leaders[2].totalXP}</div>
                </div>
              )}
@@ -88,10 +88,10 @@ const Leaderboard = () => {
           <div className="bg-[#0b0404] border border-[#1a2236] rounded-2xl overflow-hidden">
              {leaders.slice(3).map((user, idx) => (
                <div key={user.id} className="flex items-center gap-6 p-4 border-b border-[#1a2236] last:border-0 hover:bg-[#111827] transition-colors">
-                  <div className="w-12 text-center font-mono text-sm text-text-muted font-bold">#{idx + 4}</div>
+                  <div className="w-12 text-center font-mono text-sm text-muted font-bold">#{idx + 4}</div>
                   <img src={user.photoURL} alt={user.username} className="w-10 h-10 rounded-full border border-border bg-[#050508] object-cover" />
                   <div className="flex-1">
-                     <h4 className="font-display font-bold text-sm text-text-primary tracking-wider truncate">{user.username}</h4>
+                     <h4 className="font-display font-bold text-sm text-primary tracking-wider truncate">{user.username}</h4>
                      <RankBadge rank={user.rank} />
                   </div>
                   <div className="font-mono text-sm font-bold text-primary tracking-widest bg-primary/10 border border-primary/20 px-3 py-1.5 rounded flex items-center gap-1">

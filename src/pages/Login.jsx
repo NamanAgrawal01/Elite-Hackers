@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
@@ -83,12 +84,12 @@ const Login = () => {
           
           <div className="text-center mb-8">
             <h1 className="font-display text-[28px] font-bold text-primary neon-text-green glitch cursor-default inline-block">ELITE HACKERS</h1>
-            <p className="text-[11px] tracking-[4px] text-text-muted mt-2 font-mono">HACK. LEARN. DOMINATE.</p>
+            <p className="text-[11px] tracking-[4px] text-muted mt-2 font-mono">HACK. LEARN. DOMINATE.</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-5">
             <div className="text-center mb-6">
-              <span className="text-[12px] tracking-[6px] text-text-muted uppercase cursor-default block">ACCESS TERMINAL</span>
+              <span className="text-[12px] tracking-[6px] text-muted uppercase cursor-default block">ACCESS TERMINAL</span>
             </div>
 
             <div className="relative group">
@@ -101,7 +102,7 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="root@system"
-                className="w-full bg-[#0a0d14cd] border border-border rounded-[10px] text-primary font-mono text-[14px] py-[14px] pr-4 pl-[80px] focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,255,136,0.1),_0_0_20px_rgba(0,255,136,0.1)] transition-all placeholder:text-text-muted/50"
+                className="w-full bg-[#0a0d14cd] border border-border rounded-[10px] text-primary font-mono text-[14px] py-[14px] pr-4 pl-[80px] focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,255,136,0.1),_0_0_20px_rgba(0,255,136,0.1)] transition-all placeholder:text-muted/50"
               />
             </div>
 
@@ -115,12 +116,12 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
-                className="w-full bg-[#0a0d14cd] border border-border rounded-[10px] text-primary font-mono text-[14px] py-[14px] pr-12 pl-[74px] focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,255,136,0.1),_0_0_20px_rgba(0,255,136,0.1)] transition-all placeholder:text-text-muted/50 tracking-widest"
+                className="w-full bg-[#0a0d14cd] border border-border rounded-[10px] text-primary font-mono text-[14px] py-[14px] pr-12 pl-[74px] focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(0,255,136,0.1),_0_0_20px_rgba(0,255,136,0.1)] transition-all placeholder:text-muted/50 tracking-widest"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-primary transition-colors focus:outline-none"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-muted hover:text-primary transition-colors focus:outline-none"
               >
                 {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
@@ -132,7 +133,7 @@ const Login = () => {
                   <input type="checkbox" className="hidden appearance-none" />
                   <svg className="w-3 h-3 text-primary opacity-0 checkmark transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
-                <span className="text-text-secondary group-hover:text-text-primary transition-colors">REMEMBER TERMINAL</span>
+                <span className="text-secondary group-hover:text-primary transition-colors">REMEMBER TERMINAL</span>
                 <style>{`input:checked + .checkmark { opacity: 1; }`}</style>
               </label>
               
@@ -168,7 +169,7 @@ const Login = () => {
 
           <div className="my-6 relative flex items-center justify-center">
             <div className="absolute w-full h-[1px] bg-border"></div>
-            <div className="relative bg-bg-card px-4 text-[11px] text-text-muted font-mono tracking-widest bg-[#0d1117eb]">
+            <div className="relative bg-bg-card px-4 text-[11px] text-muted font-mono tracking-widest bg-[#0d1117eb]">
               ── OR ──
             </div>
           </div>
@@ -176,7 +177,7 @@ const Login = () => {
           <button
             onClick={handleGoogleLogin}
             disabled={loading}
-            className="w-full h-[48px] bg-[#0d1117] border border-border rounded-[10px] hover:border-cyan hover:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all flex items-center justify-center gap-3 text-[13px] text-text-primary disabled:opacity-50 disabled:cursor-not-allowed group"
+            className="w-full h-[48px] bg-[#0d1117] border border-border rounded-[10px] hover:border-cyan hover:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all flex items-center justify-center gap-3 text-[13px] text-primary disabled:opacity-50 disabled:cursor-not-allowed group"
           >
             <svg className="w-4 h-4 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -189,7 +190,7 @@ const Login = () => {
           </button>
 
           <div className="mt-8 text-center">
-            <Link to="/signup" className="text-[12px] text-text-secondary hover:underline group inline-flex items-center gap-1 transition-all">
+            <Link to="/signup" className="text-[12px] text-secondary hover:underline group inline-flex items-center gap-1 transition-all">
               {'>'} NEW RECRUIT? <span className="text-primary ml-1 group-hover:text-cyan transition-colors">[ CREATE IDENTITY ]</span>
             </Link>
           </div>

@@ -103,22 +103,22 @@ const CompilerPage = () => {
         <div className="h-14 bg-bg-primary border-b border-[#1a2236] flex items-center justify-between px-4">
           <div className="flex items-center gap-4">
             <div className="flex bg-[#050508] border border-[#1a2236] rounded-md overflow-hidden relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[10px] text-text-muted pointer-events-none tracking-widest uppercase font-bold font-mono">LANG:</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[10px] text-muted pointer-events-none tracking-widest uppercase font-bold font-mono">LANG:</span>
               <select 
                 value={language}
                 onChange={handleLanguageChange}
                 className="bg-transparent text-primary text-[12px] font-mono font-bold tracking-widest py-2 pr-8 pl-14 outline-none cursor-pointer appearance-none uppercase"
               >
                 {Object.keys(LANGUAGE_VERSIONS).map((lang) => (
-                  <option key={lang} value={lang} className="bg-bg-primary text-text-primary capitalize">{lang}</option>
+                  <option key={lang} value={lang} className="bg-bg-primary text-primary capitalize">{lang}</option>
                 ))}
               </select>
             </div>
             
-            <button className="text-text-muted hover:text-cyan transition-colors" title="Download Source">
+            <button className="text-muted hover:text-cyan transition-colors" title="Download Source">
               <Download size={18} />
             </button>
-            <button className="text-text-muted hover:text-purple transition-colors" title="Share Snippet">
+            <button className="text-muted hover:text-purple transition-colors" title="Share Snippet">
               <Share2 size={18} />
             </button>
           </div>
@@ -149,10 +149,10 @@ const CompilerPage = () => {
       {/* OUTPUT PANE */}
       <div className="xl:w-[450px] w-full flex flex-col h-[300px] xl:h-full bg-[#050508] border border-[#1a2236] rounded-2xl overflow-hidden relative group">
         <div className="h-12 bg-bg-primary border-b border-[#1a2236] flex items-center justify-between px-4">
-           <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-text-secondary tracking-widest uppercase">
+           <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-secondary tracking-widest uppercase">
              <TerminalSquare size={14} /> OUTPUT TERMINAL
            </div>
-           <button onClick={handleClear} className="text-text-muted hover:text-red transition-colors" title="Clear Terminal">
+           <button onClick={handleClear} className="text-muted hover:text-red transition-colors" title="Clear Terminal">
              <RotateCcw size={14} />
            </button>
         </div>

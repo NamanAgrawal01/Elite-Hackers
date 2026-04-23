@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingScreen from '../components/ui/LoadingScreen';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Star, Award, Zap, Shield, Target, Lock, CheckCircle2, Code, ShieldAlert, Terminal } from 'lucide-react';
@@ -13,11 +14,12 @@ const ALL_ACHIEVEMENTS = [
   { id: 'arsenal-10', title: 'POLYGLOT PROTOCOL', desc: 'Mastered 10 different programming modules.', icon: Code, color: 'text-primary' },
   { id: 'admin-matrix', title: 'MATRIX OVERRIDE', desc: 'Gained access to the Admin Matrix clearance.', icon: Shield, color: 'text-gold' },
   { id: 'bug-hunter', title: 'VULNERABILITY RESEARCHER', desc: 'Identified and fixed 5 security flaws in challenges.', icon: ShieldAlert, color: 'text-red' },
-  { id: 'dark-mode', title: 'VOID DWELLER', desc: 'Successfully navigated the dark mesh for 24 hours.', icon: Terminal, color: 'text-text-muted' },
+  { id: 'dark-mode', title: 'VOID DWELLER', desc: 'Successfully navigated the dark mesh for 24 hours.', icon: Terminal, color: 'text-muted' },
 ];
 
 const Achievements = () => {
     const { userData } = useAuth();
+  if (!userData) return <LoadingScreen />;
     const userAchievements = userData?.achievements || [];
 
     return (
@@ -25,10 +27,10 @@ const Achievements = () => {
             <Helmet><title>Achievements — ELITE HACKERS</title></Helmet>
 
             <div className="text-center md:text-left">
-                <h1 className="font-display font-bold text-4xl text-text-primary tracking-widest uppercase mb-2">
+                <h1 className="font-display font-bold text-4xl text-primary tracking-widest uppercase mb-2">
                     DIGITAL <span className="text-primary glow-green">ACHIEVEMENTS</span>
                 </h1>
-                <p className="font-mono text-xs text-text-muted tracking-[3px] uppercase">Proof of your engineering domination</p>
+                <p className="font-mono text-xs text-muted tracking-[3px] uppercase">Proof of your engineering domination</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -39,7 +41,7 @@ const Achievements = () => {
                             
                             {!isUnlocked && (
                                 <div className="absolute inset-0 bg-bg-primary/40 backdrop-blur-[1px] flex items-center justify-center z-10">
-                                    <Lock size={24} className="text-text-muted opacity-50" />
+                                    <Lock size={24} className="text-muted opacity-50" />
                                 </div>
                             )}
 
@@ -47,15 +49,15 @@ const Achievements = () => {
                                 <ach.icon size={36} />
                             </div>
 
-                            <h3 className={`font-display font-bold text-lg tracking-widest uppercase mb-2 ${isUnlocked ? 'text-text-primary' : 'text-text-muted'}`}>
+                            <h3 className={`font-display font-bold text-lg tracking-widest uppercase mb-2 ${isUnlocked ? 'text-primary' : 'text-muted'}`}>
                                 {ach.title}
                             </h3>
-                            <p className="font-body text-xs text-text-secondary leading-relaxed uppercase tracking-wider">
+                            <p className="font-body text-xs text-secondary leading-relaxed uppercase tracking-wider">
                                 {ach.desc}
                             </p>
 
                             <div className="mt-8 pt-6 border-t border-border w-full flex justify-between items-center px-2">
-                                <span className="font-mono text-[9px] text-text-muted font-bold tracking-widest uppercase">
+                                <span className="font-mono text-[9px] text-muted font-bold tracking-widest uppercase">
                                     {isUnlocked ? 'STATUS: DECRYPTED' : 'STATUS: ENCRYPTED'}
                                 </span>
                                 {isUnlocked && <CheckCircle2 size={16} className="text-primary" />}
@@ -74,17 +76,17 @@ const Achievements = () => {
                   <div className="font-display font-bold text-4xl text-primary mb-2">
                      {userAchievements.length < 2 ? 2 : userAchievements.length} / {ALL_ACHIEVEMENTS.length}
                   </div>
-                  <div className="font-mono text-[10px] text-text-muted uppercase tracking-[4px]">Unlocked</div>
+                  <div className="font-mono text-[10px] text-muted uppercase tracking-[4px]">Unlocked</div>
                </div>
                <div className="w-[1px] h-12 bg-border hidden md:block"></div>
                <div className="text-center">
                   <div className="font-display font-bold text-4xl text-gold mb-2">940</div>
-                  <div className="font-mono text-[10px] text-text-muted uppercase tracking-[4px]">Achievement XP</div>
+                  <div className="font-mono text-[10px] text-muted uppercase tracking-[4px]">Achievement XP</div>
                </div>
                <div className="w-[1px] h-12 bg-border hidden md:block"></div>
                <div className="text-center">
                   <div className="font-display font-bold text-4xl text-cyan mb-2">Top 5%</div>
-                  <div className="font-mono text-[10px] text-text-muted uppercase tracking-[4px]">Elite Status</div>
+                  <div className="font-mono text-[10px] text-muted uppercase tracking-[4px]">Elite Status</div>
                </div>
             </div>
         </div>

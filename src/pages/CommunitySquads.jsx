@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LoadingScreen from '../components/ui/LoadingScreen';
 import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../hooks/useAuth';
 import { Users, UserPlus, Trophy, Terminal, Search, Shield, Globe, Lock } from 'lucide-react';
@@ -13,6 +14,7 @@ const MOCK_SQUADS = [
 
 const CommunitySquads = () => {
     const { userData } = useAuth();
+  if (!userData) return <LoadingScreen />;
     const [search, setSearch] = useState('');
 
     return (
@@ -21,11 +23,11 @@ const CommunitySquads = () => {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-border">
                 <div>
-                    <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase mb-1">SQUAD MATRIX</h1>
-                    <p className="font-mono text-[10px] text-text-muted tracking-[4px] uppercase font-bold">Unify coordinates with elite hacker collectives</p>
+                    <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase mb-1">SQUAD MATRIX</h1>
+                    <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase font-bold">Unify coordinates with elite hacker collectives</p>
                 </div>
                 <div className="flex gap-3 w-full md:w-auto">
-                    <button className="flex-1 md:flex-none px-6 py-3 bg-[#0d1117] border border-border text-text-muted hover:text-primary hover:border-primary transition-all font-mono text-[10px] font-bold tracking-widest uppercase rounded-lg">
+                    <button className="flex-1 md:flex-none px-6 py-3 bg-[#0d1117] border border-border text-muted hover:text-primary hover:border-primary transition-all font-mono text-[10px] font-bold tracking-widest uppercase rounded-lg">
                         [ CREATE SQUAD ]
                     </button>
                     <button className="flex-1 md:flex-none px-6 py-3 bg-primary text-bg-primary font-display font-bold text-[10px] tracking-widest uppercase rounded-lg hover:scale-105 transition-all shadow-lg">
@@ -46,8 +48,8 @@ const CommunitySquads = () => {
                             {MOCK_SQUADS.slice(0, 3).map((s) => (
                                 <div key={s.id} className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
-                                        <span className={`font-mono text-[10px] font-bold ${s.rank === 1 ? 'text-gold' : 'text-text-muted'}`}>#{s.rank}</span>
-                                        <span className="font-display font-bold text-xs text-text-primary uppercase">{s.name}</span>
+                                        <span className={`font-mono text-[10px] font-bold ${s.rank === 1 ? 'text-gold' : 'text-muted'}`}>#{s.rank}</span>
+                                        <span className="font-display font-bold text-xs text-primary uppercase">{s.name}</span>
                                     </div>
                                     <span className="font-mono text-[10px] text-primary">{(s.xp / 1000).toFixed(1)}K</span>
                                 </div>
@@ -57,15 +59,15 @@ const CommunitySquads = () => {
 
                     <div className="bg-[#0b0404] border border-red/20 rounded-2xl p-6 text-center">
                         <Shield size={32} className="text-red mx-auto mb-4 opacity-50" />
-                        <h3 className="font-display font-bold text-sm text-text-primary tracking-widest uppercase mb-2">RESTRICTED NODES</h3>
-                        <p className="font-mono text-[10px] text-text-muted leading-relaxed uppercase">Join a squad to unlock shared cache and collective XP pooling.</p>
+                        <h3 className="font-display font-bold text-sm text-primary tracking-widest uppercase mb-2">RESTRICTED NODES</h3>
+                        <p className="font-mono text-[10px] text-muted leading-relaxed uppercase">Join a squad to unlock shared cache and collective XP pooling.</p>
                     </div>
                 </div>
 
                 {/* RIGHT COL: SQUAD FEED / SEARCH */}
                 <div className="lg:col-span-3 space-y-6">
                     <div className="relative">
-                        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" />
+                        <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted" />
                         <input 
                             type="text" 
                             placeholder="SEARCH ACTIVE COLLECTIVES..." 
@@ -90,14 +92,14 @@ const CommunitySquads = () => {
                                         {s.type}
                                     </span>
                                 </div>
-                                <h3 className="font-display font-bold text-xl text-text-primary uppercase tracking-widest mb-1">{s.name}</h3>
-                                <div className="flex items-center gap-4 font-mono text-[10px] text-text-secondary uppercase">
+                                <h3 className="font-display font-bold text-xl text-primary uppercase tracking-widest mb-1">{s.name}</h3>
+                                <div className="flex items-center gap-4 font-mono text-[10px] text-secondary uppercase">
                                     <span className="flex items-center gap-1.5"><Users size={12} /> {s.members} Operatives</span>
                                     <span className="flex items-center gap-1.5"><Globe size={12} /> Global rank #{s.rank}</span>
                                 </div>
                                 <div className="mt-6 pt-6 border-t border-border flex justify-between items-center">
                                     <div className="font-mono text-xs font-bold text-primary">{(s.xp / 1000).toFixed(0)}K TOTAL XP</div>
-                                    <button className="text-[10px] font-mono font-bold text-text-muted group-hover:text-primary transition-colors tracking-[2px] uppercase">
+                                    <button className="text-[10px] font-mono font-bold text-muted group-hover:text-primary transition-colors tracking-[2px] uppercase">
                                         [ VIEW INTEL ]
                                     </button>
                                 </div>

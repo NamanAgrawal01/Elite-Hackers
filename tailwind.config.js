@@ -14,17 +14,18 @@ export default {
           elevated: 'var(--bg-elevated)',
         },
         border: 'var(--border)',
-        primary: 'var(--neon-green)',
-        cyan: 'var(--neon-cyan)',
-        red: 'var(--neon-red)',
+        primary: 'var(--primary)',
+        cyan: 'var(--cyan)',
+        red: 'var(--red)',
         orange: 'var(--neon-orange)',
-        purple: 'var(--neon-purple)',
+        purple: 'var(--purple)',
         gold: 'var(--gold)',
-        text: {
-          DEFAULT: 'var(--text-primary)',
-          secondary: 'var(--text-secondary)',
-          muted: 'var(--text-muted)',
-        }
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-muted': 'var(--text-muted)',
+        // Legacy support/direct access
+        secondary: 'var(--text-secondary)',
+        muted: 'var(--text-muted)',
       },
       fontFamily: {
         sans: ['JetBrains Mono', 'monospace'],

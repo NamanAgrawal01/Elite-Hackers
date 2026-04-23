@@ -62,7 +62,7 @@ const ForgotPassword = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
               >
                 <div className="text-center mb-6">
-                  <span className="text-[12px] tracking-[6px] text-text-muted uppercase cursor-default">RESET PASSPHRASE</span>
+                  <span className="text-[12px] tracking-[6px] text-muted uppercase cursor-default">RESET PASSPHRASE</span>
                 </div>
 
                 <form onSubmit={handleReset} className="space-y-4">
@@ -127,7 +127,7 @@ const ForgotPassword = () => {
           </AnimatePresence>
 
           <div className="mt-8 text-center">
-            <Link to="/login" className="text-[12px] text-text-secondary hover:text-primary transition-colors inline-flex items-center gap-2 group">
+            <Link to="/login" className="text-[12px] text-secondary hover:text-primary transition-colors inline-flex items-center gap-2 group">
               <ArrowLeft size={12} className="group-hover:-translate-x-1 transition-transform" /> 
               RETURN TO LOGIN
             </Link>

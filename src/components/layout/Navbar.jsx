@@ -21,18 +21,18 @@ const Navbar = () => {
     <header className="h-16 border-b border-[#1a2236] bg-[#050508]/80 backdrop-blur-xl sticky top-0 z-40 flex items-center justify-between px-6 w-full">
       <div className="flex items-center gap-4">
         {/* Mobile Menu Icon (Desktop hidden) */}
-        <button className="lg:hidden text-text-muted hover:text-primary">
+        <button className="lg:hidden text-muted hover:text-primary">
           <Menu size={20} />
         </button>
         <Link to="/dashboard" className="flex items-center gap-3 group">
           <img src="/logo.png" alt="Elite Hackers" className="h-8 w-auto group-hover:scale-105 transition-transform" />
           <div className="hidden md:block">
-            <h1 className="font-display font-bold text-sm tracking-[4px] text-text-primary uppercase leading-none">ELITE HACKERS</h1>
+            <h1 className="font-display font-bold text-sm tracking-[4px] text-primary uppercase leading-none">ELITE HACKERS</h1>
             <p className="font-mono text-[8px] text-primary tracking-[2px] mt-1 uppercase font-bold">Terminal Access</p>
           </div>
         </Link>
         <div className="ml-4 h-6 w-[1px] bg-border hidden lg:block"></div>
-        <h2 className="font-display font-bold text-xs tracking-widest text-text-secondary uppercase hidden lg:flex items-center gap-2">
+        <h2 className="font-display font-bold text-xs tracking-widest text-secondary uppercase hidden lg:flex items-center gap-2">
           <span className="text-primary opacity-30">/</span> {getPageTitle(location.pathname)}
         </h2>
       </div>
@@ -46,7 +46,7 @@ const Navbar = () => {
           <span className="hidden md:inline">Daily Challenge</span>
         </Link>
         
-        <button className="p-2 rounded-lg bg-[#0d1117] border border-[#1a2236] text-text-muted hover:text-cyan hover:border-cyan transition-all">
+        <button className="p-2 rounded-lg bg-[#0d1117] border border-[#1a2236] text-muted hover:text-cyan hover:border-cyan transition-all">
           <Moon size={18} />
         </button>
 

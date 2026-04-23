@@ -38,12 +38,12 @@ const AdminQuizzes = () => {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-border">
                 <div>
-                    <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase mb-1">EVALUATION CORE</h1>
-                    <p className="font-mono text-[10px] text-text-muted tracking-[4px] uppercase font-bold">Standardizing terminal proficiency</p>
+                    <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase mb-1">EVALUATION CORE</h1>
+                    <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase font-bold">Standardizing terminal proficiency</p>
                 </div>
                 <div className="flex gap-4">
                     <div className="relative">
-                        <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" />
+                        <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted" />
                         <input 
                             type="text" 
                             placeholder="FILTER QUIZZES..." 
@@ -65,25 +65,25 @@ const AdminQuizzes = () => {
                                 <Target size={24} />
                             </div>
                             <div className="flex gap-1">
-                                <button className="p-2 text-text-muted hover:text-cyan transition-all"><Edit3 size={16} /></button>
-                                <button className="p-2 text-text-muted hover:text-red transition-all"><Trash2 size={16} /></button>
+                                <button className="p-2 text-muted hover:text-cyan transition-all"><Edit3 size={16} /></button>
+                                <button className="p-2 text-muted hover:text-red transition-all"><Trash2 size={16} /></button>
                             </div>
                         </div>
                         <div>
                             <div className="font-mono text-[9px] text-primary font-bold tracking-widest uppercase mb-1">{item.languageId}</div>
-                            <h3 className="font-display font-bold text-xl text-text-primary tracking-wide mb-4 whitespace-nowrap overflow-hidden text-ellipsis">{item.title || 'Standard Assessment'}</h3>
+                            <h3 className="font-display font-bold text-xl text-primary tracking-wide mb-4 whitespace-nowrap overflow-hidden text-ellipsis">{item.title || 'Standard Assessment'}</h3>
                             <div className="flex gap-6 mb-8">
                                 <div className="flex flex-col">
-                                    <span className="font-mono text-[8px] text-text-muted uppercase tracking-widest mb-1">QUESTIONS</span>
-                                    <span className="font-display font-bold text-lg text-text-primary">{item.questions?.length || 0}</span>
+                                    <span className="font-mono text-[8px] text-muted uppercase tracking-widest mb-1">QUESTIONS</span>
+                                    <span className="font-display font-bold text-lg text-primary">{item.questions?.length || 0}</span>
                                 </div>
                                 <div className="flex flex-col">
-                                    <span className="font-mono text-[8px] text-text-muted uppercase tracking-widest mb-1">TOTAL XP</span>
+                                    <span className="font-mono text-[8px] text-muted uppercase tracking-widest mb-1">TOTAL XP</span>
                                     <span className="font-display font-bold text-lg text-primary">+{item.rewardXP || 1000}</span>
                                 </div>
                             </div>
                         </div>
-                        <button className="w-full py-3 bg-[#050508] border border-border text-text-muted font-mono text-[10px] font-bold tracking-widest uppercase rounded-lg group-hover:border-primary/30 group-hover:text-primary transition-all">
+                        <button className="w-full py-3 bg-[#050508] border border-border text-muted font-mono text-[10px] font-bold tracking-widest uppercase rounded-lg group-hover:border-primary/30 group-hover:text-primary transition-all">
                             [ MODIFY ASSESSMENT ]
                         </button>
                     </div>
@@ -93,8 +93,8 @@ const AdminQuizzes = () => {
                   onClick={() => toast('Evaluation Creator coming soon to main terminal.', { icon: '🛠️' })}
                   className="h-full min-h-[250px] border-2 border-dashed border-border rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-primary/40 hover:bg-primary/5 transition-all group"
                 >
-                    <Plus size={32} className="text-text-muted group-hover:text-primary transition-all" />
-                    <span className="font-display font-bold text-xs text-text-muted group-hover:text-primary tracking-widest uppercase">ADD NEW ASSESSMENT</span>
+                    <Plus size={32} className="text-muted group-hover:text-primary transition-all" />
+                    <span className="font-display font-bold text-xs text-muted group-hover:text-primary tracking-widest uppercase">ADD NEW ASSESSMENT</span>
                 </button>
             </div>
         </div>

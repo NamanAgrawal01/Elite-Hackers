@@ -64,15 +64,15 @@ const QuizPage = () => {
                <span className="font-mono text-xs opacity-80 uppercase tracking-widest">/ {total}</span>
             </div>
 
-            <h2 className="font-display font-bold text-2xl tracking-widest uppercase mb-2 text-text-primary">
+            <h2 className="font-display font-bold text-2xl tracking-widest uppercase mb-2 text-primary">
                {passed ? 'EVALUATION CLEARED' : 'EVALUATION FAILED'}
             </h2>
-            <p className="font-mono text-sm text-text-muted mb-8 tracking-widest">
+            <p className="font-mono text-sm text-muted mb-8 tracking-widest">
                {passed ? 'Security clearance granted. +150 XP' : 'Insufficient permissions. Authorization denied.'}
             </p>
 
             <div className="flex gap-4 justify-center">
-               <button onClick={() => navigate('/dashboard')} className="px-6 py-3 border border-border text-text-muted rounded-md hover:text-text-primary hover:border-text-muted font-mono tracking-widest uppercase text-xs font-bold transition-colors">
+               <button onClick={() => navigate('/dashboard')} className="px-6 py-3 border border-border text-muted rounded-md hover:text-primary hover:border-text-muted font-mono tracking-widest uppercase text-xs font-bold transition-colors">
                   [ TERMINALS ]
                </button>
                {passed ? (
@@ -100,7 +100,7 @@ const QuizPage = () => {
         <div className="font-mono text-[11px] text-primary font-bold tracking-widest uppercase bg-primary/10 border border-primary/20 px-3 py-1.5 rounded">
           MODULE {currentQ + 1} OF {MOCK_QUIZ_DATA.length}
         </div>
-        <div className="flex items-center gap-2 text-text-muted font-mono text-[11px] tracking-widest uppercase">
+        <div className="flex items-center gap-2 text-muted font-mono text-[11px] tracking-widest uppercase">
           <Clock size={14} className="text-cyan animate-pulse" /> TIME IS LOGGED
         </div>
       </div>
@@ -115,13 +115,13 @@ const QuizPage = () => {
         animate={{ opacity: 1, x: 0 }}
         className="bg-bg-card border border-border p-8 rounded-2xl"
       >
-         <h2 className="font-display font-bold text-2xl text-text-primary tracking-wide mb-8 leading-relaxed">
+         <h2 className="font-display font-bold text-2xl text-primary tracking-wide mb-8 leading-relaxed">
             {q.question}
          </h2>
 
          <div className="space-y-4">
             {q.options.map((opt, idx) => {
-               let stateClass = "border-[#1a2236] text-text-secondary hover:border-text-muted bg-[#050508]";
+               let stateClass = "border-[#1a2236] text-secondary hover:border-text-muted bg-[#050508]";
                if (isAnswered) {
                   if (idx === q.correct) stateClass = "border-primary bg-primary/10 text-primary glow-green";
                   else if (idx === selectedOpt) stateClass = "border-red bg-red/10 text-red glow-red";
@@ -148,7 +148,7 @@ const QuizPage = () => {
             <button 
               onClick={handleNext}
               disabled={!isAnswered}
-              className={`flex items-center gap-2 px-8 py-3 rounded font-mono text-xs font-bold tracking-widest uppercase transition-all ${isAnswered ? 'bg-text-primary text-bg-primary hover:scale-105' : 'bg-transparent text-text-muted border border-[#1a2236] opacity-50 cursor-not-allowed'}`}
+              className={`flex items-center gap-2 px-8 py-3 rounded font-mono text-xs font-bold tracking-widest uppercase transition-all ${isAnswered ? 'bg-text-primary text-bg-primary hover:scale-105' : 'bg-transparent text-muted border border-[#1a2236] opacity-50 cursor-not-allowed'}`}
             >
               {currentQ === MOCK_QUIZ_DATA.length - 1 ? 'SUBMIT EVALUATION' : 'NEXT PROTOCOL'} <ChevronRight size={16} />
             </button>

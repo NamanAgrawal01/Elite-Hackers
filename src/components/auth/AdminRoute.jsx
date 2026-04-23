@@ -18,7 +18,7 @@ const AdminRoute = ({ children }) => {
 
   // If not logged in or not admin, redirect to dashboard or login
   if (!currentUser) return <Navigate to="/login" replace />;
-  if (userData && !userData.isAdmin) return <Navigate to="/dashboard" replace />;
+  if (!userData || !userData.isAdmin) return <Navigate to="/dashboard" replace />;
 
   return children;
 };

@@ -17,8 +17,8 @@ const AdminSettings = () => {
 
             <div className="flex items-center justify-between pb-6 border-b border-border">
                 <div>
-                    <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase mb-1">CORE CONFIGURATION</h1>
-                    <p className="font-mono text-[10px] text-text-muted tracking-[4px] uppercase font-bold">Managing global infrastructure parameters</p>
+                    <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase mb-1">CORE CONFIGURATION</h1>
+                    <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase font-bold">Managing global infrastructure parameters</p>
                 </div>
                 <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-lg flex items-center gap-2">
                     <Shield size={14} className="text-primary" />
@@ -35,8 +35,8 @@ const AdminSettings = () => {
                                 <Power size={20} />
                             </div>
                             <div>
-                                <h4 className="font-display font-bold text-sm text-text-primary uppercase tracking-wide">MAINTENANCE MODE</h4>
-                                <p className="font-mono text-[10px] text-text-muted uppercase">Lock the entire mesh for updates</p>
+                                <h4 className="font-display font-bold text-sm text-primary uppercase tracking-wide">MAINTENANCE MODE</h4>
+                                <p className="font-mono text-[10px] text-muted uppercase">Lock the entire mesh for updates</p>
                             </div>
                         </div>
                         <button 
@@ -53,8 +53,8 @@ const AdminSettings = () => {
                                 <Search size={20} />
                             </div>
                             <div>
-                                <h4 className="font-display font-bold text-sm text-text-primary uppercase tracking-wide">REAL-TIME AUDIT LOGGING</h4>
-                                <p className="font-mono text-[10px] text-text-muted uppercase">Global forensic tracking of all events</p>
+                                <h4 className="font-display font-bold text-sm text-primary uppercase tracking-wide">REAL-TIME AUDIT LOGGING</h4>
+                                <p className="font-mono text-[10px] text-muted uppercase">Global forensic tracking of all events</p>
                             </div>
                         </div>
                         <button 
@@ -69,7 +69,7 @@ const AdminSettings = () => {
                 {/* API & INFRASTRUCTURE */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="bg-bg-card border border-border p-6 rounded-2xl space-y-4">
-                        <div className="flex items-center gap-3 text-text-muted mb-2">
+                        <div className="flex items-center gap-3 text-muted mb-2">
                             <Cpu size={18} />
                             <h4 className="font-display font-bold text-xs uppercase tracking-widest">Compiler Node</h4>
                         </div>
@@ -77,13 +77,13 @@ const AdminSettings = () => {
                             type="text" 
                             readOnly 
                             value="https://emkc.org/api/v2/piston" 
-                            className="w-full bg-bg-primary border border-border rounded-lg p-3 font-mono text-xs text-text-muted cursor-not-allowed" 
+                            className="w-full bg-bg-primary border border-border rounded-lg p-3 font-mono text-xs text-muted cursor-not-allowed" 
                         />
-                        <p className="font-mono text-[8px] text-text-muted uppercase">Connected to Piston API v2</p>
+                        <p className="font-mono text-[8px] text-muted uppercase">Connected to Piston API v2</p>
                     </div>
 
                     <div className="bg-bg-card border border-border p-6 rounded-2xl space-y-4">
-                        <div className="flex items-center gap-3 text-text-muted mb-2">
+                        <div className="flex items-center gap-3 text-muted mb-2">
                             <Database size={18} />
                             <h4 className="font-display font-bold text-xs uppercase tracking-widest">Cloud Database</h4>
                         </div>
@@ -91,9 +91,9 @@ const AdminSettings = () => {
                             type="text" 
                             readOnly 
                             value="FIREBASE_FIRESTORE_US_EAST" 
-                            className="w-full bg-bg-primary border border-border rounded-lg p-3 font-mono text-xs text-text-muted cursor-not-allowed" 
+                            className="w-full bg-bg-primary border border-border rounded-lg p-3 font-mono text-xs text-muted cursor-not-allowed" 
                         />
-                        <p className="font-mono text-[8px] text-text-muted uppercase">Status: SYNCHRONIZED</p>
+                        <p className="font-mono text-[8px] text-muted uppercase">Status: SYNCHRONIZED</p>
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@ const AdminSettings = () => {
                     <AlertTriangle size={24} className="text-red shrink-0" />
                     <div>
                         <h4 className="font-display font-bold text-sm text-red uppercase tracking-widest mb-1">DANGER ZONE</h4>
-                        <p className="font-body text-[10px] text-text-secondary leading-relaxed uppercase tracking-widest">
+                        <p className="font-body text-[10px] text-secondary leading-relaxed uppercase tracking-widest">
                             Wiping the global cache or resetting production database nodes will result in irreversible data loss. Proceed with extreme caution.
                         </p>
                         <button className="mt-4 px-6 py-2 border border-red/50 text-red font-mono text-[10px] font-bold tracking-widest uppercase hover:bg-red hover:text-white transition-all">

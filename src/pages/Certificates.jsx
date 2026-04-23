@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LoadingScreen from '../components/ui/LoadingScreen';
 import { useAuth } from '../hooks/useAuth';
 import { Helmet } from 'react-helmet-async';
 import { Award, Download, CheckCircle, ShieldAlert } from 'lucide-react';
@@ -83,7 +84,7 @@ const Certificates = () => {
     }
   };
 
-  if (!userData) return null;
+  if (!userData) return <LoadingScreen />;
 
   return (
     <div className="max-w-5xl mx-auto animate-fade-in-up">
@@ -94,8 +95,8 @@ const Certificates = () => {
             <Award className="text-primary" size={24} />
          </div>
          <div>
-            <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase">CERTIFICATE AUTHORITY</h1>
-            <p className="font-mono text-sm text-text-muted tracking-widest uppercase">View and download your cryptographic proofs of completion.</p>
+            <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase">CERTIFICATE AUTHORITY</h1>
+            <p className="font-mono text-sm text-muted tracking-widest uppercase">View and download your cryptographic proofs of completion.</p>
          </div>
       </div>
 
@@ -108,13 +109,13 @@ const Certificates = () => {
                   <div className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase font-bold tracking-widest text-[#00d4ff] bg-[#00d4ff]/10 border border-[#00d4ff]/30 px-2 py-1 rounded">
                      <ShieldAlert size={12} /> {cert.level}
                   </div>
-                  <div className="font-mono text-[10px] text-text-muted uppercase tracking-widest">
+                  <div className="font-mono text-[10px] text-muted uppercase tracking-widest">
                      {format(cert.date, 'MMM dd, yyyy')}
                   </div>
                </div>
 
-               <h3 className="font-display font-bold text-2xl text-text-primary uppercase tracking-wider mb-2 relative z-10">{cert.name}</h3>
-               <p className="font-mono text-xs text-text-secondary tracking-widest mb-8 relative z-10">CERT ID: {cert.id}</p>
+               <h3 className="font-display font-bold text-2xl text-primary uppercase tracking-wider mb-2 relative z-10">{cert.name}</h3>
+               <p className="font-mono text-xs text-secondary tracking-widest mb-8 relative z-10">CERT ID: {cert.id}</p>
 
                <div className="flex gap-4 relative z-10">
                   <button 
@@ -128,7 +129,7 @@ const Certificates = () => {
                         navigator.clipboard.writeText(`https://elitehackers.web.app/verify/${cert.id}`);
                         toast.success('Verification URL copied');
                      }} 
-                     className="px-6 border border-border text-text-muted hover:text-cyan hover:border-cyan rounded font-bold font-mono tracking-widest text-[11px] uppercase transition-colors flex items-center gap-2"
+                     className="px-6 border border-border text-muted hover:text-cyan hover:border-cyan rounded font-bold font-mono tracking-widest text-[11px] uppercase transition-colors flex items-center gap-2"
                   >
                      <CheckCircle size={16} /> VERIFY URL
                   </button>

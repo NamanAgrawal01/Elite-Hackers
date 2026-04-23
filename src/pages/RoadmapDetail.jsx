@@ -30,7 +30,7 @@ const RoadmapDetail = () => {
         <div className="max-w-4xl mx-auto space-y-10 animate-fade-in-up">
             <Helmet><title>{roadmap.title} Path — ELITE HACKERS</title></Helmet>
 
-            <Link to="/roadmaps" className="inline-flex items-center gap-2 text-text-muted hover:text-primary transition-all font-mono text-xs uppercase tracking-widest group">
+            <Link to="/roadmaps" className="inline-flex items-center gap-2 text-muted hover:text-primary transition-all font-mono text-xs uppercase tracking-widest group">
                 <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> [ BACK TO ALL ROADMAPS ]
             </Link>
 
@@ -41,15 +41,15 @@ const RoadmapDetail = () => {
                         <Layers size={24} className="text-primary" />
                         <span className="font-mono text-[10px] text-primary font-bold tracking-[6px] uppercase">Path Initialization</span>
                     </div>
-                    <h1 className="font-display font-bold text-4xl text-text-primary tracking-widest uppercase mb-6">{roadmap.title}</h1>
+                    <h1 className="font-display font-bold text-4xl text-primary tracking-widest uppercase mb-6">{roadmap.title}</h1>
                     <div className="flex gap-10">
                         <div>
-                            <div className="text-text-muted font-mono text-[9px] uppercase tracking-widest mb-1">Modules</div>
-                            <div className="text-text-primary font-display font-bold text-xl">{roadmap.modules.length} Nodes</div>
+                            <div className="text-muted font-mono text-[9px] uppercase tracking-widest mb-1">Modules</div>
+                            <div className="text-primary font-display font-bold text-xl">{roadmap.modules.length} Nodes</div>
                         </div>
                         <div>
-                            <div className="text-text-muted font-mono text-[9px] uppercase tracking-widest mb-1">Avg Time</div>
-                            <div className="text-text-primary font-display font-bold text-xl">12 Weeks</div>
+                            <div className="text-muted font-mono text-[9px] uppercase tracking-widest mb-1">Avg Time</div>
+                            <div className="text-primary font-display font-bold text-xl">12 Weeks</div>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ const RoadmapDetail = () => {
                                 <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center font-mono text-sm text-primary font-bold">
                                     {idx + 1}
                                 </div>
-                                <h3 className="font-display font-bold text-lg text-text-primary tracking-wide uppercase">{mod.name}</h3>
+                                <h3 className="font-display font-bold text-lg text-primary tracking-wide uppercase">{mod.name}</h3>
                             </div>
                             <span className="font-mono text-[10px] text-primary font-bold">+{mod.xp} XP</span>
                         </div>
@@ -71,8 +71,8 @@ const RoadmapDetail = () => {
                             {mod.lessons.map((lesson, lIdx) => (
                                 <div key={lIdx} className="flex items-center justify-between group/lesson">
                                     <div className="flex items-center gap-4">
-                                        <CheckCircle2 size={16} className={lIdx === 0 ? 'text-primary' : 'text-text-muted opacity-30'} />
-                                        <span className={`font-mono text-[11px] tracking-widest uppercase ${lIdx === 0 ? 'text-text-primary' : 'text-text-secondary'}`}>
+                                        <CheckCircle2 size={16} className={lIdx === 0 ? 'text-primary' : 'text-muted opacity-30'} />
+                                        <span className={`font-mono text-[11px] tracking-widest uppercase ${lIdx === 0 ? 'text-primary' : 'text-secondary'}`}>
                                             {lesson}
                                         </span>
                                     </div>
@@ -81,7 +81,7 @@ const RoadmapDetail = () => {
                                             [ DEPLOY LESSON ]
                                         </button>
                                     ) : (
-                                        <Lock size={14} className="text-text-muted opacity-20" />
+                                        <Lock size={14} className="text-muted opacity-20" />
                                     )}
                                 </div>
                             ))}
@@ -91,7 +91,7 @@ const RoadmapDetail = () => {
             </div>
 
             <div className="pt-10 border-t border-border flex justify-between items-center">
-                <p className="font-mono text-[10px] text-text-muted uppercase tracking-widest">Enrollment Status: SECURED</p>
+                <p className="font-mono text-[10px] text-muted uppercase tracking-widest">Enrollment Status: SECURED</p>
                 <button className="px-10 py-4 bg-primary text-bg-primary font-display font-bold text-xs tracking-[4px] rounded-xl hover:scale-105 transition-all shadow-lg uppercase">
                     [ START FULL PATH ]
                 </button>

@@ -71,8 +71,8 @@ const AdminChallenges = () => {
 
             <div className="flex justify-between items-center pb-6 border-b border-[#1a2236]">
                 <div>
-                    <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase">DAILY OPERATIONS</h1>
-                    <p className="font-mono text-[10px] text-text-muted tracking-[4px] uppercase mt-1">Deploy and monitor global survival challenges</p>
+                    <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase">DAILY OPERATIONS</h1>
+                    <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase mt-1">Deploy and monitor global survival challenges</p>
                 </div>
                 <button 
                     onClick={() => setIsAdding(!isAdding)}
@@ -86,7 +86,7 @@ const AdminChallenges = () => {
                 <div className="bg-bg-card border border-primary/30 p-8 rounded-2xl animate-fade-in">
                     <form onSubmit={handleCreate} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="md:col-span-2">
-                            <label className="block font-mono text-[10px] text-text-muted uppercase mb-2">Operational Title</label>
+                            <label className="block font-mono text-[10px] text-muted uppercase mb-2">Operational Title</label>
                             <input 
                                 value={formData.title}
                                 onChange={e => setFormData({...formData, title: e.target.value})}
@@ -95,16 +95,16 @@ const AdminChallenges = () => {
                             />
                         </div>
                         <div className="md:col-span-2">
-                            <label className="block font-mono text-[10px] text-text-muted uppercase mb-2">Mission Briefing</label>
+                            <label className="block font-mono text-[10px] text-muted uppercase mb-2">Mission Briefing</label>
                             <textarea 
                                 value={formData.desc}
                                 onChange={e => setFormData({...formData, desc: e.target.value})}
-                                className="w-full bg-[#050508] border border-[#1a2236] rounded-lg p-3 font-mono text-sm text-text-secondary h-24 focus:border-primary focus:outline-none"
+                                className="w-full bg-[#050508] border border-[#1a2236] rounded-lg p-3 font-mono text-sm text-secondary h-24 focus:border-primary focus:outline-none"
                                 required
                             />
                         </div>
                         <div>
-                            <label className="block font-mono text-[10px] text-text-muted uppercase mb-2">XP Reward</label>
+                            <label className="block font-mono text-[10px] text-muted uppercase mb-2">XP Reward</label>
                             <input 
                                 type="number"
                                 value={formData.xp}
@@ -113,7 +113,7 @@ const AdminChallenges = () => {
                             />
                         </div>
                         <div>
-                            <label className="block font-mono text-[10px] text-text-muted uppercase mb-2">Mission Type</label>
+                            <label className="block font-mono text-[10px] text-muted uppercase mb-2">Mission Type</label>
                             <select 
                                 value={formData.type}
                                 onChange={e => setFormData({...formData, type: e.target.value})}
@@ -137,12 +137,12 @@ const AdminChallenges = () => {
                 {loading ? (
                     <div className="py-20 text-center animate-pulse">
                         <Terminal size={40} className="text-primary mx-auto mb-4" />
-                        <div className="font-mono text-xs text-text-muted uppercase">Scanning Ops Ledger...</div>
+                        <div className="font-mono text-xs text-muted uppercase">Scanning Ops Ledger...</div>
                     </div>
                 ) : challenges.length === 0 ? (
                     <div className="bg-bg-card border border-dashed border-border p-20 text-center rounded-2xl">
-                        <Shield size={40} className="text-text-muted mx-auto mb-4 opacity-20" />
-                        <div className="font-display font-bold text-lg text-text-muted">NO ACTIVE OPERATIONS</div>
+                        <Shield size={40} className="text-muted mx-auto mb-4 opacity-20" />
+                        <div className="font-display font-bold text-lg text-muted">NO ACTIVE OPERATIONS</div>
                     </div>
                 ) : (
                     challenges.map(chal => (
@@ -152,17 +152,17 @@ const AdminChallenges = () => {
                                     {chal.type === 'coding' ? <Terminal size={24} /> : <Shield size={24} />}
                                 </div>
                                 <div>
-                                    <h3 className="font-display font-bold text-lg text-text-primary uppercase tracking-widest">{chal.title}</h3>
+                                    <h3 className="font-display font-bold text-lg text-primary uppercase tracking-widest">{chal.title}</h3>
                                     <div className="flex items-center gap-4 mt-2">
                                         <span className="font-mono text-[9px] text-gold font-bold uppercase">⚡ {chal.xp} XP</span>
                                         <span className="font-mono text-[9px] text-cyan font-bold uppercase border border-cyan/30 px-2 py-0.5 rounded">{chal.difficulty}</span>
-                                        <span className="font-mono text-[9px] text-text-muted uppercase">Detected: {chal.createdAt?.toDate().toLocaleDateString()}</span>
+                                        <span className="font-mono text-[9px] text-muted uppercase">Detected: {chal.createdAt?.toDate().toLocaleDateString()}</span>
                                     </div>
                                 </div>
                             </div>
                             <div className="flex gap-2">
-                                <button className="p-2 text-text-muted hover:text-primary transition-colors"><Edit3 size={18} /></button>
-                                <button onClick={() => handleDelete(chal.id)} className="p-2 text-text-muted hover:text-red transition-colors"><Trash2 size={18} /></button>
+                                <button className="p-2 text-muted hover:text-primary transition-colors"><Edit3 size={18} /></button>
+                                <button onClick={() => handleDelete(chal.id)} className="p-2 text-muted hover:text-red transition-colors"><Trash2 size={18} /></button>
                             </div>
                         </div>
                     ))

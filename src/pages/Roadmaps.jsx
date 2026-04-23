@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ROADMAPS } from '../utils/constants';
@@ -9,10 +10,10 @@ const Roadmaps = () => {
             <Helmet><title>Learning Roadmaps — ELITE HACKERS</title></Helmet>
 
             <div className="pb-8 border-b border-border">
-                <h1 className="font-display font-bold text-4xl text-text-primary tracking-widest uppercase mb-4">
+                <h1 className="font-display font-bold text-4xl text-primary tracking-widest uppercase mb-4">
                     LEARNING <span className="text-primary glow-green">ROADMAPS</span>
                 </h1>
-                <p className="font-mono text-[10px] text-text-muted tracking-[6px] uppercase font-bold">Structural trajectories for elite operative specialization</p>
+                <p className="font-mono text-[10px] text-muted tracking-[6px] uppercase font-bold">Structural trajectories for elite operative specialization</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -33,14 +34,14 @@ const Roadmaps = () => {
                                 <road.icon size={36} />
                             </div>
                             <div>
-                                <h3 className="font-display font-bold text-2xl text-text-primary tracking-wide uppercase">
+                                <h3 className="font-display font-bold text-2xl text-primary tracking-wide uppercase">
                                     {road.title}
                                 </h3>
                                 <span className="font-mono text-[9px] text-primary tracking-[4px] uppercase font-bold">NODE NETWORK ACTIVE</span>
                             </div>
                         </div>
 
-                        <p className="font-mono text-[11px] text-text-secondary mb-10 leading-relaxed uppercase tracking-widest">
+                        <p className="font-mono text-[11px] text-secondary mb-10 leading-relaxed uppercase tracking-widest">
                             {road.desc}
                         </p>
 
@@ -50,10 +51,10 @@ const Roadmaps = () => {
                                     {sIdx < road.steps.length - 1 && (
                                         <div className="absolute left-[11px] top-6 bottom-0 w-[2px] bg-border group-hover/step:bg-primary/30 transition-colors"></div>
                                     )}
-                                    <div className={`absolute left-0 top-1 w-6 h-6 rounded-full border-2 flex items-center justify-center font-mono text-[9px] font-bold z-10 transition-all ${sIdx === 0 ? 'bg-primary border-primary text-bg-primary shadow-[0_0_10px_var(--primary-glow)]' : 'bg-bg-primary border-border text-text-muted group-hover/step:border-primary/50'}`}>
+                                    <div className={`absolute left-0 top-1 w-6 h-6 rounded-full border-2 flex items-center justify-center font-mono text-[9px] font-bold z-10 transition-all ${sIdx === 0 ? 'bg-primary border-primary text-bg-primary shadow-[0_0_10px_var(--primary-glow)]' : 'bg-bg-primary border-border text-muted group-hover/step:border-primary/50'}`}>
                                         {sIdx + 1}
                                     </div>
-                                    <div className="font-display font-bold text-[13px] text-text-primary tracking-widest uppercase group-hover/step:text-primary transition-colors">{step}</div>
+                                    <div className="font-display font-bold text-[13px] text-primary tracking-widest uppercase group-hover/step:text-primary transition-colors">{step}</div>
                                 </div>
                             ))}
                         </div>

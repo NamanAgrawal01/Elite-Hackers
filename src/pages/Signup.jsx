@@ -175,7 +175,7 @@ const Signup = () => {
 
           <form onSubmit={handleSignup} className="space-y-4">
             <div className="text-center mb-4">
-              <span className="text-[12px] tracking-[6px] text-text-muted uppercase">CREATE IDENTITY</span>
+              <span className="text-[12px] tracking-[6px] text-muted uppercase">CREATE IDENTITY</span>
             </div>
 
             {/* CODENAME */}
@@ -235,7 +235,7 @@ const Signup = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-primary transition-colors focus:outline-none"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-muted hover:text-primary transition-colors focus:outline-none"
                 >
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
@@ -301,7 +301,7 @@ const Signup = () => {
 
             {/* REFERRAL */}
             <div className="relative group">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] text-text-muted font-bold z-10 select-none pointer-events-none">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] text-muted font-bold z-10 select-none pointer-events-none">
                 {'>'} REFERRAL CODE:
               </span>
               <input
@@ -320,7 +320,7 @@ const Signup = () => {
                 <input type="checkbox" checked={termsAccepted} onChange={(e) => setTermsAccepted(e.target.checked)} className="hidden appearance-none" />
                 <svg className={`w-3 h-3 text-primary transition-opacity ${termsAccepted ? 'opacity-100' : 'opacity-0'}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </div>
-              <span className="text-[10px] text-text-secondary leading-relaxed">
+              <span className="text-[10px] text-secondary leading-relaxed">
                 I accept the Elite Hackers Protocol and confirm I will use this platform for ethical purposes only.
               </span>
             </label>
@@ -353,7 +353,7 @@ const Signup = () => {
             </button>
           </form>
 
-          <div className="mt-8 text-center text-[12px] text-text-secondary">
+          <div className="mt-8 text-center text-[12px] text-secondary">
             ALREADY RECRUITED? <Link to="/login" className="text-primary hover:text-cyan hover:underline ml-1 transition-colors">[ LOGIN TERMINAL ]</Link>
           </div>
 

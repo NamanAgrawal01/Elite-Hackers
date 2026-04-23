@@ -56,12 +56,12 @@ const VerifyCert = () => {
                                 <ShieldAlert size={40} />
                             </div>
                             <div>
-                                <h1 className="font-display font-bold text-3xl text-text-primary uppercase tracking-widest mb-4">VERIFICATION FAILED</h1>
-                                <p className="font-mono text-sm text-text-muted leading-relaxed uppercase tracking-widest">
+                                <h1 className="font-display font-bold text-3xl text-primary uppercase tracking-widest mb-4">VERIFICATION FAILED</h1>
+                                <p className="font-mono text-sm text-muted leading-relaxed uppercase tracking-widest">
                                     The provided certification ID is invalid or has been revoked from the ELITE HACKERS registry.
                                 </p>
                             </div>
-                            <Link to="/" className="inline-block px-10 py-4 bg-bg-card border border-border text-text-muted rounded-xl hover:text-primary hover:border-primary transition-all font-mono text-xs uppercase tracking-[3px]">
+                            <Link to="/" className="inline-block px-10 py-4 bg-bg-card border border-border text-muted rounded-xl hover:text-primary hover:border-primary transition-all font-mono text-xs uppercase tracking-[3px]">
                                 [ RETURN TO BASE ]
                             </Link>
                         </div>
@@ -71,24 +71,24 @@ const VerifyCert = () => {
                                 <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto text-primary border border-primary/20 shadow-[0_0_30px_rgba(0,255,136,0.2)] mb-6">
                                     <ShieldCheck size={40} />
                                 </div>
-                                <h1 className="font-display font-bold text-3xl text-text-primary uppercase tracking-widest">CERTIFICATE VERIFIED</h1>
+                                <h1 className="font-display font-bold text-3xl text-primary uppercase tracking-widest">CERTIFICATE VERIFIED</h1>
                                 <p className="font-mono text-[10px] text-primary tracking-[6px] uppercase font-bold">Authenticated Terminal Record</p>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-y border-border">
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-4">
-                                        <User size={18} className="text-text-muted" />
+                                        <User size={18} className="text-muted" />
                                         <div>
-                                            <div className="text-[10px] font-mono text-text-muted uppercase tracking-widest font-bold">Recipient</div>
-                                            <div className="text-text-primary font-display font-bold text-lg uppercase">{certData.username}</div>
+                                            <div className="text-[10px] font-mono text-muted uppercase tracking-widest font-bold">Recipient</div>
+                                            <div className="text-primary font-display font-bold text-lg uppercase">{certData.username}</div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
                                         <Award size={18} className="text-primary" />
                                         <div>
-                                            <div className="text-[10px] font-mono text-text-muted uppercase tracking-widest font-bold">Credential</div>
-                                            <div className="text-text-primary font-display font-bold text-lg uppercase">{certData.title} Master</div>
+                                            <div className="text-[10px] font-mono text-muted uppercase tracking-widest font-bold">Credential</div>
+                                            <div className="text-primary font-display font-bold text-lg uppercase">{certData.title} Master</div>
                                         </div>
                                     </div>
                                 </div>
@@ -96,15 +96,15 @@ const VerifyCert = () => {
                                     <div className="flex items-center gap-4">
                                         <Calendar size={18} className="text-cyan" />
                                         <div>
-                                            <div className="text-[10px] font-mono text-text-muted uppercase tracking-widest font-bold">Issued At</div>
-                                            <div className="text-text-primary font-display font-bold text-lg uppercase">{format(certData.issuedAt?.toDate ? certData.issuedAt.toDate() : new Date(), 'dd MMM yyyy')}</div>
+                                            <div className="text-[10px] font-mono text-muted uppercase tracking-widest font-bold">Issued At</div>
+                                            <div className="text-primary font-display font-bold text-lg uppercase">{format(certData.issuedAt?.toDate ? certData.issuedAt.toDate() : new Date(), 'dd MMM yyyy')}</div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
                                         <QrCode size={18} className="text-purple" />
                                         <div>
-                                            <div className="text-[10px] font-mono text-text-muted uppercase tracking-widest font-bold">Registry ID</div>
-                                            <div className="text-text-primary font-mono text-[11px] font-bold uppercase truncate max-w-[150px]">{certId}</div>
+                                            <div className="text-[10px] font-mono text-muted uppercase tracking-widest font-bold">Registry ID</div>
+                                            <div className="text-primary font-mono text-[11px] font-bold uppercase truncate max-w-[150px]">{certId}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@ const VerifyCert = () => {
                                 <button className="w-full py-4 bg-primary text-bg-primary font-display font-bold text-xs tracking-[4px] rounded-xl hover:scale-[1.02] transition-all shadow-lg flex items-center justify-center gap-3 uppercase">
                                     <ExternalLink size={18} /> [ VIEW FULL CREDENTIAL ]
                                 </button>
-                                <Link to="/dashboard" className="text-center font-mono text-[10px] text-text-muted hover:text-primary transition-colors uppercase tracking-widest">
+                                <Link to="/dashboard" className="text-center font-mono text-[10px] text-muted hover:text-primary transition-colors uppercase tracking-widest">
                                     Enter Platform Node
                                 </Link>
                             </div>
@@ -126,7 +126,7 @@ const VerifyCert = () => {
             {/* Branding Footer */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-20 hover:opacity-100 transition-opacity flex items-center gap-3">
                 <img src="/logo.png" alt="Logo" className="h-6 w-auto grayscale" />
-                <span className="font-display font-bold text-[10px] text-text-primary tracking-[8px] uppercase">ELITE HACKERS</span>
+                <span className="font-display font-bold text-[10px] text-primary tracking-[8px] uppercase">ELITE HACKERS</span>
             </div>
         </div>
     );

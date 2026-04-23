@@ -32,7 +32,7 @@ class ErrorBoundary extends React.Component {
 
             <div className="bg-[#050508] rounded-lg p-5 border border-border mb-8 overflow-x-auto">
               <p className="text-primary mb-2 text-sm font-bold">ERROR_LOG:</p>
-              <code className="text-text-secondary text-xs block whitespace-pre-wrap">
+              <code className="text-secondary text-xs block whitespace-pre-wrap">
                 {this.state.error?.toString() || "Unknown core dump"}
               </code>
             </div>
@@ -46,13 +46,13 @@ class ErrorBoundary extends React.Component {
               </button>
               <button 
                 onClick={() => window.location.href = '/'}
-                className="flex-1 px-6 py-3 border border-border text-text-secondary font-bold rounded-lg hover:border-primary hover:text-primary transition-all uppercase text-sm tracking-widest"
+                className="flex-1 px-6 py-3 border border-border text-secondary font-bold rounded-lg hover:border-primary hover:text-primary transition-all uppercase text-sm tracking-widest"
               >
                 [ RETURN TO BASE ]
               </button>
             </div>
             
-            <p className="mt-8 text-[10px] text-text-muted text-center uppercase tracking-[4px]">
+            <p className="mt-8 text-[10px] text-muted text-center uppercase tracking-[4px]">
               Tracing protocol... Unauthorized access may have caused this instability.
             </p>
           </div>

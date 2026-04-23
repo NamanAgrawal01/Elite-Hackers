@@ -17,7 +17,7 @@ const OwnerRoute = ({ children }) => {
   }
 
   if (!currentUser) return <Navigate to="/login" replace />;
-  if (userData && !userData.isOwner) return <Navigate to="/dashboard" replace />;
+  if (!userData || !userData.isOwner) return <Navigate to="/dashboard" replace />;
 
   return children;
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import LoadingScreen from '../../components/ui/LoadingScreen';
 import { Helmet } from 'react-helmet-async';
 import { db } from '../../firebase/firebase';
 import { collection, query, where, getDocs, doc, updateDoc, Timestamp } from 'firebase/firestore';
@@ -8,6 +9,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 const AdminPayments = () => {
     const { userData } = useAuth();
+  if (!userData) return <LoadingScreen />;
     const [pending, setPending] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -61,8 +63,8 @@ const AdminPayments = () => {
 
             <div className="flex items-center justify-between mb-10 pb-6 border-b border-[#1a2236]">
                 <div>
-                    <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase">FINANCIAL NODES</h1>
-                    <p className="font-mono text-[10px] text-text-muted tracking-[4px] uppercase mt-2">Confirm pending subscriptions and adminships</p>
+                    <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase">FINANCIAL NODES</h1>
+                    <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase mt-2">Confirm pending subscriptions and adminships</p>
                 </div>
                 <div className="bg-gold/10 border border-gold/20 px-4 py-2 rounded-lg flex items-center gap-3">
                     <DollarSign size={18} className="text-gold" />
@@ -73,13 +75,13 @@ const AdminPayments = () => {
             {loading ? (
                 <div className="flex flex-col items-center justify-center py-20 gap-4">
                     <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-                    <span className="font-mono text-xs text-text-muted tracking-widest animate-pulse">SCANNING LEDGER...</span>
+                    <span className="font-mono text-xs text-muted tracking-widest animate-pulse">SCANNING LEDGER...</span>
                 </div>
             ) : pending.length === 0 ? (
                 <div className="bg-bg-card border border-dashed border-border rounded-2xl p-20 text-center">
-                    <Clock size={48} className="text-text-muted mx-auto mb-6 opacity-20" />
-                    <h3 className="font-display font-bold text-xl text-text-muted tracking-widest">NO PENDING TRANSACTIONS</h3>
-                    <p className="font-mono text-xs text-text-muted mt-2">All network payments are currently synchronized.</p>
+                    <Clock size={48} className="text-muted mx-auto mb-6 opacity-20" />
+                    <h3 className="font-display font-bold text-xl text-muted tracking-widest">NO PENDING TRANSACTIONS</h3>
+                    <p className="font-mono text-xs text-muted mt-2">All network payments are currently synchronized.</p>
                 </div>
             ) : (
                 <div className="grid grid-cols-1 gap-4">
@@ -89,12 +91,12 @@ const AdminPayments = () => {
                                 <div className="relative">
                                     <img src={user.photoURL} alt="User" className="w-14 h-14 rounded-full border-2 border-border" />
                                     <div className="absolute -bottom-1 -right-1 bg-bg-primary p-1 rounded-full border border-border">
-                                        <User size={12} className="text-text-muted" />
+                                        <User size={12} className="text-muted" />
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 className="font-display font-bold text-lg text-text-primary uppercase tracking-wider">{user.username}</h3>
-                                    <p className="font-mono text-[11px] text-text-secondary uppercase">{user.email}</p>
+                                    <h3 className="font-display font-bold text-lg text-primary uppercase tracking-wider">{user.username}</h3>
+                                    <p className="font-mono text-[11px] text-secondary uppercase">{user.email}</p>
                                     <div className="flex gap-2 mt-2">
                                         <span className="px-2 py-0.5 bg-gold/10 border border-gold/20 text-gold font-mono text-[9px] font-bold uppercase rounded">
                                             Requesting: {user.pendingPlan?.toUpperCase()}

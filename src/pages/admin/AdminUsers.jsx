@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import LoadingScreen from '../../components/ui/LoadingScreen';
 import { Helmet } from 'react-helmet-async';
 import { db } from '../../firebase/firebase';
 import { collection, query, getDocs, doc, updateDoc, orderBy, limit } from 'firebase/firestore';
@@ -8,6 +9,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 const AdminUsers = () => {
     const { userData: adminData } = useAuth();
+  if (!userData) return <LoadingScreen />;
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState('');
@@ -73,12 +75,12 @@ const AdminUsers = () => {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div>
-                    <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase mb-1">USER MATRIX</h1>
-                    <p className="font-mono text-[10px] text-text-muted tracking-[4px] uppercase">Managing personnel access and permissions</p>
+                    <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase mb-1">USER MATRIX</h1>
+                    <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase">Managing personnel access and permissions</p>
                 </div>
                 
                 <div className="relative w-full md:w-80">
-                    <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" />
+                    <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted" />
                     <input 
                         type="text" 
                         placeholder="SEARCH OPERATIVES..." 
@@ -92,18 +94,18 @@ const AdminUsers = () => {
             {loading ? (
                 <div className="py-20 flex flex-col items-center gap-4">
                     <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-                    <span className="font-mono text-[10px] text-text-muted tracking-[4px]">SCANNING SUBNET...</span>
+                    <span className="font-mono text-[10px] text-muted tracking-[4px]">SCANNING SUBNET...</span>
                 </div>
             ) : (
                 <div className="bg-bg-card border border-border rounded-2xl overflow-hidden shadow-2xl">
                     <table className="w-full border-collapse">
                         <thead>
                             <tr className="bg-[#0b0404] border-b border-border text-left">
-                                <th className="px-6 py-4 font-display font-bold text-[10px] text-text-muted tracking-widest uppercase">Operative</th>
-                                <th className="px-6 py-4 font-display font-bold text-[10px] text-text-muted tracking-widest uppercase">Clearance</th>
-                                <th className="px-6 py-4 font-display font-bold text-[10px] text-text-muted tracking-widest uppercase">Node Level</th>
-                                <th className="px-6 py-4 font-display font-bold text-[10px] text-text-muted tracking-widest uppercase">Status</th>
-                                <th className="px-6 py-4 font-display font-bold text-[10px] text-text-muted tracking-widest uppercase text-right">Actions</th>
+                                <th className="px-6 py-4 font-display font-bold text-[10px] text-muted tracking-widest uppercase">Operative</th>
+                                <th className="px-6 py-4 font-display font-bold text-[10px] text-muted tracking-widest uppercase">Clearance</th>
+                                <th className="px-6 py-4 font-display font-bold text-[10px] text-muted tracking-widest uppercase">Node Level</th>
+                                <th className="px-6 py-4 font-display font-bold text-[10px] text-muted tracking-widest uppercase">Status</th>
+                                <th className="px-6 py-4 font-display font-bold text-[10px] text-muted tracking-widest uppercase text-right">Actions</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-border/50">
@@ -113,19 +115,19 @@ const AdminUsers = () => {
                                         <div className="flex items-center gap-4">
                                             <img src={user.photoURL} className="w-10 h-10 rounded-full border border-border" alt="" />
                                             <div>
-                                                <div className="font-display font-bold text-sm text-text-primary tracking-wide uppercase">{user.username}</div>
-                                                <div className="font-mono text-[9px] text-text-muted">{user.email}</div>
+                                                <div className="font-display font-bold text-sm text-primary tracking-wide uppercase">{user.username}</div>
+                                                <div className="font-mono text-[9px] text-muted">{user.email}</div>
                                             </div>
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <span className={`px-2 py-1 rounded font-mono text-[9px] font-bold uppercase tracking-widest border ${user.role === 'owner' ? 'bg-primary/10 border-primary/30 text-primary' : user.role === 'admin' ? 'bg-red/10 border-red/30 text-red' : 'bg-bg-primary border-border text-text-muted'}`}>
+                                        <span className={`px-2 py-1 rounded font-mono text-[9px] font-bold uppercase tracking-widest border ${user.role === 'owner' ? 'bg-primary/10 border-primary/30 text-primary' : user.role === 'admin' ? 'bg-red/10 border-red/30 text-red' : 'bg-bg-primary border-border text-muted'}`}>
                                             {user.role || 'user'}
                                         </span>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="font-display font-bold text-xs text-text-primary">LVL {user.level || 1}</div>
-                                        <div className="font-mono text-[9px] text-text-muted tracking-widest uppercase mt-0.5">{user.totalXP || 0} XP</div>
+                                        <div className="font-display font-bold text-xs text-primary">LVL {user.level || 1}</div>
+                                        <div className="font-mono text-[9px] text-muted tracking-widest uppercase mt-0.5">{user.totalXP || 0} XP</div>
                                     </td>
                                     <td className="px-6 py-4">
                                         {user.isSuspended ? (

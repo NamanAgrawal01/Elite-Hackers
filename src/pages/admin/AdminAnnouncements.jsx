@@ -52,8 +52,8 @@ const AdminAnnouncements = () => {
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-border">
           <div>
-              <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase mb-1">SYSTEM BROADCASTS</h1>
-              <p className="font-mono text-[10px] text-text-muted tracking-[4px] uppercase font-bold">Deploying global network signals</p>
+              <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase mb-1">SYSTEM BROADCASTS</h1>
+              <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase font-bold">Deploying global network signals</p>
           </div>
           <button 
               onClick={() => setIsAdding(true)}
@@ -65,31 +65,31 @@ const AdminAnnouncements = () => {
 
       {isAdding && (
           <div className="bg-bg-card border border-blue-500/30 p-8 rounded-2xl animate-fade-in-up">
-              <h3 className="font-display font-bold text-lg text-text-primary uppercase tracking-widest mb-6">Dispatch Global Signal</h3>
+              <h3 className="font-display font-bold text-lg text-primary uppercase tracking-widest mb-6">Dispatch Global Signal</h3>
               <form onSubmit={handlePost} className="space-y-6">
                   <div className="space-y-2">
-                      <label className="font-mono text-[10px] text-text-muted uppercase font-bold tracking-widest">Signal Header</label>
+                      <label className="font-mono text-[10px] text-muted uppercase font-bold tracking-widest">Signal Header</label>
                       <input 
                           type="text" 
                           required
                           value={newMsg.title}
                           onChange={e => setNewMsg({...newMsg, title: e.target.value})}
-                          className="w-full bg-bg-primary border border-border rounded-lg p-4 font-mono text-sm text-text-primary focus:border-blue-500 outline-none" 
+                          className="w-full bg-bg-primary border border-border rounded-lg p-4 font-mono text-sm text-primary focus:border-blue-500 outline-none" 
                           placeholder="Broadcast title..."
                       />
                   </div>
                   <div className="space-y-2">
-                      <label className="font-mono text-[10px] text-text-muted uppercase font-bold tracking-widest">Content Payload</label>
+                      <label className="font-mono text-[10px] text-muted uppercase font-bold tracking-widest">Content Payload</label>
                       <textarea 
                           required
                           value={newMsg.body}
                           onChange={e => setNewMsg({...newMsg, body: e.target.value})}
-                          className="w-full bg-bg-primary border border-border rounded-lg p-4 font-mono text-sm text-text-primary focus:border-blue-500 outline-none h-32" 
+                          className="w-full bg-bg-primary border border-border rounded-lg p-4 font-mono text-sm text-primary focus:border-blue-500 outline-none h-32" 
                           placeholder="Your global message..."
                       />
                   </div>
                   <div className="flex justify-end gap-3 pt-4">
-                      <button type="button" onClick={() => setIsAdding(false)} className="px-8 h-12 border border-border text-text-muted rounded-lg font-display font-bold text-xs tracking-widest uppercase">Abort</button>
+                      <button type="button" onClick={() => setIsAdding(false)} className="px-8 h-12 border border-border text-muted rounded-lg font-display font-bold text-xs tracking-widest uppercase">Abort</button>
                       <button type="submit" className="px-10 h-12 bg-blue-600 text-white font-display font-bold text-xs tracking-widest rounded-lg uppercase flex items-center gap-2">
                           <Send size={16} /> [ TRANSMIT ]
                       </button>
@@ -103,8 +103,8 @@ const AdminAnnouncements = () => {
              [1,2].map(i => <div key={i} className="h-32 bg-bg-card border border-border rounded-2xl animate-pulse"></div>)
         ) : messages.length === 0 ? (
           <div className="bg-[#0b0404] border border-dashed border-border p-20 text-center">
-             <ShieldAlert size={48} className="text-text-muted mx-auto mb-4 opacity-20" />
-             <p className="font-mono text-xs text-text-muted uppercase tracking-widest">No active signals in the mesh.</p>
+             <ShieldAlert size={48} className="text-muted mx-auto mb-4 opacity-20" />
+             <p className="font-mono text-xs text-muted uppercase tracking-widest">No active signals in the mesh.</p>
           </div>
         ) : messages.map((msg) => (
            <div key={msg.id} className="bg-bg-card border border-border p-6 rounded-2xl flex flex-col md:flex-row gap-6 hover:border-blue-500/30 transition-all group relative overflow-hidden">
@@ -113,15 +113,15 @@ const AdminAnnouncements = () => {
               </div>
               <div className="flex-1">
                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="font-display font-bold text-lg text-text-primary uppercase tracking-wide">{msg.title}</h3>
-                    <span className="font-mono text-[9px] text-text-muted border border-border px-2 py-0.5 rounded uppercase">ALL NODES</span>
+                    <h3 className="font-display font-bold text-lg text-primary uppercase tracking-wide">{msg.title}</h3>
+                    <span className="font-mono text-[9px] text-muted border border-border px-2 py-0.5 rounded uppercase">ALL NODES</span>
                  </div>
-                 <p className="font-body text-sm text-text-secondary leading-relaxed max-w-4xl">{msg.body}</p>
+                 <p className="font-body text-sm text-secondary leading-relaxed max-w-4xl">{msg.body}</p>
                  <div className="flex items-center gap-4 mt-6">
-                    <div className="flex items-center gap-2 text-text-muted font-mono text-[9px] uppercase tracking-widest">
+                    <div className="flex items-center gap-2 text-muted font-mono text-[9px] uppercase tracking-widest">
                        <Clock size={12} /> {msg.createdAt?.toDate ? msg.createdAt.toDate().toLocaleString() : 'Just now'}
                     </div>
-                    <div className="flex items-center gap-2 text-text-muted font-mono text-[9px] uppercase tracking-widest ml-auto">
+                    <div className="flex items-center gap-2 text-muted font-mono text-[9px] uppercase tracking-widest ml-auto">
                        BY: {msg.author}
                     </div>
                  </div>
@@ -133,7 +133,7 @@ const AdminAnnouncements = () => {
                     fetchAnnouncements();
                     toast.success("Signal Purged");
                   }}
-                  className="p-3 text-text-muted hover:text-red transition-all border border-transparent hover:border-red/20 rounded-lg"
+                  className="p-3 text-muted hover:text-red transition-all border border-transparent hover:border-red/20 rounded-lg"
                  >
                     <Trash2 size={18} />
                  </button>

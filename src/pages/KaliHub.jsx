@@ -1,4 +1,6 @@
 import React from 'react';
+import LoadingScreen from '../components/ui/LoadingScreen';
+import { motion } from 'framer-motion';
 import { useAuth } from '../hooks/useAuth';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -16,7 +18,7 @@ const TOOLS = [
 const KaliHub = () => {
   const { userData } = useAuth();
   
-  if (!userData) return null;
+  if (!userData) return <LoadingScreen />;
 
   const isLocked = userData.plan === 'free';
 
@@ -29,7 +31,7 @@ const KaliHub = () => {
             <div className="inline-flex items-center gap-2 text-red font-mono text-[10px] tracking-widest uppercase font-bold mb-2 bg-red/10 border border-red/20 px-3 py-1.5 rounded-sm">
                <Shield size={14} /> HIGH SECURITY AREA
             </div>
-            <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase">KALI LINUX HUB</h1>
+            <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase">KALI LINUX HUB</h1>
          </div>
       </div>
 
@@ -38,8 +40,8 @@ const KaliHub = () => {
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDAsNjAsMC4wNSkiLz48L3N2Zz4=')] mix-blend-overlay"></div>
             
             <Lock size={48} className="mx-auto text-red mb-6 drop-shadow-[0_0_15px_rgba(255,0,60,0.5)]" />
-            <h2 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase mb-4 relative z-10">ACCESS CLASSIFIED</h2>
-            <p className="font-mono text-sm text-text-secondary leading-relaxed max-w-xl mx-auto mb-8 relative z-10">
+            <h2 className="font-display font-bold text-3xl text-primary tracking-widest uppercase mb-4 relative z-10">ACCESS CLASSIFIED</h2>
+            <p className="font-mono text-sm text-secondary leading-relaxed max-w-xl mx-auto mb-8 relative z-10">
                The Kali Hub contains advanced enterprise penetration testing configurations, isolated virtual topologies, and live malware analysis sandboxes. Authorized personnel only.
             </p>
             
@@ -51,9 +53,9 @@ const KaliHub = () => {
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="bg-[#050508] border border-[#1a2236] rounded-2xl flex flex-col overflow-hidden h-[450px]">
                <div className="h-10 bg-[#0d1117] border-b border-[#1a2236] flex items-center px-4">
-                  <span className="font-mono text-[10px] text-text-muted font-bold tracking-widest uppercase">root@kali: ~</span>
+                  <span className="font-mono text-[10px] text-muted font-bold tracking-widest uppercase">root@kali: ~</span>
                </div>
-               <div className="flex-1 p-6 font-mono text-xs text-text-secondary whitespace-pre-wrap overflow-y-auto">
+               <div className="flex-1 p-6 font-mono text-xs text-secondary whitespace-pre-wrap overflow-y-auto">
                   <span className="text-primary font-bold">root@kali</span>:<span className="text-cyan">~</span># nmap -sS -O target_network<br/>
                   <br/>
                   Starting Nmap 7.92 ( https://nmap.org ) at {new Date().toISOString()}<br/>
@@ -78,8 +80,8 @@ const KaliHub = () => {
                  >
                    <div className="absolute inset-0 bg-gradient-to-br from-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                    <tool.icon size={24} className="text-red mb-4 group-hover:scale-110 transition-transform relative z-10" />
-                   <h3 className="font-display font-bold text-base text-text-primary uppercase tracking-wide mb-2 relative z-10">{tool.name}</h3>
-                   <p className="font-mono text-[10px] text-text-muted leading-relaxed relative z-10">{tool.desc}</p>
+                   <h3 className="font-display font-bold text-base text-primary uppercase tracking-wide mb-2 relative z-10">{tool.name}</h3>
+                   <p className="font-mono text-[10px] text-muted leading-relaxed relative z-10">{tool.desc}</p>
                  </motion.button>
                ))}
             </div>

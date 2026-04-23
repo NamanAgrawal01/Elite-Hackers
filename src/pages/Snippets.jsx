@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Copy, Terminal, Code, Cpu, Hash, Monitor, Check } from 'lucide-react';
 import toast from 'react-hot-toast';
@@ -50,10 +51,10 @@ const Snippets = () => {
       <Helmet><title>Code Snippets — ELITE HACKERS</title></Helmet>
 
       <div>
-        <h1 className="font-display font-bold text-4xl text-text-primary tracking-widest uppercase mb-4">
+        <h1 className="font-display font-bold text-4xl text-primary tracking-widest uppercase mb-4">
           CODE <span className="text-gold glow-gold">SNIPPETS</span>
         </h1>
-        <p className="font-body text-text-secondary max-w-2xl text-lg">
+        <p className="font-body text-secondary max-w-2xl text-lg">
           Ready-to-deploy payloads and architectural patterns. For ethical testing and education.
         </p>
       </div>
@@ -72,13 +73,13 @@ const Snippets = () => {
                 <Terminal size={16} className="text-gold" />
                 <span className="font-display font-bold text-xs tracking-widest uppercase">{snip.title}</span>
               </div>
-              <span className="font-mono text-[9px] text-text-muted border border-border px-2 py-0.5 rounded uppercase">
+              <span className="font-mono text-[9px] text-muted border border-border px-2 py-0.5 rounded uppercase">
                 .{snip.lang}
               </span>
             </div>
 
             <div className="p-6">
-              <p className="font-body text-sm text-text-secondary mb-6 leading-relaxed">
+              <p className="font-body text-sm text-secondary mb-6 leading-relaxed">
                 {snip.desc}
               </p>
               
@@ -89,7 +90,7 @@ const Snippets = () => {
                 
                 <button 
                   onClick={() => handleCopy(snip.code, idx)}
-                  className="absolute right-4 top-4 p-2 bg-[#1a2236] border border-border rounded-lg text-text-muted hover:text-gold hover:border-gold transition-all"
+                  className="absolute right-4 top-4 p-2 bg-[#1a2236] border border-border rounded-lg text-muted hover:text-gold hover:border-gold transition-all"
                 >
                   {copiedIndex === idx ? <Check size={16} className="text-primary" /> : <Copy size={16} />}
                 </button>

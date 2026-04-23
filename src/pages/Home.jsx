@@ -31,7 +31,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-bg-primary text-text-primary selection:bg-primary/30 selection:text-primary">
+    <div className="min-h-screen bg-bg-primary text-primary selection:bg-primary/30 selection:text-primary">
       <Helmet>
         <title>ELITE HACKERS — Master Every Programming Language</title>
       </Helmet>
@@ -44,7 +44,7 @@ const Home = () => {
             <span className="font-display font-bold text-2xl text-primary neon-text-green glitch hidden sm:block">ELITE HACKERS</span>
           </Link>
           <div className="hidden md:flex items-center gap-6 font-mono text-sm">
-            <Link to="/login" className="px-6 py-2 border border-border rounded-md hover:border-primary text-text-secondary hover:text-primary transition-colors uppercase tracking-wider">
+            <Link to="/login" className="px-6 py-2 border border-border rounded-md hover:border-primary text-secondary hover:text-primary transition-colors uppercase tracking-wider">
               [ LOGIN ]
             </Link>
             <Link to="/login" className="px-6 py-2 bg-gradient-to-r from-primary to-cyan text-bg-primary font-bold rounded-md hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all uppercase tracking-wider">
@@ -108,7 +108,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 animate-bounce cursor-pointer text-text-muted hover:text-primary transition-colors"
+          className="absolute bottom-10 animate-bounce cursor-pointer text-muted hover:text-primary transition-colors"
         >
           <a href="#stats"><ChevronDown size={32} /></a>
         </motion.div>
@@ -119,19 +119,19 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-transparent md:divide-border text-center">
           <div>
             <div className="font-display font-bold text-4xl text-primary neon-text-green mb-2">55+</div>
-            <div className="font-mono text-sm text-text-muted tracking-widest uppercase">Languages</div>
+            <div className="font-mono text-sm text-muted tracking-widest uppercase">Languages</div>
           </div>
           <div>
             <div className="font-display font-bold text-4xl text-primary neon-text-green mb-2">10K+</div>
-            <div className="font-mono text-sm text-text-muted tracking-widest uppercase">Students</div>
+            <div className="font-mono text-sm text-muted tracking-widest uppercase">Students</div>
           </div>
           <div>
             <div className="font-display font-bold text-4xl text-primary neon-text-green mb-2">500+</div>
-            <div className="font-mono text-sm text-text-muted tracking-widest uppercase">Quizzes</div>
+            <div className="font-mono text-sm text-muted tracking-widest uppercase">Quizzes</div>
           </div>
           <div>
             <div className="font-display font-bold text-4xl text-primary neon-text-green mb-2">100%</div>
-            <div className="font-mono text-sm text-text-muted tracking-widest uppercase">Free to Start</div>
+            <div className="font-mono text-sm text-muted tracking-widest uppercase">Free to Start</div>
           </div>
         </div>
       </section>
@@ -139,7 +139,7 @@ const Home = () => {
       {/* FEATURES SECTION */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-display font-bold text-3xl uppercase tracking-wider text-text-primary">
+          <h2 className="font-display font-bold text-3xl uppercase tracking-wider text-primary">
             WHY <span className="text-primary relative inline-block">ELITE HACKERS?<div className="absolute -bottom-2 left-0 w-full h-[2px] bg-primary/40 glow-green hidden md:block"></div></span>
           </h2>
         </div>
@@ -157,7 +157,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <feature.icon className="text-primary mb-6 animate-pulse-glow" size={36} />
               <h3 className="font-display font-bold text-lg mb-3 tracking-wide">{feature.title}</h3>
-              <p className="font-mono text-sm text-text-secondary leading-relaxed">{feature.desc}</p>
+              <p className="font-mono text-sm text-secondary leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -166,12 +166,12 @@ const Home = () => {
       {/* LANGUAGE ARSENAL */}
       <section id="arsenal" className="py-24 max-w-7xl mx-auto px-6 relative">
         <div className="text-center mb-12">
-          <h2 className="font-display font-bold text-4xl uppercase tracking-wider text-text-primary mb-10">
+          <h2 className="font-display font-bold text-4xl uppercase tracking-wider text-primary mb-10">
             THE <span className="text-cyan inline-block relative">ARSENAL<div className="absolute -bottom-2 left-0 w-full h-[2px] bg-cyan/40 glow-cyan"></div></span>
           </h2>
           
           <div className="relative max-w-2xl mx-auto mb-10">
-            <span className="absolute left-6 top-1/2 -translate-y-1/2 text-[12px] text-text-muted font-bold font-mono pointer-events-none">
+            <span className="absolute left-6 top-1/2 -translate-y-1/2 text-[12px] text-muted font-bold font-mono pointer-events-none">
               {'>'} 
             </span>
             <input 
@@ -179,7 +179,7 @@ const Home = () => {
               placeholder="SEARCH 55+ LANGUAGES..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#0d1117] border border-border rounded-xl font-mono text-[14px] py-5 pr-6 pl-12 focus:outline-none focus:border-cyan focus:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all placeholder:text-text-muted/50 text-cyan uppercase tracking-widest"
+              className="w-full bg-[#0d1117] border border-border rounded-xl font-mono text-[14px] py-5 pr-6 pl-12 focus:outline-none focus:border-cyan focus:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all placeholder:text-muted/50 text-cyan uppercase tracking-widest"
             />
           </div>
 
@@ -188,7 +188,7 @@ const Home = () => {
               <button 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`flex-none px-6 py-2 border rounded-full transition-all uppercase ${activeCategory === cat ? 'bg-cyan text-bg-primary border-cyan shadow-[0_0_15px_rgba(0,212,255,0.4)]' : 'bg-[#0d1117] text-text-muted border-border hover:border-text-muted'}`}
+                className={`flex-none px-6 py-2 border rounded-full transition-all uppercase ${activeCategory === cat ? 'bg-cyan text-bg-primary border-cyan shadow-[0_0_15px_rgba(0,212,255,0.4)]' : 'bg-[#0d1117] text-muted border-border hover:border-text-muted'}`}
               >
                 {cat}
               </button>
@@ -212,7 +212,7 @@ const Home = () => {
               
               <div className="flex justify-between items-start mb-6">
                 <span className="text-4xl">{lang.icon}</span>
-                <span className="text-[9px] font-mono font-bold px-2 py-1 rounded bg-[#0a0d14] border border-border text-text-muted tracking-widest">{lang.category}</span>
+                <span className="text-[9px] font-mono font-bold px-2 py-1 rounded bg-[#0a0d14] border border-border text-muted tracking-widest">{lang.category}</span>
               </div>
               
               <h3 className="font-display font-bold text-lg mb-2">{lang.name}</h3>
@@ -245,7 +245,7 @@ const Home = () => {
               <h2 className="font-display font-bold text-2xl text-gold mb-2 flex items-center gap-3 justify-center md:justify-start">
                 <span className="animate-pulse">⚡</span> DAILY CHALLENGE
               </h2>
-              <p className="font-mono text-sm text-text-secondary tracking-widest uppercase">New challenge every 24 hours</p>
+              <p className="font-mono text-sm text-secondary tracking-widest uppercase">New challenge every 24 hours</p>
             </div>
             
             <div className="flex-col items-center">
@@ -268,19 +268,19 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1">
             <Link to="/" className="font-display font-bold text-2xl text-primary neon-text-green glitch block mb-4">ELITE HACKERS</Link>
-            <p className="text-[11px] text-text-secondary tracking-widest mb-6 leading-loose">
+            <p className="text-[11px] text-secondary tracking-widest mb-6 leading-loose">
               Master every programming language. Hack your way to the top. Ethical use only.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-[#0d1117] border border-border rounded text-text-muted hover:text-primary transition-colors hover:border-primary"><Globe size={18} /></a>
-              <a href="#" className="p-2 bg-[#0d1117] border border-border rounded text-text-muted hover:text-cyan transition-colors hover:border-cyan"><Send size={18} /></a>
-              <a href="#" className="p-2 bg-[#0d1117] border border-border rounded text-text-muted hover:text-purple transition-colors hover:border-purple"><MessageSquare size={18} /></a>
+              <a href="#" className="p-2 bg-[#0d1117] border border-border rounded text-muted hover:text-primary transition-colors hover:border-primary"><Globe size={18} /></a>
+              <a href="#" className="p-2 bg-[#0d1117] border border-border rounded text-muted hover:text-cyan transition-colors hover:border-cyan"><Send size={18} /></a>
+              <a href="#" className="p-2 bg-[#0d1117] border border-border rounded text-muted hover:text-purple transition-colors hover:border-purple"><MessageSquare size={18} /></a>
             </div>
           </div>
           
           <div>
-            <h4 className="text-[12px] font-bold text-text-primary tracking-widest mb-6 uppercase">Platform</h4>
-            <ul className="space-y-4 text-[13px] text-text-secondary">
+            <h4 className="text-[12px] font-bold text-primary tracking-widest mb-6 uppercase">Platform</h4>
+            <ul className="space-y-4 text-[13px] text-secondary">
               <li><Link to="/#arsenal" className="hover:text-primary transition-colors">Languages</Link></li>
               <li><Link to="/roadmaps" className="hover:text-primary transition-colors">Roadmaps</Link></li>
               <li><Link to="/compiler" className="hover:text-primary transition-colors">Compiler</Link></li>
@@ -290,8 +290,8 @@ const Home = () => {
           </div>
 
           <div>
-            <h4 className="text-[12px] font-bold text-text-primary tracking-widest mb-6 uppercase">Resources</h4>
-            <ul className="space-y-4 text-[13px] text-text-secondary">
+            <h4 className="text-[12px] font-bold text-primary tracking-widest mb-6 uppercase">Resources</h4>
+            <ul className="space-y-4 text-[13px] text-secondary">
               <li><Link to="/daily-challenges" className="hover:text-primary transition-colors">Daily Challenges</Link></li>
               <li><Link to="/interview-prep" className="hover:text-primary transition-colors">Interview Prep</Link></li>
               <li><Link to="/snippets" className="hover:text-primary transition-colors">Code Snippets</Link></li>
@@ -301,8 +301,8 @@ const Home = () => {
           </div>
 
           <div>
-            <h4 className="text-[12px] font-bold text-text-primary tracking-widest mb-6 uppercase">Legal</h4>
-            <ul className="space-y-4 text-[13px] text-text-secondary">
+            <h4 className="text-[12px] font-bold text-primary tracking-widest mb-6 uppercase">Legal</h4>
+            <ul className="space-y-4 text-[13px] text-secondary">
               <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Cookie Policy</a></li>
@@ -311,7 +311,7 @@ const Home = () => {
           </div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-6 border-t border-border pt-8 text-center text-[10px] text-text-muted tracking-[2px] uppercase">
+        <div className="max-w-7xl mx-auto px-6 border-t border-border pt-8 text-center text-[10px] text-muted tracking-[2px] uppercase">
           © 2026 ELITE HACKERS · Built for Hackers
         </div>
       </footer>

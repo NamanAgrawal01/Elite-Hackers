@@ -55,7 +55,7 @@ const GlobalActivityFeed = () => {
             <div className="p-4 border-b border-border bg-bg-card flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <Activity size={16} className="text-primary animate-pulse" />
-                    <span className="font-display font-bold text-[10px] tracking-[4px] uppercase text-text-primary">Global Mesh Activity</span>
+                    <span className="font-display font-bold text-[10px] tracking-[4px] uppercase text-primary">Global Mesh Activity</span>
                 </div>
                 <div className="flex gap-1">
                     <div className="w-1.5 h-1.5 rounded-full bg-red animate-pulse"></div>
@@ -85,9 +85,9 @@ const GlobalActivityFeed = () => {
                                 <div className="flex-1 min-w-0">
                                     <div className="flex justify-between items-center mb-0.5">
                                         <span className="font-mono text-[9px] font-bold text-primary tracking-wider uppercase">{log.user}</span>
-                                        <span className="font-mono text-[8px] text-text-muted">{log.time}</span>
+                                        <span className="font-mono text-[8px] text-muted">{log.time}</span>
                                     </div>
-                                    <p className="font-mono text-[10px] text-text-secondary leading-tight truncate uppercase tracking-widest">{log.text}</p>
+                                    <p className="font-mono text-[10px] text-secondary leading-tight truncate uppercase tracking-widest">{log.text}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -96,7 +96,7 @@ const GlobalActivityFeed = () => {
             </div>
             
             <div className="p-2 bg-[#0d1117] border-t border-border/10 text-center">
-                 <span className="font-mono text-[8px] text-text-muted tracking-[3px] uppercase">Encrypted Stream Protocol V4.2</span>
+                 <span className="font-mono text-[8px] text-muted tracking-[3px] uppercase">Encrypted Stream Protocol V4.2</span>
             </div>
         </div>
     );

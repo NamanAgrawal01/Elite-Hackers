@@ -31,13 +31,13 @@ const ArenaCard = ({ title, level, category, status, description, delay }) => (
     </div>
     
     <h3 className="text-xl font-bold text-text mb-4 uppercase tracking-tight">{title}</h3>
-    <p className="text-sm text-text-muted mb-10 flex-1 leading-relaxed font-semibold">
+    <p className="text-sm text-muted mb-10 flex-1 leading-relaxed font-semibold">
         {description}
     </p>
 
     <div className="space-y-6 pt-6 border-t border-border">
         <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest">
-            <span className="text-text-muted">Required Clearance</span>
+            <span className="text-muted">Required Clearance</span>
             <span className="text-text">LEVEL {level}</span>
         </div>
         <button 

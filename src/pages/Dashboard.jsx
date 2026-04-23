@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import LoadingScreen from '../components/ui/LoadingScreen';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { Helmet } from 'react-helmet-async';
@@ -29,7 +30,7 @@ const Dashboard = () => {
     // Sync removed for purity
   }, []);
   
-  if (!userData) return null;
+  if (!userData) return <LoadingScreen />;
 
   const stats = [
     { label: 'TOTAL XP', value: userData.totalXP || 0, icon: Zap, color: 'text-primary', delay: 0 },
@@ -52,10 +53,10 @@ const Dashboard = () => {
       {/* GREETING & PLAN STATUS ROW */}
       <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-8">
         <div>
-          <h1 className="font-display font-bold text-3xl text-text-primary uppercase tracking-wider mb-2 flex items-center gap-3">
+          <h1 className="font-display font-bold text-3xl text-primary uppercase tracking-wider mb-2 flex items-center gap-3">
             WELCOME BACK, <span className="text-primary glow-green">{userData.username?.toUpperCase()}</span>
           </h1>
-          <p className="font-mono text-text-secondary text-sm flex items-center gap-2 tracking-widest">
+          <p className="font-mono text-secondary text-sm flex items-center gap-2 tracking-widest">
             {format(currentDate, 'MMMM d, yyyy')} <span className="text-border">|</span> Node Status: {userData.isSuspended ? 'SUSPENDED' : 'ONLINE'}
             {userData.streak > 0 && (
                <span className="text-gold glow-gold font-bold ml-2">🔥 {userData.streak} Day Streak!</span>
@@ -69,9 +70,9 @@ const Dashboard = () => {
               <Shield size={20} />
            </div>
            <div>
-              <div className="font-mono text-[9px] text-text-muted uppercase tracking-[3px] font-bold mb-1">Clearance Level</div>
+              <div className="font-mono text-[9px] text-muted uppercase tracking-[3px] font-bold mb-1">Clearance Level</div>
               <div className="flex items-center gap-3">
-                 <span className={`font-display font-bold text-xl tracking-widest uppercase ${userData.pendingPlan ? 'text-gold' : 'text-text-primary'}`}>
+                 <span className={`font-display font-bold text-xl tracking-widest uppercase ${userData.pendingPlan ? 'text-gold' : 'text-primary'}`}>
                     {userData.plan === 'free' ? 'RECRUIT' : userData.plan === 'pro' ? 'PRO HACKER' : userData.plan === 'elite' ? 'ELITE SENTINEL' : 'ADMIN STAFF'}
                  </span>
                  {userData.pendingPlan && (
@@ -81,7 +82,7 @@ const Dashboard = () => {
                  )}
               </div>
            </div>
-           <ChevronRight size={20} className="text-text-muted ml-auto group-hover:text-primary transition-colors cursor-pointer" onClick={() => navigate('/pricing')} />
+           <ChevronRight size={20} className="text-muted ml-auto group-hover:text-primary transition-colors cursor-pointer" onClick={() => navigate('/pricing')} />
         </div>
       </div>
 
@@ -96,16 +97,16 @@ const Dashboard = () => {
             className="bg-bg-card border border-border p-6 rounded-[16px] hover:-translate-y-1 hover:border-primary/50 transition-all group"
           >
             <div className="flex justify-between items-start mb-4">
-              <span className="font-mono text-[10px] text-text-muted font-bold tracking-widest leading-loose">
+              <span className="font-mono text-[10px] text-muted font-bold tracking-widest leading-loose">
                 {stat.label.split(' ').join('\\n')}
               </span>
               <stat.icon size={20} className={`${stat.color} group-hover:scale-110 transition-transform`} />
             </div>
-            <div className="font-display font-bold text-3xl text-text-primary">
+            <div className="font-display font-bold text-3xl text-primary">
               <CountUp end={stat.value} />
             </div>
             {stat.suffix && (
-              <div className="font-mono text-[10px] text-text-secondary mt-1">{stat.suffix}</div>
+              <div className="font-mono text-[10px] text-secondary mt-1">{stat.suffix}</div>
             )}
           </motion.div>
         ))}
@@ -115,7 +116,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* CONTINUE LEARNING */}
         <div className="lg:col-span-2 space-y-4">
-          <h2 className="font-display font-bold text-lg text-text-primary tracking-widest uppercase flex items-center gap-2">
+          <h2 className="font-display font-bold text-lg text-primary tracking-widest uppercase flex items-center gap-2">
              <Activity size={18} className="text-primary" /> ACTIVE INFILTRATIONS
           </h2>
           
@@ -131,7 +132,7 @@ const Dashboard = () => {
                   <div className="w-full h-1.5 bg-[#0d1117] rounded-full overflow-hidden mb-2 border border-[#1a2236]">
                     <div className="h-full bg-primary" style={{ width: `${course.name === 'Python' ? '45' : '78'}%` }}></div>
                    </div>
-                  <div className="font-mono text-[10px] text-text-muted uppercase tracking-widest">
+                  <div className="font-mono text-[10px] text-muted uppercase tracking-widest">
                     Synchronizing Cache...
                   </div>
                 </div>
@@ -156,8 +157,8 @@ const Dashboard = () => {
                       <mission.icon size={18} />
                    </div>
                    <div>
-                      <h4 className="font-display font-bold text-[11px] text-text-primary uppercase tracking-widest">{mission.title}</h4>
-                      <p className="font-mono text-[9px] text-text-muted uppercase mt-1">{mission.desc}</p>
+                      <h4 className="font-display font-bold text-[11px] text-primary uppercase tracking-widest">{mission.title}</h4>
+                      <p className="font-mono text-[9px] text-muted uppercase mt-1">{mission.desc}</p>
                    </div>
                    <div className="ml-auto font-mono text-[10px] text-gold font-bold">+{mission.xp}</div>
                 </div>
@@ -171,7 +172,7 @@ const Dashboard = () => {
              <div className="absolute top-0 right-0 p-4 opacity-10">
                 <ShieldAlert size={48} className="text-primary" />
              </div>
-             <h2 className="font-display font-bold text-[10px] text-text-muted tracking-[4px] uppercase mb-4">Node Security Score</h2>
+             <h2 className="font-display font-bold text-[10px] text-muted tracking-[4px] uppercase mb-4">Node Security Score</h2>
              <div className="flex items-center gap-6">
                 <div className="relative w-20 h-20">
                    <svg className="w-full h-full transform -rotate-90">
@@ -181,21 +182,21 @@ const Dashboard = () => {
                    <div className="absolute inset-0 flex items-center justify-center font-display font-bold text-xl text-primary">85%</div>
                 </div>
                 <div>
-                   <div className="font-mono text-xs text-text-primary font-bold uppercase mb-1">OPTIMIZED</div>
-                   <p className="font-mono text-[9px] text-text-muted uppercase tracking-widest leading-relaxed">No critical vulnerabilities detected in your current profile.</p>
+                   <div className="font-mono text-xs text-primary font-bold uppercase mb-1">OPTIMIZED</div>
+                   <p className="font-mono text-[9px] text-muted uppercase tracking-widest leading-relaxed">No critical vulnerabilities detected in your current profile.</p>
                 </div>
              </div>
           </div>
 
           <div className="space-y-4">
-            <h2 className="font-display font-bold text-lg text-text-primary tracking-widest uppercase">GLOBAL MESH FEED</h2>
+            <h2 className="font-display font-bold text-lg text-primary tracking-widest uppercase">GLOBAL MESH FEED</h2>
             <div className="h-[300px]">
                <GlobalActivityFeed />
             </div>
             
             {/* TOP NODES WIDGET */}
             <div className="bg-[#050508] border border-border rounded-2xl p-6">
-               <h3 className="font-display font-bold text-[10px] text-text-muted tracking-[4px] uppercase mb-4 flex justify-between items-center">
+               <h3 className="font-display font-bold text-[10px] text-muted tracking-[4px] uppercase mb-4 flex justify-between items-center">
                   TOP NODES <span className="text-primary text-[8px] animate-pulse">LIVE</span>
                </h3>
                <div className="space-y-3">
@@ -206,17 +207,17 @@ const Dashboard = () => {
                   ].map((user, i) => (
                      <div key={i} className="flex items-center justify-between group cursor-pointer">
                         <div className="flex items-center gap-3">
-                           <span className="font-mono text-[10px] text-text-muted">0{i+1}</span>
+                           <span className="font-mono text-[10px] text-muted">0{i+1}</span>
                            <span className={`font-display font-bold text-xs tracking-widest ${user.color} group-hover:underline`}>{user.name}</span>
                         </div>
                         <div className="text-right">
-                           <div className="font-mono text-[9px] text-text-primary font-bold">LVL {user.level}</div>
-                           <div className="font-mono text-[8px] text-text-muted uppercase">{user.xp} XP</div>
+                           <div className="font-mono text-[9px] text-primary font-bold">LVL {user.level}</div>
+                           <div className="font-mono text-[8px] text-muted uppercase">{user.xp} XP</div>
                         </div>
                      </div>
                   ))}
                </div>
-               <button onClick={() => navigate('/leaderboard')} className="w-full mt-6 py-2 border border-[#1a2236] text-text-muted font-mono text-[8px] tracking-[3px] uppercase hover:text-primary hover:border-primary/30 transition-all rounded">
+               <button onClick={() => navigate('/leaderboard')} className="w-full mt-6 py-2 border border-[#1a2236] text-muted font-mono text-[8px] tracking-[3px] uppercase hover:text-primary hover:border-primary/30 transition-all rounded">
                   [ VIEW FULL REGISTRY ]
                </button>
             </div>
@@ -232,8 +233,8 @@ const Dashboard = () => {
           <div className="flex items-center gap-2 mb-2 text-primary font-mono text-[10px] font-bold tracking-[6px] uppercase">
              <Zap size={14} className="animate-pulse" /> SYSTEM OVERRIDE ACTIVE
           </div>
-          <h2 className="font-display font-bold text-2xl text-text-primary tracking-widest mb-2 uppercase">DAILY SURVIVAL TASK</h2>
-          <p className="font-mono text-[11px] text-text-secondary uppercase tracking-widest leading-relaxed">Decrypt the central mainframe using advanced SQL injection patterns.</p>
+          <h2 className="font-display font-bold text-2xl text-primary tracking-widest mb-2 uppercase">DAILY SURVIVAL TASK</h2>
+          <p className="font-mono text-[11px] text-secondary uppercase tracking-widest leading-relaxed">Decrypt the central mainframe using advanced SQL injection patterns.</p>
         </div>
         
         <button onClick={() => navigate('/daily-challenges')} className="px-10 py-5 bg-primary text-bg-primary font-display font-[800] text-xs tracking-[4px] uppercase rounded-xl hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,255,136,0.3)] shrink-0">
@@ -248,8 +249,8 @@ const Dashboard = () => {
       {/* FOURTH ROW: THE FULL ARSENAL PREVIEW */}
       <div className="space-y-4">
          <div className="flex justify-between items-center">
-            <h2 className="font-display font-bold text-lg text-text-primary tracking-widest uppercase">THE FULL ARSENAL</h2>
-            <button onClick={() => navigate('/arsenal')} className="text-[10px] font-mono tracking-widest text-text-muted hover:text-primary transition-colors">[ EXPLORE ALL ]</button>
+            <h2 className="font-display font-bold text-lg text-primary tracking-widest uppercase">THE FULL ARSENAL</h2>
+            <button onClick={() => navigate('/arsenal')} className="text-[10px] font-mono tracking-widest text-muted hover:text-primary transition-colors">[ EXPLORE ALL ]</button>
          </div>
          
          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LoadingScreen from '../components/ui/LoadingScreen';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Zap, Clock, Trophy, ChevronRight, Play, ShieldCheck } from 'lucide-react';
@@ -7,6 +8,7 @@ import CountUp from '../components/ui/CountUp';
 
 const DailyChallenges = () => {
     const { userData } = useAuth();
+  if (!userData) return <LoadingScreen />;
     const [timeLeft, setTimeLeft] = useState('');
 
     useEffect(() => {
@@ -37,20 +39,20 @@ const DailyChallenges = () => {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div>
-                    <h1 className="font-display font-bold text-4xl text-text-primary tracking-widest uppercase mb-2">
+                    <h1 className="font-display font-bold text-4xl text-primary tracking-widest uppercase mb-2">
                         DAILY <span className="text-primary glow-green">CHALLENGES</span>
                     </h1>
-                    <p className="font-mono text-xs text-text-muted tracking-[3px] uppercase">New missions decrypted every 24 hours</p>
+                    <p className="font-mono text-xs text-muted tracking-[3px] uppercase">New missions decrypted every 24 hours</p>
                 </div>
                 
                 <div className="bg-bg-card border border-primary/20 p-4 rounded-xl flex items-center gap-6">
                     <div className="text-center">
-                        <div className="font-mono text-[9px] text-text-muted uppercase tracking-widest mb-1">Time Remaining</div>
+                        <div className="font-mono text-[9px] text-muted uppercase tracking-widest mb-1">Time Remaining</div>
                         <div className="font-display font-bold text-2xl text-primary tracking-widest">{timeLeft}</div>
                     </div>
                     <div className="w-[1px] h-10 bg-border"></div>
                     <div className="text-center">
-                        <div className="font-mono text-[9px] text-text-muted uppercase tracking-widest mb-1">Current Streak</div>
+                        <div className="font-mono text-[9px] text-muted uppercase tracking-widest mb-1">Current Streak</div>
                         <div className="font-display font-bold text-2xl text-gold tracking-widest">
                             <span className="mr-1">🔥</span>{userData?.streak || 0}
                         </div>
@@ -67,15 +69,15 @@ const DailyChallenges = () => {
                             <div className="flex items-center gap-2 text-primary font-mono text-[10px] font-bold tracking-widest uppercase mb-4">
                                 <Zap size={14} className="animate-pulse" /> TODAY'S MAIN OBJECTIVE
                             </div>
-                            <h2 className="font-display font-bold text-3xl text-text-primary tracking-widest mb-4 uppercase leading-tight">Mastering Bitwise <br/> Manipulation in C++</h2>
-                            <p className="font-body text-text-secondary max-w-md text-sm mb-8 leading-relaxed">
+                            <h2 className="font-display font-bold text-3xl text-primary tracking-widest mb-4 uppercase leading-tight">Mastering Bitwise <br/> Manipulation in C++</h2>
+                            <p className="font-body text-secondary max-w-md text-sm mb-8 leading-relaxed">
                                 Decrypt the hidden payload by applying XOR masks to the input buffer. Efficiency is key for the 2x XP bonus.
                             </p>
                             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                                 <div className="px-4 py-2 bg-primary/10 border border-primary/30 rounded text-primary font-mono text-[11px] font-bold tracking-widest uppercase">
                                     +1,500 XP
                                 </div>
-                                <div className="px-4 py-2 border border-border rounded text-text-muted font-mono text-[11px] font-bold tracking-widest uppercase">
+                                <div className="px-4 py-2 border border-border rounded text-muted font-mono text-[11px] font-bold tracking-widest uppercase">
                                     28% PASS RATE
                                 </div>
                             </div>
@@ -89,7 +91,7 @@ const DailyChallenges = () => {
 
                 {/* SIDE MISSIONS */}
                 <div className="space-y-4">
-                    <h3 className="font-display font-bold text-lg text-text-primary flex items-center gap-2 uppercase tracking-widest">
+                    <h3 className="font-display font-bold text-lg text-primary flex items-center gap-2 uppercase tracking-widest">
                         <Trophy size={18} className="text-gold" /> SIDE MISSIONS
                     </h3>
                     <div className="grid grid-cols-1 gap-4">
@@ -100,9 +102,9 @@ const DailyChallenges = () => {
                                         {c.lang[0]}
                                     </div>
                                     <div>
-                                        <h4 className="font-display font-bold text-sm text-text-primary tracking-wide uppercase">{c.title}</h4>
+                                        <h4 className="font-display font-bold text-sm text-primary tracking-wide uppercase">{c.title}</h4>
                                         <div className="flex gap-3 mt-1">
-                                            <span className="font-mono text-[9px] text-text-muted uppercase font-bold">{c.lang}</span>
+                                            <span className="font-mono text-[9px] text-muted uppercase font-bold">{c.lang}</span>
                                             <span className="font-mono text-[9px] text-primary uppercase font-bold tracking-widest">+{c.xp} XP</span>
                                         </div>
                                     </div>
@@ -124,7 +126,7 @@ const DailyChallenges = () => {
 
                 {/* LEADERBOARD SNIPPET */}
                 <div className="bg-[#050508] border border-border p-6 rounded-2xl flex flex-col">
-                    <h3 className="font-display font-bold text-lg text-text-primary flex items-center gap-2 uppercase tracking-widest mb-6">
+                    <h3 className="font-display font-bold text-lg text-primary flex items-center gap-2 uppercase tracking-widest mb-6">
                         <Activity size={18} className="text-primary" /> TOP OPERATIVES
                     </h3>
                     <div className="space-y-4 flex-1">
@@ -136,13 +138,13 @@ const DailyChallenges = () => {
                             <div key={user.rank} className="flex items-center justify-between p-3 bg-bg-card border border-border rounded-lg">
                                 <div className="flex items-center gap-3">
                                     <span className={`font-mono font-bold text-xs ${user.rank === 1 ? 'text-gold' : user.rank === 2 ? 'text-silver' : 'text-bronze'}`}>#{user.rank}</span>
-                                    <span className="font-mono text-xs text-text-primary font-bold uppercase">{user.name}</span>
+                                    <span className="font-mono text-xs text-primary font-bold uppercase">{user.name}</span>
                                 </div>
                                 <span className="font-mono text-[10px] text-primary font-bold">{user.xp} XP</span>
                             </div>
                         ))}
                     </div>
-                    <button className="w-full mt-6 py-3 border border-primary/20 text-text-muted hover:text-primary hover:border-primary font-mono text-[10px] font-bold tracking-widest rounded-lg transition-all uppercase">
+                    <button className="w-full mt-6 py-3 border border-primary/20 text-muted hover:text-primary hover:border-primary font-mono text-[10px] font-bold tracking-widest rounded-lg transition-all uppercase">
                         [ VIEW FULL RANKINGS ]
                     </button>
                 </div>

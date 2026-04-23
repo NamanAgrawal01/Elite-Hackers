@@ -33,7 +33,7 @@ const Sidebar = () => {
         <div className="flex flex-col items-center mb-8 cursor-pointer group" onClick={() => navigate('/dashboard')}>
            <img src="/logo.png" alt="Elite Hackers" className="w-20 h-auto mb-3 group-hover:scale-110 transition-transform" />
            <div className="text-center">
-             <div className="font-display font-bold text-[10px] text-text-primary tracking-[6px] uppercase leading-none">ELITE HACKERS</div>
+             <div className="font-display font-bold text-[10px] text-primary tracking-[6px] uppercase leading-none">ELITE HACKERS</div>
              <div className="font-mono text-[7px] text-primary tracking-[3px] mt-1 uppercase font-bold opacity-70">Secured Node</div>
            </div>
         </div>
@@ -46,7 +46,7 @@ const Sidebar = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-primary border-2 border-[#0d1117] rounded-full"></div>
               </div>
               <div>
-                <div className="font-display font-bold text-[14px] text-text-primary tracking-wider truncate w-[100px]">{userData.username}</div>
+                <div className="font-display font-bold text-[14px] text-primary tracking-wider truncate w-[100px]">{userData.username}</div>
                 <div className="flex gap-1 mt-1">
                   <PlanBadge plan={userData.plan} />
                   <RankBadge rank={userData.rank} />
@@ -60,7 +60,7 @@ const Sidebar = () => {
         <nav className="space-y-1">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path || (item.path.includes('#') && location.hash === item.path.split('#')[1]);
-            const itemColor = item.color || 'text-text-secondary';
+            const itemColor = item.color || 'text-secondary';
             
             return (
               <NavLink
@@ -69,7 +69,7 @@ const Sidebar = () => {
                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[13px] font-mono tracking-widest transition-all duration-200 group ${
                   isActive 
                     ? 'bg-primary/10 text-primary border-l-[3px] border-primary font-bold' 
-                    : `text-text-secondary hover:bg-[#111827] hover:text-text-primary border-l-[3px] border-transparent`
+                    : `text-secondary hover:bg-[#111827] hover:text-primary border-l-[3px] border-transparent`
                 }`}
               >
                 <item.icon size={16} className={`${isActive ? 'text-primary' : itemColor} group-hover:scale-110 transition-transform`} />
@@ -83,10 +83,10 @@ const Sidebar = () => {
             className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[13px] font-mono tracking-widest transition-all duration-200 group ${
               location.pathname === '/subscription'
                 ? 'bg-primary/10 text-primary border-l-[3px] border-primary font-bold' 
-                : 'text-text-secondary hover:bg-[#111827] hover:text-text-primary border-l-[3px] border-transparent'
+                : 'text-secondary hover:bg-[#111827] hover:text-primary border-l-[3px] border-transparent'
             }`}
           >
-            <Shield size={16} className={`${location.pathname === '/subscription' ? 'text-primary' : 'text-text-muted'} group-hover:scale-110 transition-transform`} />
+            <Shield size={16} className={`${location.pathname === '/subscription' ? 'text-primary' : 'text-muted'} group-hover:scale-110 transition-transform`} />
             <span>MY CLEARANCE</span>
           </NavLink>
 
@@ -98,7 +98,7 @@ const Sidebar = () => {
                 className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[13px] font-mono tracking-widest transition-all duration-200 group ${
                   location.pathname.startsWith('/admin') && !location.pathname.includes('matrix')
                     ? 'bg-primary/10 text-primary border-l-[3px] border-primary font-bold' 
-                    : 'text-text-muted hover:bg-[#111827] hover:text-text-primary border-l-[3px] border-transparent'
+                    : 'text-muted hover:bg-[#111827] hover:text-primary border-l-[3px] border-transparent'
                 }`}
               >
                 <ShieldAlert size={16} className="group-hover:scale-110 transition-transform" />
@@ -113,7 +113,7 @@ const Sidebar = () => {
               className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[13px] font-mono tracking-widest transition-all duration-200 group ${
                 location.pathname === '/admin-matrix'
                   ? 'bg-gold/10 text-gold border-l-[3px] border-gold font-bold' 
-                  : 'text-text-muted hover:bg-[#111827] hover:text-gold border-l-[3px] border-transparent'
+                  : 'text-muted hover:bg-[#111827] hover:text-gold border-l-[3px] border-transparent'
               }`}
             >
               <Shield size={16} className="text-gold group-hover:scale-110 transition-transform" />
@@ -126,7 +126,7 @@ const Sidebar = () => {
       <div className="mt-auto p-6 space-y-6 border-t border-[#1a2236]">
         {/* THEME TERMINAL */}
         <div className="bg-[#0b0404] border border-border p-3 rounded-xl">
-           <div className="font-mono text-[8px] text-text-muted uppercase tracking-widest mb-3 flex items-center justify-between">
+           <div className="font-mono text-[8px] text-muted uppercase tracking-widest mb-3 flex items-center justify-between">
               <span>Theme Node: {theme.toUpperCase()}</span>
               <Settings size={10} className="animate-spin-slow" />
            </div>

@@ -60,8 +60,8 @@ const AdminContent = () => {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-border">
                 <div>
-                    <h1 className="font-display font-bold text-3xl text-text-primary tracking-widest uppercase mb-1">CONTENT ENGINE</h1>
-                    <p className="font-mono text-[10px] text-text-muted tracking-[4px] uppercase font-bold">Injecting knowledge into the mesh</p>
+                    <h1 className="font-display font-bold text-3xl text-primary tracking-widest uppercase mb-1">CONTENT ENGINE</h1>
+                    <p className="font-mono text-[10px] text-muted tracking-[4px] uppercase font-bold">Injecting knowledge into the mesh</p>
                 </div>
                 <button 
                     onClick={() => setIsAdding(true)}
@@ -73,32 +73,32 @@ const AdminContent = () => {
 
             {isAdding && (
                 <div className="bg-bg-card border border-primary/30 p-8 rounded-2xl animate-fade-in-up">
-                    <h3 className="font-display font-bold text-lg text-text-primary uppercase tracking-widest mb-6">Initialize New Language Node</h3>
+                    <h3 className="font-display font-bold text-lg text-primary uppercase tracking-widest mb-6">Initialize New Language Node</h3>
                     <form onSubmit={handleAdd} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div className="space-y-2">
-                            <label className="font-mono text-[10px] text-text-muted uppercase font-bold tracking-widest">Display Name</label>
+                            <label className="font-mono text-[10px] text-muted uppercase font-bold tracking-widest">Display Name</label>
                             <input 
                                 type="text" 
                                 required
                                 value={newLang.name}
                                 onChange={e => setNewLang({...newLang, name: e.target.value, id: e.target.value.toLowerCase().replace(/\s/g, '-')})}
-                                className="w-full bg-bg-primary border border-border rounded-lg p-3 font-mono text-sm text-text-primary focus:border-primary outline-none" 
+                                className="w-full bg-bg-primary border border-border rounded-lg p-3 font-mono text-sm text-primary focus:border-primary outline-none" 
                                 placeholder="e.g. Python"
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="font-mono text-[10px] text-text-muted uppercase font-bold tracking-widest">ID (Auto-generated)</label>
+                            <label className="font-mono text-[10px] text-muted uppercase font-bold tracking-widest">ID (Auto-generated)</label>
                             <input 
                                 type="text" 
                                 readOnly
                                 value={newLang.id}
-                                className="w-full bg-[#050508] border border-border rounded-lg p-3 font-mono text-sm text-text-muted cursor-not-allowed" 
+                                className="w-full bg-[#050508] border border-border rounded-lg p-3 font-mono text-sm text-muted cursor-not-allowed" 
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="font-mono text-[10px] text-text-muted uppercase font-bold tracking-widest">Category</label>
+                            <label className="font-mono text-[10px] text-muted uppercase font-bold tracking-widest">Category</label>
                             <select 
-                                className="w-full bg-bg-primary border border-border rounded-lg p-3 font-mono text-sm text-text-primary focus:border-primary outline-none"
+                                className="w-full bg-bg-primary border border-border rounded-lg p-3 font-mono text-sm text-primary focus:border-primary outline-none"
                                 value={newLang.category}
                                 onChange={e => setNewLang({...newLang, category: e.target.value})}
                             >
@@ -110,7 +110,7 @@ const AdminContent = () => {
                         </div>
                         <div className="flex items-end gap-3">
                             <button type="submit" className="flex-1 h-12 bg-primary text-bg-primary font-display font-bold text-[10px] tracking-widest rounded-lg uppercase">Deploy</button>
-                            <button type="button" onClick={() => setIsAdding(false)} className="h-12 px-6 border border-border text-text-muted rounded-lg font-display font-bold text-[10px] tracking-widest uppercase">Cancel</button>
+                            <button type="button" onClick={() => setIsAdding(false)} className="h-12 px-6 border border-border text-muted rounded-lg font-display font-bold text-[10px] tracking-widest uppercase">Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -129,18 +129,18 @@ const AdminContent = () => {
                                 <Code size={24} />
                             </div>
                             <div className="flex gap-2">
-                                <button className="p-2 text-text-muted hover:text-cyan transition-all"><Edit3 size={16} /></button>
-                                <button className="p-2 text-text-muted hover:text-red transition-all"><Trash2 size={16} /></button>
+                                <button className="p-2 text-muted hover:text-cyan transition-all"><Edit3 size={16} /></button>
+                                <button className="p-2 text-muted hover:text-red transition-all"><Trash2 size={16} /></button>
                             </div>
                         </div>
-                        <h3 className="font-display font-bold text-xl text-text-primary uppercase tracking-widest mb-2">{lang.name}</h3>
+                        <h3 className="font-display font-bold text-xl text-primary uppercase tracking-widest mb-2">{lang.name}</h3>
                         <div className="flex gap-4">
-                            <span className="font-mono text-[9px] text-text-muted uppercase tracking-widest font-bold">{lang.category}</span>
+                            <span className="font-mono text-[9px] text-muted uppercase tracking-widest font-bold">{lang.category}</span>
                             <span className="font-mono text-[9px] text-primary uppercase tracking-widest font-bold">{lang.modules?.length || 0} MODULES</span>
                         </div>
                         
                         <div className="mt-8 pt-6 border-t border-border flex justify-between items-center">
-                            <span className="font-mono text-[10px] text-text-muted uppercase tracking-widest">Clearance: LVL 1</span>
+                            <span className="font-mono text-[10px] text-muted uppercase tracking-widest">Clearance: LVL 1</span>
                             <button className="text-primary font-mono text-[10px] font-bold tracking-widest uppercase flex items-center gap-1 group-hover:gap-2 transition-all">
                                 [ EDIT CONTENT ] <ChevronRight size={14} />
                             </button>

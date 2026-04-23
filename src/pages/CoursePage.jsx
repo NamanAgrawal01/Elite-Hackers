@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LoadingScreen from '../components/ui/LoadingScreen';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { useXP } from '../context/XPContext';
@@ -31,6 +32,7 @@ const CoursePage = () => {
   const { languageId } = useParams();
   const navigate = useNavigate();
   const { currentUser, userData } = useAuth();
+  if (!userData) return <LoadingScreen />;
   const { addXP } = useXP();
   
   const course = MOCK_COURSE_DATA[languageId] || MOCK_COURSE_DATA['python'];
@@ -111,7 +113,7 @@ const CoursePage = () => {
       {/* LEFT PANE: THEORY */}
       <div className="xl:w-[400px] w-full flex flex-col h-full bg-[#0d1117] border border-[#1a2236] rounded-2xl overflow-hidden relative">
         <div className="h-14 bg-bg-primary border-b border-[#1a2236] flex items-center justify-between px-6">
-           <div className="text-[12px] font-mono font-bold text-text-secondary tracking-widest uppercase flex items-center gap-2">
+           <div className="text-[12px] font-mono font-bold text-secondary tracking-widest uppercase flex items-center gap-2">
              <Cpu size={16} /> SECURE MODULE
            </div>
            <div className="text-primary font-mono text-[10px] bg-primary/10 border border-primary/20 px-2 py-1 rounded">
@@ -120,7 +122,7 @@ const CoursePage = () => {
         </div>
 
         <div className="p-6 overflow-y-auto flex-1 hide-scrollbar">
-          <h2 className="font-display font-bold text-2xl text-text-primary tracking-wide mb-6">{lesson.title}</h2>
+          <h2 className="font-display font-bold text-2xl text-primary tracking-wide mb-6">{lesson.title}</h2>
           
           <div className="bg-[#050508] border border-[#1a2236] p-4 rounded-xl mb-6 relative overflow-hidden group glow-cyan">
              <div className="flex gap-3 text-[#00d4ff] text-[13px] font-mono leading-relaxed relative z-10">
@@ -131,14 +133,14 @@ const CoursePage = () => {
           </div>
 
           <div className="mb-4">
-             <h3 className="font-mono text-[10px] text-text-muted tracking-widest uppercase font-bold mb-3">Expected Payload Output</h3>
+             <h3 className="font-mono text-[10px] text-muted tracking-widest uppercase font-bold mb-3">Expected Payload Output</h3>
              <div className="bg-[#050508] border border-[#1a2236] text-primary font-mono text-sm p-4 rounded-lg">
                 {lesson.expectedOutput}
              </div>
           </div>
           
           <div className="mb-4 mt-8 flex items-center justify-between border-t border-[#1a2236] pt-6">
-             <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase font-bold">Reward</span>
+             <span className="font-mono text-[10px] text-muted tracking-widest uppercase font-bold">Reward</span>
              <span className="text-gold font-bold font-mono tracking-widest">⚡ +{lesson.xpReward} XP</span>
           </div>
         </div>
@@ -149,7 +151,7 @@ const CoursePage = () => {
         {/* Editor Area */}
         <div className="flex-1 bg-[#0d1117] border border-[#1a2236] rounded-2xl overflow-hidden flex flex-col">
           <div className="h-12 bg-bg-primary border-b border-[#1a2236] flex items-center justify-between px-4">
-            <span className="text-[10px] text-text-muted font-mono font-bold tracking-widest uppercase">main.{languageId === 'python' ? 'py' : 'js'}</span>
+            <span className="text-[10px] text-muted font-mono font-bold tracking-widest uppercase">main.{languageId === 'python' ? 'py' : 'js'}</span>
             <button 
               onClick={runTests}
               disabled={isCompiling || passed}
@@ -167,7 +169,7 @@ const CoursePage = () => {
         <div className="h-[200px] bg-[#0d1117] border border-[#1a2236] rounded-2xl p-4 flex flex-col relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
           
-          <span className="text-[10px] text-text-muted font-mono font-bold tracking-widest uppercase mb-2">DEBUG TERMINAL</span>
+          <span className="text-[10px] text-muted font-mono font-bold tracking-widest uppercase mb-2">DEBUG TERMINAL</span>
           <div className="flex-1 overflow-y-auto font-mono text-[13px] text-[#e2e8f0] hide-scrollbar whitespace-pre-wrap">
              {output || <span className="opacity-30 select-none">Awaiting input stream...</span>}
           </div>
@@ -178,7 +180,7 @@ const CoursePage = () => {
                    <CheckCircle size={18} /> PROTOCOL CLEARED
                 </div>
              ) : (
-                <div className="text-text-muted font-mono text-[10px] tracking-widest uppercase glow-red">
+                <div className="text-muted font-mono text-[10px] tracking-widest uppercase glow-red">
                    Awaiting successful execution
                 </div>
              )}
@@ -186,7 +188,7 @@ const CoursePage = () => {
              <button 
                onClick={handleNextLesson}
                disabled={!passed}
-               className={`flex items-center gap-2 px-6 py-2.5 rounded font-mono text-[11px] font-bold tracking-widest uppercase transition-all ${passed ? 'bg-primary text-[#050508] shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:bg-white' : 'bg-[#1a2236] text-text-muted disabled:opacity-50'}`}
+               className={`flex items-center gap-2 px-6 py-2.5 rounded font-mono text-[11px] font-bold tracking-widest uppercase transition-all ${passed ? 'bg-primary text-[#050508] shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:bg-white' : 'bg-[#1a2236] text-muted disabled:opacity-50'}`}
              >
                {currentLessonIdx === course.lessons.length - 1 ? 'COMPLETE NODE' : 'NEXT NODE'} <ArrowRight size={14} />
              </button>
