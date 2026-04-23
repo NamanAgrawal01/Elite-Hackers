@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://elitehackers.web.app/sitemap.xml
