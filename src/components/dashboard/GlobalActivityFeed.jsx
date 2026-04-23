@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion as Motion as Motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, Terminal, Shield, Zap, Globe } from 'lucide-react';
 
 const ACTIONS = [
@@ -70,7 +70,7 @@ const GlobalActivityFeed = () => {
                 <div className="p-4 space-y-3">
                     <AnimatePresence initial={false}>
                         {logs.map((log) => (
-                            <Motion.div
+                            <motion.div
                                 key={log.id}
                                 initial={{ opacity: 0, x: -20, height: 0 }}
                                 animate={{ opacity: 1, x: 0, height: 'auto' }}
@@ -89,7 +89,7 @@ const GlobalActivityFeed = () => {
                                     </div>
                                     <p className="font-mono text-[10px] text-text-secondary leading-tight truncate uppercase tracking-widest">{log.text}</p>
                                 </div>
-                            </Motion.div>
+                            </motion.div>
                         ))}
                     </AnimatePresence>
                 </div>

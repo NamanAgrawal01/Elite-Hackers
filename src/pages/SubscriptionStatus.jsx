@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 const SubscriptionStatus = () => {
   const { userData } = useAuth();
   const [isScanning, setIsScanning] = useState(true);
+  const [blockNumber] = useState(() => Math.floor(Math.random() * 1000000));
 
   useEffect(() => {
     const timer = setTimeout(() => setIsScanning(false), 2000);
@@ -47,7 +48,7 @@ const SubscriptionStatus = () => {
            <Terminal size={48} className="text-primary animate-bounce" />
            <div className="space-y-2 text-center">
               <div className="font-mono text-sm text-primary font-bold tracking-widest animate-pulse">SCANNING NETWORK NODES...</div>
-              <div className="font-mono text-[10px] text-text-muted uppercase">Querying Block: {Math.floor(Math.random() * 1000000)}</div>
+              <div className="font-mono text-[10px] text-text-muted uppercase">Querying Block: {blockNumber}</div>
            </div>
            <div className="w-64 h-1 bg-border rounded-full overflow-hidden">
               <motion.div 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useXP } from '../context/XPContext';
 import { Shield, ShieldAlert, Zap, Skull, Crosshair, Award } from 'lucide-react';
-import { motion as Motion as Motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Expanded list of hard hacking/sysadmin questions for survival mode
 const ARENA_BANK = [
@@ -12,7 +12,25 @@ const ARENA_BANK = [
   { q: "Which HTTP header defends against Clickjacking?", a: ["X-Frame-Options", "Content-Security-Policy", "X-XSS-Protection", "Strict-Transport-Security"], correct: 0 },
   { q: "What is the primary vulnerability in strcpy() in C?", a: ["Memory Leak", "Buffer Overflow", "Null Pointer Dereference", "Format String Bug"], correct: 1 },
   { q: "What is the default hash algorithm for Linux /etc/shadow?", a: ["MD5", "SHA-256", "SHA-512", "Argon2"], correct: 2 },
-  // Pool pseudo-randomly shuffles these in real app
+  { q: "Which layer of the OSI model handles routing?", a: ["Data Link", "Network", "Transport", "Session"], correct: 1 },
+  { q: "What is the Nmap flag for Service/Version detection?", a: ["-sS", "-sV", "-O", "-A"], correct: 1 },
+  { q: "Which tool is used for wireless password cracking?", a: ["Wireshark", "John the Ripper", "Aircrack-ng", "Metasploit"], correct: 2 },
+  { q: "What is the purpose of a Salt in hashing?", a: ["Speed up hashing", "Encrypt the hash", "Prevent Rainbow Table attacks", "Compress the data"], correct: 2 },
+  { q: "Which SQL clause is most vulnerable to injection?", a: ["SELECT", "WHERE", "JOIN", "ORDER BY"], correct: 1 },
+  { q: "What does the 'S' in HTTPS stand for?", a: ["Secure", "System", "Server", "Standard"], correct: 0 },
+  { q: "Which command lists listening ports on Linux?", a: ["ps aux", "netstat -l", "ifconfig", "ls -l"], correct: 1 },
+  { q: "What is a 'Zero Day' vulnerability?", a: ["A 24-hour bug", "An unpatched flaw", "A patched exploit", "A hardware error"], correct: 1 },
+  { q: "Which encoding is commonly used in URL obfuscation?", a: ["Base64", "ASCII", "Hexadecimal", "UTF-8"], correct: 2 },
+  { q: "What is the maximum length of an IPv4 address in bits?", a: ["32", "64", "128", "256"], correct: 0 },
+  { q: "Which file contains user account info in Linux?", a: ["/etc/hosts", "/etc/passwd", "/etc/shadow", "/etc/group"], correct: 1 },
+  { q: "What does CSRF stand for?", a: ["Cross-Site Resource Fetch", "Cross-Server Request Failure", "Cross-Site Request Forgery", "Cross-System Request Flow"], correct: 2 },
+  { q: "Which tool is a popular web proxy for pentesting?", a: ["Burp Suite", "Postman", "Chrome DevTools", "CURL"], correct: 0 },
+  { q: "What is the result of '1' + 1 in JavaScript?", a: ["2", "11", "NaN", "TypeError"], correct: 1 },
+  { q: "Which protocol is used for resolving domain names?", a: ["DHCP", "DNS", "SNMP", "BGP"], correct: 1 },
+  { q: "What is the purpose of the 'chmod 777' command?", a: ["Read only for owner", "Full access for everyone", "Write only for group", "No access"], correct: 1 },
+  { q: "Which header is used for JWT authentication?", a: ["Authorization", "Authenticate", "Proxy-Auth", "Cookie"], correct: 0 },
+  { q: "What is the default port for PostgreSQL?", a: ["3306", "5432", "27017", "6379"], correct: 1 },
+  { q: "Which command displays your IP address on Windows?", a: ["ifconfig", "ipconfig", "netstat", "route"], correct: 1 },
 ];
 
 const HackArena = () => {
@@ -182,7 +200,7 @@ const HackArena = () => {
       </div>
 
       {/* QUESTION INJECTION */}
-      <Motion.div 
+      <motion.div 
         key={currentIdx}
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -205,7 +223,7 @@ const HackArena = () => {
                </button>
             ))}
          </div>
-      </Motion.div>
+      </motion.div>
     </div>
   );
 };

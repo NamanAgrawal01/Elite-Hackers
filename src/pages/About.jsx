@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Shield, Target, Users, Zap, Award, Globe, Code2, Cpu } from 'lucide-react';
-import { motion as Motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Feature = ({ icon: Icon, title, description }) => (
   <div className="elite-card p-8 group hover:border-primary/30 transition-all shadow-sm">
@@ -22,13 +22,13 @@ const About = () => {
 
       {/* Hero Section */}
       <div className="text-center space-y-8 max-w-3xl mx-auto">
-        <Motion.div 
+        <motion.div 
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 border border-indigo-100 text-primary rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm"
         >
           <Shield size={14} /> The Elite Standard
-        </Motion.div>
+        </motion.div>
         <h1 className="text-5xl md:text-7xl font-bold text-text tracking-tighter uppercase leading-none">Architecting the <br /><span className="text-primary italic">Next Generation</span></h1>
         <p className="text-lg text-slate-500 font-bold uppercase tracking-tight italic">
           Elite Hackers is more than a platform; it's a decentralized hub for high-fidelity engineering, 
@@ -101,7 +101,7 @@ const About = () => {
                     <p className="flex items-center gap-4"><span className="text-primary italic">{">>>"}</span> Payload: Mastery_Array.pkg</p>
                     <p className="flex items-center gap-4"><span className="text-primary italic">{">>>"}</span> Decryption: In Progress [85%]</p>
                     <div className="w-full h-1 bg-slate-100 rounded-full overflow-hidden mt-4">
-                        <Motion.div 
+                        <motion.div 
                             initial={{ width: 0 }}
                             animate={{ width: '85%' }}
                             className="h-full bg-primary"

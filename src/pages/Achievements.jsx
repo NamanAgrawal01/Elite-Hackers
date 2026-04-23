@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion as Motion as Motion } from 'framer-motion';
-import { Star, Award, Zap, Shield, Target, Lock, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Star, Award, Zap, Shield, Target, Lock, CheckCircle2, Code, ShieldAlert, Terminal } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 
 const ALL_ACHIEVEMENTS = [
@@ -10,6 +10,10 @@ const ALL_ACHIEVEMENTS = [
   { id: 'first-compilation', title: 'CODEBREAKER', desc: 'Compiled and executed your first code payload.', icon: Target, color: 'text-purple' },
   { id: 'streak-7', title: 'WEEKLY PERSISTENCE', desc: 'Maintained a 7-day hacking streak.', icon: Award, color: 'text-gold' },
   { id: 'arena-god', title: 'ARENA LEGEND', desc: 'Achieved a 50x multiplier in Hack Arena.', icon: Star, color: 'text-red' },
+  { id: 'arsenal-10', title: 'POLYGLOT PROTOCOL', desc: 'Mastered 10 different programming modules.', icon: Code, color: 'text-primary' },
+  { id: 'admin-matrix', title: 'MATRIX OVERRIDE', desc: 'Gained access to the Admin Matrix clearance.', icon: Shield, color: 'text-gold' },
+  { id: 'bug-hunter', title: 'VULNERABILITY RESEARCHER', desc: 'Identified and fixed 5 security flaws in challenges.', icon: ShieldAlert, color: 'text-red' },
+  { id: 'dark-mode', title: 'VOID DWELLER', desc: 'Successfully navigated the dark mesh for 24 hours.', icon: Terminal, color: 'text-text-muted' },
 ];
 
 const Achievements = () => {

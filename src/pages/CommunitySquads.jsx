@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../hooks/useAuth';
 import { Users, UserPlus, Trophy, Terminal, Search, Shield, Globe, Lock } from 'lucide-react';
-import { motion as Motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const MOCK_SQUADS = [
     { id: 's1', name: 'Fsociety', members: 42, xp: 852000, rank: 1, type: 'PUBLIC' },
@@ -77,7 +77,7 @@ const CommunitySquads = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {MOCK_SQUADS.map((s) => (
-                            <Motion.div 
+                            <motion.div 
                                 key={s.id}
                                 whileHover={{ y: -4 }}
                                 className="bg-bg-card border border-border p-6 rounded-2xl hover:border-primary/30 transition-all group cursor-pointer"
@@ -101,7 +101,7 @@ const CommunitySquads = () => {
                                         [ VIEW INTEL ]
                                     </button>
                                 </div>
-                            </Motion.div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

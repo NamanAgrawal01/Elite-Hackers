@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion as Motion as Motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
@@ -21,7 +21,7 @@ const ForgotPassword = () => {
     try {
       await sendPasswordResetEmail(auth, email);
       setSuccess(true);
-    } catch (_err) {
+    } catch (err) {
       console.error(err);
       if (err.code === 'auth/user-not-found') {
         setError('USER NOT FOUND IN SECURE DATABASE');
@@ -41,7 +41,7 @@ const ForgotPassword = () => {
 
       <MatrixRain />
 
-      <Motion.div 
+      <motion.div 
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
@@ -55,7 +55,7 @@ const ForgotPassword = () => {
 
           <AnimatePresence mode="wait">
             {!success ? (
-              <Motion.div 
+              <motion.div 
                 key="form"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -82,7 +82,7 @@ const ForgotPassword = () => {
 
                   <AnimatePresence>
                     {error && (
-                      <Motion.div 
+                      <motion.div 
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -90,7 +90,7 @@ const ForgotPassword = () => {
                       >
                         <AlertTriangle size={14} className="shrink-0" />
                         <span>{error}</span>
-                      </Motion.div>
+                      </motion.div>
                     )}
                   </AnimatePresence>
 
@@ -107,9 +107,9 @@ const ForgotPassword = () => {
                     ) : '[ TRANSMIT RESET LINK ]'}
                   </button>
                 </form>
-              </Motion.div>
+              </motion.div>
             ) : (
-              <Motion.div
+              <motion.div
                 key="success"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -122,7 +122,7 @@ const ForgotPassword = () => {
                 <p className="text-sm text-primary/80 font-mono">
                   Check your email. Link expires in 1 hour.
                 </p>
-              </Motion.div>
+              </motion.div>
             )}
           </AnimatePresence>
 
@@ -134,7 +134,7 @@ const ForgotPassword = () => {
           </div>
 
         </div>
-      </Motion.div>
+      </motion.div>
     </div>
   );
 };

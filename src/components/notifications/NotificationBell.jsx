@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bell } from 'lucide-react';
-import { motion as Motion as Motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const NotificationBell = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -20,7 +20,7 @@ export const NotificationBell = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <Motion.div 
+          <motion.div 
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -43,7 +43,7 @@ export const NotificationBell = () => {
             <div className="p-3 border-t border-[#1a2236] text-center">
               <button className="text-[10px] uppercase font-mono font-bold text-text-muted hover:text-primary transition-colors">VIEW ALL</button>
             </div>
-          </Motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

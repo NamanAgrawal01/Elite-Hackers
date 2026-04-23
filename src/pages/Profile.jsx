@@ -24,6 +24,7 @@ const Profile = () => {
       toast.success('Bio sequence updated.');
       setIsEditingBio(false);
     } catch (err) {
+      console.error(err);
       toast.error('Failed to update system memory.');
     } finally {
       setSaving(false);
@@ -48,6 +49,7 @@ const Profile = () => {
         await updateDoc(userRef, { photoURL: reader.result });
         toast.success('AVATAR SEQUENCE UPDATED');
       } catch (err) {
+        console.error(err);
         toast.error('FAILED TO SYNC AVATAR');
       } finally {
         setSaving(false);

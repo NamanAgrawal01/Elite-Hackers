@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { Helmet } from 'react-helmet-async';
-import { motion as Motion as Motion } from 'framer-motion';
-import { Zap, Target, Code, Award, ChevronRight, Lock, Shield } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Zap, Target, Code, Award, ChevronRight, Lock, Shield, Terminal, Activity, ShieldAlert } from 'lucide-react';
 import CountUp from '../components/ui/CountUp';
 import StreakCalendar from '../components/ui/StreakCalendar';
 import { format } from 'date-fns';
@@ -88,7 +88,7 @@ const Dashboard = () => {
       {/* STAT CARDS */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((stat, idx) => (
-          <Motion.div 
+          <motion.div 
             key={idx}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -107,7 +107,7 @@ const Dashboard = () => {
             {stat.suffix && (
               <div className="font-mono text-[10px] text-text-secondary mt-1">{stat.suffix}</div>
             )}
-          </Motion.div>
+          </motion.div>
         ))}
       </div>
 

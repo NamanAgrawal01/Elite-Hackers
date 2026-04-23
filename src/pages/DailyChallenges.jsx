@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion as Motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Zap, Clock, Trophy, ChevronRight, Play, ShieldCheck } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import CountUp from '../components/ui/CountUp';

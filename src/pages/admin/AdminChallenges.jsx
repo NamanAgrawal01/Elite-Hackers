@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { db } from '../../firebase/firebase';
-import { collection, query, orderBy, getDocs, addDoc, serverTimestamp, doc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { collection, query, orderBy, getDocs, addDoc, serverTimestamp, doc, deleteDoc } from 'firebase/firestore';
 import { Plus, Trash2, Edit3, Shield, Zap, Terminal, Clock, Save, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -19,7 +19,7 @@ const AdminChallenges = () => {
         active: true
     });
 
-    const fetchChallenges = async () => {
+    const fetchChallenges = useCallback(async () => {
         setLoading(true);
         try {
             const q = query(collection(db, "daily_challenges"), orderBy("createdAt", "desc"));
@@ -27,15 +27,16 @@ const AdminChallenges = () => {
             const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             setChallenges(list);
         } catch (_err) {
+            console.error(_err);
             toast.error("Failed to fetch challenges");
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
     useEffect(() => {
         fetchChallenges();
-    }, []);
+    }, [fetchChallenges]);
 
     const handleCreate = async (e) => {
         e.preventDefault();

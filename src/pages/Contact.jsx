@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Mail, MessageSquare, Send, Globe, Phone, MapPin, Loader2, Zap, Shield } from 'lucide-react';
-import { motion as Motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 
 const Contact = () => {
@@ -24,13 +24,13 @@ const Contact = () => {
 
       {/* Header */}
       <div className="text-center space-y-8 max-w-3xl mx-auto">
-        <Motion.div 
+        <motion.div 
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 border border-indigo-100 text-primary rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm"
         >
           <Zap size={14} /> Establish Connection
-        </Motion.div>
+        </motion.div>
         <h1 className="text-5xl md:text-7xl font-bold text-text tracking-tighter uppercase leading-none">Global <span className="text-primary italic">Uplink</span> Portal</h1>
         <p className="text-lg text-slate-500 font-bold uppercase tracking-tight italic">
           Need a custom learning cluster or specialized system auditing? 

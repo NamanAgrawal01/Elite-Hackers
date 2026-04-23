@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { motion as Motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import ParticleBackground from '../components/ui/ParticleBackground';
 import TypeWriter from '../components/ui/TypeWriter';
 import { ChevronDown, Search, Terminal, Crosshair, Award, Shield, Trophy, Activity, Globe, Send, MessageSquare } from 'lucide-react';
@@ -59,15 +59,15 @@ const Home = () => {
         <ParticleBackground />
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
-          <Motion.div 
+          <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="border border-primary font-mono text-[11px] text-primary px-4 py-1.5 rounded-full mb-8 tracking-widest uppercase bg-primary/5"
           >
             ⚡ 55+ LANGUAGES · REAL COMPILER · CERTIFICATES
-          </Motion.div>
+          </motion.div>
 
-          <Motion.div 
+          <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -78,18 +78,18 @@ const Home = () => {
               MASTER THE <br/>
               <span className="text-primary neon-text-green glitch block mt-4" data-text="ART OF CODE">ART OF CODE</span>
             </h1>
-          </Motion.div>
+          </motion.div>
 
-          <Motion.p 
+          <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
             className="font-mono text-primary font-bold tracking-[8px] uppercase mb-10 text-[10px] md:text-xs"
           >
             LEARN. EXPLORE. SECURE. GROW.
-          </Motion.p>
+          </motion.p>
 
-          <Motion.div 
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
@@ -101,17 +101,17 @@ const Home = () => {
             <a href="#arsenal" className="w-full sm:w-auto px-10 h-14 border border-primary text-primary font-display font-bold text-[15px] tracking-widest rounded-lg hover:bg-primary/10 transition-all flex items-center justify-center uppercase">
               [ EXPLORE 55+ LANGUAGES ]
             </a>
-          </Motion.div>
+          </motion.div>
         </div>
 
-        <Motion.div 
+        <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
           className="absolute bottom-10 animate-bounce cursor-pointer text-text-muted hover:text-primary transition-colors"
         >
           <a href="#stats"><ChevronDown size={32} /></a>
-        </Motion.div>
+        </motion.div>
       </section>
 
       {/* STATS BAR */}
@@ -146,7 +146,7 @@ const Home = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, idx) => (
-            <Motion.div 
+            <motion.div 
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +158,7 @@ const Home = () => {
               <feature.icon className="text-primary mb-6 animate-pulse-glow" size={36} />
               <h3 className="font-display font-bold text-lg mb-3 tracking-wide">{feature.title}</h3>
               <p className="font-mono text-sm text-text-secondary leading-relaxed">{feature.desc}</p>
-            </Motion.div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -198,7 +198,7 @@ const Home = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {LANGUAGES.filter(l => (activeCategory === 'ALL' || l.category === activeCategory) && l.name.toLowerCase().includes(searchQuery.toLowerCase())).map((lang, idx) => (
-            <Motion.div
+            <motion.div
               key={lang.id}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -229,7 +229,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-bg-card/95 backdrop-blur-sm flex items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-300 border border-t-0 rounded-[16px]" style={{ borderColor: lang.diffColor }}>
                 <span className="font-display font-bold text-sm tracking-widest uppercase" style={{ color: lang.diffColor }}>[ START COURSE → ]</span>
               </div>
-            </Motion.div>
+            </motion.div>
           ))}
         </div>
 

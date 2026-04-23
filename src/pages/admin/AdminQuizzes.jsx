@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { db } from '../../firebase/firebase';
 import { collection, query, getDocs, orderBy } from 'firebase/firestore';
 import { Target, Search, Plus, Edit3, Trash2 } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const AdminQuizzes = () => {
     const [quizzes, setQuizzes] = useState([]);

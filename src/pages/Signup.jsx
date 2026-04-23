@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { motion as Motion as Motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { doc, setDoc, collection, query, where, getDocs, Timestamp } from 'firebase/firestore';
@@ -39,7 +39,7 @@ const Signup = () => {
         const q = query(collection(db, "users"), where("username", "==", username));
         const querySnapshot = await getDocs(q);
         setUsernameAvailable(querySnapshot.empty);
-      } catch (_err) {
+      } catch (err) {
         console.error("Username check failed", err);
       } finally {
         setCheckingUsername(false);
@@ -140,7 +140,7 @@ const Signup = () => {
         navigate('/dashboard');
       }, 500);
 
-    } catch (_err) {
+    } catch (err) {
       console.error(err);
       setLoading(false);
       if (err.code === 'auth/email-already-in-use') {
@@ -161,7 +161,7 @@ const Signup = () => {
 
       <MatrixRain />
 
-      <Motion.div 
+      <motion.div 
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
@@ -327,7 +327,7 @@ const Signup = () => {
 
             <AnimatePresence>
               {error && (
-                <Motion.div 
+                <motion.div 
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
@@ -335,7 +335,7 @@ const Signup = () => {
                 >
                   <AlertTriangle size={14} className="shrink-0" />
                   <span>{error}</span>
-                </Motion.div>
+                </motion.div>
               )}
             </AnimatePresence>
 
@@ -358,7 +358,7 @@ const Signup = () => {
           </div>
 
         </div>
-      </Motion.div>
+      </motion.div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion as Motion as Motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronRight, Terminal, Crosshair, Brain, Shield } from 'lucide-react';
 
 const CHALLENGES = [

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useXP } from '../context/XPContext';
 import { Helmet } from 'react-helmet-async';
 import { CheckCircle, XCircle, Clock, ChevronRight } from 'lucide-react';
-import { motion as Motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const MOCK_QUIZ_DATA = [
   { id: 1, question: "Which of the following creates a closure in JavaScript?", options: ["Function within a function", "A global variable", "An async/await block", "A self-invoking function"], correct: 0 },
@@ -109,7 +109,7 @@ const QuizPage = () => {
          <div className="h-full bg-primary transition-all duration-500 ease-out" style={{ width: `${((currentQ) / MOCK_QUIZ_DATA.length) * 100}%` }}></div>
       </div>
 
-      <Motion.div 
+      <motion.div 
         key={q.id}
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -153,7 +153,7 @@ const QuizPage = () => {
               {currentQ === MOCK_QUIZ_DATA.length - 1 ? 'SUBMIT EVALUATION' : 'NEXT PROTOCOL'} <ChevronRight size={16} />
             </button>
          </div>
-      </Motion.div>
+      </motion.div>
     </div>
   );
 };

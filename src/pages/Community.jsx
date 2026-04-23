@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion as Motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { MessageSquare, ThumbsUp, MessageCircle, Share2, Plus, Filter, Search } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 

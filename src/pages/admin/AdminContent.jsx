@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { db } from '../../firebase/firebase';
-import { collection, query, getDocs, doc, addDoc, orderBy } from 'firebase/firestore';
-import { Plus, Edit3, Trash2, ChevronRight, Code } from 'lucide-react';
+import { collection, query, getDocs, addDoc, orderBy } from 'firebase/firestore';
+import { Plus, Edit3, Trash2, ChevronRight, Code, Globe } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 const AdminContent = () => {

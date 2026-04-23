@@ -12,10 +12,10 @@ import {
   Activity,
   Globe
 } from 'lucide-react';
-import { motion as Motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const ArenaCard = ({ title, level, category, status, description, delay }) => (
-  <Motion.div 
+  <motion.div 
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay }}
@@ -51,7 +51,7 @@ const ArenaCard = ({ title, level, category, status, description, delay }) => (
             {status === 'Locked' ? <><Lock size={16} /> Restricted</> : <><Terminal size={16} /> Initialize Sandbox</>}
         </button>
     </div>
-  </Motion.div>
+  </motion.div>
 );
 
 const EliteHall = () => {
