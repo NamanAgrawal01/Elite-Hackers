@@ -12,21 +12,7 @@ import toast from 'react-hot-toast';
 
 const API_URL = "https://emkc.org/api/v2/piston";
 
-const MOCK_COURSE_DATA = {
-  python: {
-    title: "Python: Operational Security & Scripting",
-    lessons: [
-      {
-        id: 'py-01',
-        title: "Hello World Array",
-        theory: "Every hacker starts somewhere. In Python, the print() function allows you to output data to the terminal. Execute a script that exactly logs 'System Intrusions Detected' to the console.",
-        initialCode: "# Write your payload below\\n",
-        expectedOutput: "System Intrusions Detected",
-        xpReward: 50
-      }
-    ]
-  }
-};
+import { getCourse } from '../utils/courseData';
 
 const CoursePage = () => {
   const { languageId } = useParams();
@@ -35,9 +21,16 @@ const CoursePage = () => {
   if (!userData) return <LoadingScreen />;
   const { addXP } = useXP();
   
-  const course = MOCK_COURSE_DATA[languageId] || MOCK_COURSE_DATA['python'];
+  const course = getCourse(languageId);
+  
+  // Flatten all lessons into a single sequence for simple navigation, 
+  // but we'll show levels in the UI
+  const allLessons = course.levels.flatMap(level => 
+    level.lessons.map(lesson => ({ ...lesson, levelName: level.name }))
+  );
+
   const [currentLessonIdx, setCurrentLessonIdx] = useState(0);
-  const lesson = course.lessons[currentLessonIdx];
+  const lesson = allLessons[currentLessonIdx];
 
   const [code, setCode] = useState(lesson.initialCode);
   const [output, setOutput] = useState('');
@@ -54,8 +47,8 @@ const CoursePage = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          language: languageId === 'python' ? 'python' : 'javascript', // Fallback
-          version: languageId === 'python' ? '3.10.0' : '18.15.0',
+          language: languageId === 'javascript' ? 'javascript' : 'python', 
+          version: languageId === 'javascript' ? '18.15.0' : '3.10.0',
           files: [{ content: code }]
         })
       });
@@ -66,11 +59,12 @@ const CoursePage = () => {
         const out = (result.run.stdout || "").trim();
         setOutput(out || result.run.stderr);
         
-        if (out === lesson.expectedOutput) {
+        // Simple comparison for now. We can make this more robust later.
+        if (out === lesson.expectedOutput.trim()) {
           setPassed(true);
-          toast.success('TEST PASSED: Payload injected successfully.', { icon: '✅' });
+          toast.success('TEST PASSED: Protocol Cleared.', { icon: '✅' });
         } else {
-          toast.error('TEST FAILED: Output did not match expected signature.', { icon: '❌' });
+          toast.error('TEST FAILED: Signature Mismatch.', { icon: '❌' });
         }
       } else {
         setOutput(result.message || "Engine failure.");
@@ -84,21 +78,21 @@ const CoursePage = () => {
 
   const handleNextLesson = async () => {
     // Grant XP
-    await addXP(lesson.xpReward, `Completed Lesson: ${lesson.title}`);
+    await addXP(lesson.xpReward, `Completed Node: ${lesson.title}`);
     
-    // Add completion flag to userdoc if last lesson
-    if (currentLessonIdx === course.lessons.length - 1) {
-      if (currentUser && !userData.completedLanguages.includes(languageId)) {
+    // Check if this is the last lesson in the entire course
+    if (currentLessonIdx === allLessons.length - 1) {
+      if (currentUser && !userData.completedLanguages?.includes(languageId)) {
         await updateDoc(doc(db, 'users', currentUser.uid), {
           completedLanguages: arrayUnion(languageId)
         });
-        toast.success(`${course.title} ADDED TO YOUR ARSENAL!`, { icon: '🏆' });
+        toast.success(`${course.title} MASTERED!`, { icon: '🏆' });
       }
       navigate('/dashboard');
     } else {
       const nextIdx = currentLessonIdx + 1;
       setCurrentLessonIdx(nextIdx);
-      setCode(course.lessons[nextIdx].initialCode);
+      setCode(allLessons[nextIdx].initialCode);
       setOutput('');
       setPassed(false);
     }
@@ -107,17 +101,17 @@ const CoursePage = () => {
   return (
     <div className="h-[calc(100vh-140px)] flex flex-col xl:flex-row gap-6 animate-fade-in-up w-full">
       <Helmet>
-        <title>Course Node — Elite Hackers</title>
+        <title>{course.title} — Elite Hackers</title>
       </Helmet>
 
       {/* LEFT PANE: THEORY */}
-      <div className="xl:w-[400px] w-full flex flex-col h-full bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl overflow-hidden relative">
-        <div className="h-14 bg-bg-primary border-b border-[var(--border)] flex items-center justify-between px-6">
-           <div className="text-[12px] font-mono font-bold text-secondary tracking-widest uppercase flex items-center gap-2">
-             <Cpu size={16} /> SECURE MODULE
+      <div className="xl:w-[400px] w-full flex flex-col h-full bg-bg-card border border-border rounded-2xl overflow-hidden relative">
+        <div className="h-14 bg-bg-primary border-b border-border flex items-center justify-between px-6">
+           <div className="text-[12px] font-mono font-bold text-primary tracking-widest uppercase flex items-center gap-2">
+             <Cpu size={16} className="text-primary" /> {lesson.levelName}
            </div>
            <div className="text-primary font-mono text-[10px] bg-primary/10 border border-primary/20 px-2 py-1 rounded">
-             {currentLessonIdx + 1} / {course.lessons.length}
+             {currentLessonIdx + 1} / {allLessons.length}
            </div>
         </div>
 

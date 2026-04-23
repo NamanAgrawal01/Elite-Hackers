@@ -18,12 +18,12 @@ export const CodeEditor = ({ language = "python", code = "", onChange }) => {
         { token: 'number', foreground: 'ffd700' },
       ],
       colors: {
-        'editor.background': 'var(--bg-primary)',
-        'editor.foreground': '#e2e8f0',
-        'editor.lineHighlightBackground': 'var(--bg-card)',
-        'editorLineNumber.foreground': 'var(--border)',
+        'editor.background': '#02040a',
+        'editor.foreground': '#f8fafc',
+        'editor.lineHighlightBackground': '#0a0c16',
+        'editorLineNumber.foreground': '#1a1f35',
         'editorLineNumber.activeForeground': '#00ff88',
-        'editorIndentGuide.background': 'var(--border)',
+        'editorIndentGuide.background': '#1a1f35',
         'editorIndentGuide.activeBackground': '#00ff8840',
       }
     });
