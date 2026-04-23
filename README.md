@@ -1,16 +1,53 @@
-# React + Vite
+# 🏴‍☠️ ELITE HACKERS — Cyber Intelligence Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Terminal**: [elitehackers.web.app](https://elitehackers.web.app)
 
-Currently, two official plugins are available:
+Welcome to **Elite Hackers**, the ultimate educational ecosystem for cybersecurity professionals and engineers. This platform combines real-time gamified learning with a high-fidelity "hacker" aesthetic.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Key Features
 
-## React Compiler
+### 💻 The Arsenal
+- **56+ Programming Modules**: From Systems (C/C++, Rust) to Web (React, Go) and Security (Assembly, SQLi).
+- **In-Browser Compiler**: Execute code in a secure, high-performance sandbox.
+- **Dynamic Progression**: Earn XP and level up as you master each language node.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🛡️ Mission Control (Dashboard)
+- **Security Score**: Real-time telemetry of your platform engagement and skill level.
+- **Active Infiltrations**: Seamlessly resume your learning modules.
+- **Global Mesh Feed**: Real-time activity log of user achievements across the platform.
 
-## Expanding the ESLint configuration
+### 🏆 Hack Arena & Challenges
+- **The Gauntlet**: A 25-question technical survival mode with scaling XP multipliers.
+- **Daily Operations**: New missions deployed daily by the Kernel Admins.
+- **Hall of Fame**: Compete for the top spot on the global leaderboard.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🛠️ Administrative Matrix
+- **Payment Terminal**: Secure activation of Pro and Elite clearances.
+- **Content Injection**: Admins can deploy new language nodes and quizzes in real-time.
+- **User Management**: Monitor and moderate the global hacker mesh.
+
+## 🛠️ Technology Stack
+- **Frontend**: React 19, Vite, Framer Motion (Animations), Lucide React (Icons).
+- **Backend**: Firebase Firestore, Firebase Authentication, Firebase Hosting.
+- **Styling**: Vanilla CSS with a customized Neon-Dark Design System.
+
+## 🚦 Getting Started
+
+1. **Clone the Repo**:
+   ```bash
+   git clone https://github.com/namanagrawal01/Elite-Hackers.git
+   ```
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Setup Environment**:
+   - Create a `.env` file based on `.env.example`.
+   - Add your Firebase configuration keys.
+4. **Deploy**:
+   ```bash
+   npm run dev
+   ```
+
+## 📜 License
+Encrypted under the Elite Hackers Protocol. All rights reserved.
